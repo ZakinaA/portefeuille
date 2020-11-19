@@ -58,7 +58,28 @@ Does this app need to hash/check user passwords? (yes/no) [yes]:
  What style of authentication do you want? [Empty authenticator]:
   [0] Empty authenticator
   [1] Login form authenticator
-  
+> 1
+
+ The class name of the authenticator to create (e.g. AppCustomAuthenticator):
+> LoginFormAuthenticator
+
+ The entry point for your firewall is what should happen when an anonymous user tries to access
+a protected page. For example, a common "entry point" behavior is to redirect to the login page.
+The "entry point" behavior is controlled by the start() method on your authenticator.
+However, you will now have multiple authenticators. You need to choose which authenticator's
+start() method should be used as the entry point (the start() method on all other
+authenticators will be ignored, and can be blank. [App\Security\LoginFormAuthenticator]:
+  [0] App\Security\LoginFormAuthenticator
+  [1] App\Security\LoginFormAuthenticator
+> 1
+
+#Controller qui gère la sécurité
+ Choose a name for the controller class (e.g. SecurityController) [SecurityController]:
+> SecurityController
+
+ Do you want to generate a '/logout' URL? (yes/no) [yes]:
+> yes
+
   
 ```
 ## 4. Création du formulaire d’ajout d’utilisateur:
