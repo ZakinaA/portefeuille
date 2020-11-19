@@ -32,6 +32,12 @@ class Commentaire
      */
     private $enseignant;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RP::class, inversedBy="commentaire")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $rp;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +75,18 @@ class Commentaire
     public function setEnseignant(?Enseignant $enseignant): self
     {
         $this->enseignant = $enseignant;
+
+        return $this;
+    }
+
+    public function getRp(): ?RP
+    {
+        return $this->rp;
+    }
+
+    public function setRp(?RP $rp): self
+    {
+        $this->rp = $rp;
 
         return $this;
     }

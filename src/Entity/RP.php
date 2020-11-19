@@ -64,9 +64,48 @@ class RP
      */
     private $activites;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="rp")
+     */
+    private $commentaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Localisation::class, inversedBy="RPs")
+     */
+    private $localisation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Statut::class, inversedBy="RPs")
+     */
+    private $statut;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Production::class, mappedBy="RP")
+     */
+    private $productions;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Source::class, inversedBy="RPs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $source;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Etudiant::class, inversedBy="RPs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $etudiant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="RPs")
+     */
+    private $enseignant;
+
     public function __construct()
     {
         $this->activites = new ArrayCollection();
+        $this->commentaire = new ArrayCollection();
+        $this->productions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +235,126 @@ class RP
                 $activite->setRp(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaire(): Collection
+    {
+        return $this->commentaire;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaire->contains($commentaire)) {
+            $this->commentaire[] = $commentaire;
+            $commentaire->setRp($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaire->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getRp() === $this) {
+                $commentaire->setRp(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLocalisation(): ?Localisation
+    {
+        return $this->localisation;
+    }
+
+    public function setLocalisation(?Localisation $localisation): self
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    public function getStatut(): ?Statut
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(?Statut $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Production[]
+     */
+    public function getProductions(): Collection
+    {
+        return $this->productions;
+    }
+
+    public function addProduction(Production $production): self
+    {
+        if (!$this->productions->contains($production)) {
+            $this->productions[] = $production;
+            $production->setRP($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduction(Production $production): self
+    {
+        if ($this->productions->removeElement($production)) {
+            // set the owning side to null (unless already changed)
+            if ($production->getRP() === $this) {
+                $production->setRP(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSource(): ?Source
+    {
+        return $this->source;
+    }
+
+    public function setSource(?Source $source): self
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    public function getEtudiant(): ?Etudiant
+    {
+        return $this->etudiant;
+    }
+
+    public function setEtudiant(?Etudiant $etudiant): self
+    {
+        $this->etudiant = $etudiant;
+
+        return $this;
+    }
+
+    public function getEnseignant(): ?Enseignant
+    {
+        return $this->enseignant;
+    }
+
+    public function setEnseignant(?Enseignant $enseignant): self
+    {
+        $this->enseignant = $enseignant;
 
         return $this;
     }

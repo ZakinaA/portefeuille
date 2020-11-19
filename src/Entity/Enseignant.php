@@ -49,9 +49,15 @@ class Enseignant
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=RP::class, mappedBy="enseignant")
+     */
+    private $RPs;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->RPs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +149,36 @@ class Enseignant
             // set the owning side to null (unless already changed)
             if ($commentaire->getEnseignant() === $this) {
                 $commentaire->setEnseignant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RP[]
+     */
+    public function getRPs(): Collection
+    {
+        return $this->RPs;
+    }
+
+    public function addRP(RP $rP): self
+    {
+        if (!$this->RPs->contains($rP)) {
+            $this->RPs[] = $rP;
+            $rP->setEnseignant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRP(RP $rP): self
+    {
+        if ($this->RPs->removeElement($rP)) {
+            // set the owning side to null (unless already changed)
+            if ($rP->getEnseignant() === $this) {
+                $rP->setEnseignant(null);
             }
         }
 

@@ -32,6 +32,12 @@ class Production
      */
     private $adresse;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RP::class, inversedBy="productions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $RP;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +75,18 @@ class Production
     public function setAdresse(?string $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getRP(): ?RP
+    {
+        return $this->RP;
+    }
+
+    public function setRP(?RP $RP): self
+    {
+        $this->RP = $RP;
 
         return $this;
     }
