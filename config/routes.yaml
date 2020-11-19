@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 index:
     path: /
     controller: App\Controller\DefaultController::index
-=======
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
@@ -21,4 +19,4 @@ enseignantAjouter:
 route_accueil:
     path: /accueil
     controller: App\Controller\EtudiantController::index
->>>>>>> 02f2a3c811332d67a244cee148911de087011e1d
+
