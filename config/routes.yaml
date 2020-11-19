@@ -1,3 +1,24 @@
+<<<<<<< HEAD
 index:
     path: /
     controller: App\Controller\DefaultController::index
+=======
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+etudiantAjouter:
+    path: /etudiant/ajouter
+    controller: App\Controller\EtudiantController::ajouterEtudiant
+rpAjouter:
+    path: /rp/ajouter
+    controller: App\Controller\RPController::ajouterRp
+stageAjouter:
+    path: /stage/ajouter
+    controller: App\Controller\StageController::ajouterStage
+enseignantAjouter:
+    path: /enseignant/ajouter
+    controller: App\Controller\EnseignantController::ajouterEnseignant
+route_accueil:
+    path: /accueil
+    controller: App\Controller\EtudiantController::index
+>>>>>>> 02f2a3c811332d67a244cee148911de087011e1d
