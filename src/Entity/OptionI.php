@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\VilleRepository;
+use App\Repository\OptionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=VilleRepository::class)
+ * @ORM\Entity(repositoryClass=OptionRepository::class)
+ * @ORM\Table(name="`option`")
  */
-class Ville
+class OptionI
 {
     /**
      * @ORM\Id
@@ -22,15 +23,15 @@ class Ville
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $nom;
+    private $sigle;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $copos;
+    private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="villePerso")
+     * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="optionI")
      */
     private $etudiants;
 
@@ -44,26 +45,26 @@ class Ville
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getSigle(): ?string
     {
-        return $this->nom;
+        return $this->sigle;
     }
 
-    public function setNom(?string $nom): self
+    public function setSigle(?string $sigle): self
     {
-        $this->nom = $nom;
+        $this->sigle = $sigle;
 
         return $this;
     }
 
-    public function getCopos(): ?string
+    public function getLibelle(): ?string
     {
-        return $this->copos;
+        return $this->libelle;
     }
 
-    public function setCopos(?string $copos): self
+    public function setLibelle(?string $libelle): self
     {
-        $this->copos = $copos;
+        $this->libelle = $libelle;
 
         return $this;
     }
@@ -80,7 +81,7 @@ class Ville
     {
         if (!$this->etudiants->contains($etudiant)) {
             $this->etudiants[] = $etudiant;
-            $etudiant->setVillePerso($this);
+            $etudiant->setOptionI($this);
         }
 
         return $this;
@@ -90,8 +91,8 @@ class Ville
     {
         if ($this->etudiants->removeElement($etudiant)) {
             // set the owning side to null (unless already changed)
-            if ($etudiant->getVillePerso() === $this) {
-                $etudiant->setVillePerso(null);
+            if ($etudiant->getOptionI() === $this) {
+                $etudiant->setOptionI(null);
             }
         }
 

@@ -19,7 +19,7 @@ class EtudiantController extends AbstractController
  
          // initialise une variable qui sera exploitée dans la vue
          $annee = '2020';
-         return $this->render('etudiant/vue_accueil.html.twig', ['pAnnee' => $annee,
+         return $this->render('accueil.html.twig', ['pAnnee' => $annee,
         ]);                      
     }
 }
