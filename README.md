@@ -79,13 +79,11 @@ authenticators will be ignored, and can be blank. [App\Security\LoginFormAuthent
 
  Do you want to generate a '/logout' URL? (yes/no) [yes]:
 > yes
-
-  
+ 
 ```
+
 ## 4. Création du formulaire d’ajout d’utilisateur:
 //doctrine inclus la possibilité de créer un formulaire d’ajout d’utilisateur très complet encore une fois. Aucune modification sont nécessaires, il suffit de chercher la route /register.
 ```bash
 > php bin/console make:registration-form
  ```
-
-
