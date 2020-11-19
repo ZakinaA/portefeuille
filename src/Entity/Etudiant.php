@@ -97,6 +97,31 @@ class Etudiant
      */
     private $statut;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Bac::class, inversedBy="etudiants")
+     */
+    private $bac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Promotion::class, inversedBy="etudiants")
+     */
+    private $promotion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
+     */
+    private $optionI;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
+     */
+    private $villePerso;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Ville::class)
+     */
+    private $villeFamille;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -290,6 +315,66 @@ class Etudiant
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getBac(): ?Bac
+    {
+        return $this->bac;
+    }
+
+    public function setBac(?Bac $bac): self
+    {
+        $this->bac = $bac;
+
+        return $this;
+    }
+
+    public function getPromotion(): ?Promotion
+    {
+        return $this->promotion;
+    }
+
+    public function setPromotion(?Promotion $promotion): self
+    {
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    public function getOptionI(): ?OptionI
+    {
+        return $this->optionI;
+    }
+
+    public function setOptionI(?OptionI $optionI): self
+    {
+        $this->optionI = $optionI;
+
+        return $this;
+    }
+
+    public function getVillePerso(): ?Ville
+    {
+        return $this->villePerso;
+    }
+
+    public function setVillePerso(?Ville $villePerso): self
+    {
+        $this->villePerso = $villePerso;
+
+        return $this;
+    }
+
+    public function getVilleFamille(): ?Ville
+    {
+        return $this->villeFamille;
+    }
+
+    public function setVilleFamille(?Ville $villeFamille): self
+    {
+        $this->villeFamille = $villeFamille;
 
         return $this;
     }
