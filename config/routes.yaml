@@ -12,7 +12,7 @@ index:
 etudiantAjouter:
     path: /etudiant/ajouter
     controller: App\Controller\EtudiantController::ajouterEtudiant
-    
+
 rpAjouter:
     path: /rp/ajouter
     controller: App\Controller\RPController::ajouterRp
@@ -40,7 +40,7 @@ etudiantListerLesRP:
 
 #consulter une RP d'un étudiant
 rpConsulter:
-    path: /rp/consulter/{rp_id}
+    path: /etudiant/rp/consulter/{rp_id}
     controller: App\Controller\RPController::consulterRp
 
 #lister les RP à commenter (prof) 
@@ -50,7 +50,7 @@ enseignantRPaCommenter:
 
 #lister toutes les RP d'une promo
 rpListerPromo:
-    path: /rp/listerParPromo/{annee}
+    path: /enseignant/rp/listerParPromo/{annee}
     controller: App\Controller\RPController::listerParPromo
 
 #lister les stages d'un etudiant
@@ -60,12 +60,12 @@ EtudiantListerStage:
 
 #consulter les infos de stage d'un étudiant
 StageConsulter:
-    path: /stage/consulter/{stage_id}
+    path: /etudiant/stage/consulter/{stage_id}
     controller: App\Controller\StageController::consulterStage
 
 #consulter l'activité quotidienne d'un stage d'un eleve
 StageActQuoti:
-    path: /stage/consulterActJour/{tachesemaine_id}
+    path: /etudiant/stage/consulterActJour/{tachesemaine_id}
     controller: App\Controller\StageController::consulterActJour
 
 #Visualiser les stages en cours qui me sont affecté (prof)
