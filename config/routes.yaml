@@ -1,3 +1,16 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+etudiantAjouter:
+    path: /etudiant/ajouter
+    controller: App\Controller\EtudiantController::ajouterEtudiant
+rpAjouter:
+    path: /rp/ajouter
+    controller: App\Controller\RPController::ajouterRp
+stageAjouter:
+    path: /stage/ajouter
+    controller: App\Controller\StageController::ajouterStage
+enseignantAjouter:
+    path: /enseignant/ajouter
+    controller: App\Controller\EnseignantController::ajouterEnseignant
+
