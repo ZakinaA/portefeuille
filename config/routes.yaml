@@ -2,19 +2,12 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-#route_accueil:
-#    path: /accueil
-#    controller: App\Controller\EtudiantController::index
-
-
 etudiantAjouter:
     path: /etudiant/ajouter
     controller: App\Controller\EtudiantController::ajouterEtudiant
-
 rpAjouter:
     path: /rp/ajouter
     controller: App\Controller\RPController::ajouterRp
-
 stageAjouter:
     path: /stage/ajouter
     controller: App\Controller\StageController::ajouterStage
@@ -26,8 +19,6 @@ enseignantAjouter:
 route_accueil:
     path: /accueil
     controller: App\Controller\EtudiantController::index
-
-
 
 etudiantLister:
     path: /etudiant/lister/{annee}

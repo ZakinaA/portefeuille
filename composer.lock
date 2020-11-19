@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79ca880aa8bda6baea87c87159660206",
+
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1884,10 +1884,13 @@
                 "MIT"
             ],
             "description": "A pack for Apache support in Symfony",
+<<<<<<< HEAD
+=======
             "support": {
                 "issues": "https://github.com/symfony/apache-pack/issues",
                 "source": "https://github.com/symfony/apache-pack/tree/master"
             },
+>>>>>>> fbc9916a4e26518568503808bb0f9e8cc46b892d
             "time": "2017-12-12T01:46:35+00:00"
         },
         {
@@ -3411,6 +3414,8 @@
             "time": "2020-10-28T05:55:23+00:00"
         },
         {
+<<<<<<< HEAD
+=======
             "name": "symfony/orm-pack",
             "version": "v2.0.0",
             "source": {
@@ -3453,6 +3458,7 @@
             "time": "2020-07-14T14:34:28+00:00"
         },
         {
+>>>>>>> fbc9916a4e26518568503808bb0f9e8cc46b892d
             "name": "symfony/polyfill-intl-grapheme",
             "version": "v1.20.0",
             "source": {
