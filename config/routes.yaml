@@ -1,6 +1,7 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+###AUTH
 etudiantAjouter:
     path: /etudiant/ajouter
     controller: App\Controller\EtudiantController::ajouterEtudiant
@@ -20,3 +21,4 @@ route_accueil:
 route_accueil_admin:
     path: /admin/accueil
     controller: App\Controller\EtudiantController::index
+
