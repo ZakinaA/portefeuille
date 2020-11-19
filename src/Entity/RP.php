@@ -101,6 +101,11 @@ class RP
      */
     private $enseignant;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Cadre::class, inversedBy="RPs")
+     */
+    private $cadre;
+
     public function __construct()
     {
         $this->activites = new ArrayCollection();
@@ -355,6 +360,18 @@ class RP
     public function setEnseignant(?Enseignant $enseignant): self
     {
         $this->enseignant = $enseignant;
+
+        return $this;
+    }
+
+    public function getCadre(): ?Cadre
+    {
+        return $this->cadre;
+    }
+
+    public function setCadre(?Cadre $cadre): self
+    {
+        $this->cadre = $cadre;
 
         return $this;
     }

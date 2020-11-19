@@ -20,7 +20,7 @@ class Bac
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $code;
 
@@ -49,7 +49,7 @@ class Bac
         return $this->code;
     }
 
-    public function setCode(?int $code): self
+    public function setCode(?string $code): self
     {
         $this->code = $code;
 
