@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EtudiantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -121,6 +123,16 @@ class Etudiant
      * @ORM\ManyToOne(targetEntity=Ville::class)
      */
     private $villeFamille;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
+     */
+    private $RPs;
+
+    public function __construct()
+    {
+        $this->RPs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -375,6 +387,36 @@ class Etudiant
     public function setVilleFamille(?Ville $villeFamille): self
     {
         $this->villeFamille = $villeFamille;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RP[]
+     */
+    public function getRPs(): Collection
+    {
+        return $this->RPs;
+    }
+
+    public function addRP(RP $rP): self
+    {
+        if (!$this->RPs->contains($rP)) {
+            $this->RPs[] = $rP;
+            $rP->setEtudiant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRP(RP $rP): self
+    {
+        if ($this->RPs->removeElement($rP)) {
+            // set the owning side to null (unless already changed)
+            if ($rP->getEtudiant() === $this) {
+                $rP->setEtudiant(null);
+            }
+        }
 
         return $this;
     }

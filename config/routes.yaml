@@ -25,6 +25,11 @@ enseignantAjouter:
     path: /enseignant/ajouter
     controller: App\Controller\EnseignantController::ajouterEnseignant
 
+route_accueil:
+    path: /accueil
+    controller: App\Controller\EtudiantController::index
+
+
 
 etudiantLister:
     path: /etudiant/lister/{annee}
@@ -72,4 +77,3 @@ StageActQuoti:
 ListerStagesAffect:
     path: /enseignant/ListerStagesAffect/{enseignant_id}
     controller: App\Controller\EnseignantController::ListerStagesAffect
-
