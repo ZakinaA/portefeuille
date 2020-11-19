@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EnseignantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,22 @@ class Enseignant
      * @ORM\Column(type="string", length=60, nullable=true)
      */
     private $statut;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="enseignant")
+     */
+    private $commentaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RP::class, mappedBy="enseignant")
+     */
+    private $RPs;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+        $this->RPs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +121,66 @@ class Enseignant
     public function setStatut(?string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setEnseignant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getEnseignant() === $this) {
+                $commentaire->setEnseignant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RP[]
+     */
+    public function getRPs(): Collection
+    {
+        return $this->RPs;
+    }
+
+    public function addRP(RP $rP): self
+    {
+        if (!$this->RPs->contains($rP)) {
+            $this->RPs[] = $rP;
+            $rP->setEnseignant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRP(RP $rP): self
+    {
+        if ($this->RPs->removeElement($rP)) {
+            // set the owning side to null (unless already changed)
+            if ($rP->getEnseignant() === $this) {
+                $rP->setEnseignant(null);
+            }
+        }
 
         return $this;
     }

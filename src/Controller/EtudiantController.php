@@ -22,4 +22,6 @@ class EtudiantController extends AbstractController
          return $this->render('accueil.html.twig', ['pAnnee' => $annee,
         ]);                      
     }
+
+    
 }
