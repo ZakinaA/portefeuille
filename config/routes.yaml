@@ -14,6 +14,7 @@ stageAjouter:
 enseignantAjouter:
     path: /enseignant/ajouter
     controller: App\Controller\EnseignantController::ajouterEnseignant
+
 route_accueil:
     path: /accueil
     controller: App\Controller\EtudiantController::index
