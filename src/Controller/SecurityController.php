@@ -33,4 +33,24 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+    /**
+     * @Route ("/redirect", name="redirection_connexion")
+     */
+    //fonction de redirection d'un utilisateur vers la page d'accueil concernée
+    public function redirectionUtilisateur(){
+
+        if($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')){
+            return $this->redirectToRoute('route_accueil_admin');
+        }
+
+        if($this->get('security.authorization_checker')->isGranted('ROLE_ENSEIGNANT')){
+            return $this->redirectToRoute('route_accueil_enseignant');
+        }
+
+        if($this->get('security.authorization_checker')->isGranted('ROLE_ETUDIANT')){
+            return $this->redirectToRoute('route_accueil_etudiant');
+        }
+
+    }
 }

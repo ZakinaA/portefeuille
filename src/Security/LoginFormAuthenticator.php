@@ -71,7 +71,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+            throw new CustomUserMessageAuthenticationException('L\'adresse e-mail n\'a pas été trouvée.');
         }
 
         return $user;
@@ -99,7 +99,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         //redirection vers l'accueil
         //return $this->redirectToRoute('route_accueil');
-        return new RedirectResponse($this->urlGenerator->generate('route_accueil_admin'));
+
+        return new RedirectResponse($this->urlGenerator->generate('redirection_connexion'));
     }
 
     protected function getLoginUrl()

@@ -43,8 +43,16 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+
+    #Autorisation des accès à l'application
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/etudiant, roles: ROLE_ETUDIANT }
          - { path: ^/enseignant, roles: ROLE_ENSEIGNANT }
          - { path: ^/visiteur, roles: ROLE_VISITEUR }
+         - { path: ^/redirect, roles: IS_AUTHENTICATED_FULLY}
+
+    #Hierarchie des rôles
+    role_hierarchy:
+        ROLE_ENSEIGNANT: ROLE_ETUDIANT
+        ROLE_ADMIN: ROLE_ENSEIGNANT
