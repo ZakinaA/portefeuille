@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
 use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +12,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/connexion", name="app_login")
      * @param AuthenticationUtils $authenticationUtils
      * @return Response
      */
@@ -53,6 +54,16 @@ class SecurityController extends AbstractController
 
         if($this->get('security.authorization_checker')->isGranted('ROLE_ETUDIANT')){
             return $this->redirectToRoute('route_accueil_etudiant');
+        }
+
+        if($this->get('security.authorization_checker')->isGranted('ROLE_DEFAULT_PASSWORD')){
+            return $this->redirectToRoute('app_login');
+        }
+
+        if($this->get('security.authorization_checker')->isGranted('ROLE_NOT_ACTIVATED')){
+            $this->addFlash('danger', 'Votre compte n\'a pas encore été activé!');
+            return $this->redirectToRoute('app_login');
+
         }
 
     }

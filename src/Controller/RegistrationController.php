@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use function Sodium\crypto_pwhash_scryptsalsa208sha256_str;
 
 class RegistrationController extends AbstractController
 {
@@ -32,11 +33,12 @@ class RegistrationController extends AbstractController
                 )
             );
 
+
             //création d'un id d'activation unique pour chaque création de compte
-            $user->setActivation(md5(uniqid()));
+            $user->setActivation(hash("sha256", uniqid()));
 
             //rôle par défaut lors de la création d'un compte
-            $user->setRoles(["ROLE_ETUDIANT"]);
+            $user->setRoles(["ROLE_NOT_ACTIVATED"]);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -75,11 +77,13 @@ class RegistrationController extends AbstractController
         }
 
         $user->setActivation(null);
+        $user->setRoles(["ROLE_DEFAULT_PASSWORD"]);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
 
-        $this->addFlash('message', 'Votre compte à bien été activé!');
+        $this->addFlash('success', 'Votre compte à bien été activé!');
 
         return $this->redirectToRoute('app_login');
     }
