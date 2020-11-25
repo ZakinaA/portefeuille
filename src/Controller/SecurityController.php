@@ -45,7 +45,7 @@ class SecurityController extends AbstractController
     public function redirectionUtilisateur(){
 
         if($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')){
-            return $this->redirectToRoute('route_accueil_admin');
+            return $this->redirectToRoute('app_importation_etudiant');
         }
 
         if($this->get('security.authorization_checker')->isGranted('ROLE_ENSEIGNANT')){
