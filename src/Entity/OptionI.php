@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=OptionRepository::class)
- * @ORM\Table(name="`option`")
+ * @ORM\Table(name="`option_I`")
  */
 class OptionI
 {
@@ -35,9 +35,15 @@ class OptionI
      */
     private $etudiants;
 
+    /**
+     * @ORM\OneToMany(targetEntity=DomaineTaches::class, mappedBy="options")
+     */
+    private $domaineTaches;
+
     public function __construct()
     {
         $this->etudiants = new ArrayCollection();
+        $this->domaineTaches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,36 @@ class OptionI
             // set the owning side to null (unless already changed)
             if ($etudiant->getOptionI() === $this) {
                 $etudiant->setOptionI(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DomaineTaches[]
+     */
+    public function getDomaineTaches(): Collection
+    {
+        return $this->domaineTaches;
+    }
+
+    public function addDomaineTach(DomaineTaches $domaineTach): self
+    {
+        if (!$this->domaineTaches->contains($domaineTach)) {
+            $this->domaineTaches[] = $domaineTach;
+            $domaineTach->setOptions($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDomaineTach(DomaineTaches $domaineTach): self
+    {
+        if ($this->domaineTaches->removeElement($domaineTach)) {
+            // set the owning side to null (unless already changed)
+            if ($domaineTach->getOptions() === $this) {
+                $domaineTach->setOptions(null);
             }
         }
 

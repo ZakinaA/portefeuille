@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TacheSemaineRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,14 +23,14 @@ class TacheSemaine
     private $duree;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=DomaineTaches::class, inversedBy="tacheSemaines")
      */
-    private $domainetaches;
+    private $domaine;
 
     /**
      * @ORM\ManyToOne(targetEntity=Jour::class, inversedBy="tacheSemaines")
@@ -40,14 +38,9 @@ class TacheSemaine
     private $jour;
 
     /**
-     * @ORM\OneToMany(targetEntity=SemaineStage::class, mappedBy="tacheSemaine")
+     * @ORM\ManyToOne(targetEntity=SemaineStage::class, inversedBy="tacheSemaines")
      */
-    private $semaineStages;
-
-    public function __construct()
-    {
-        $this->semaineStages = new ArrayCollection();
-    }
+    private $semaineStage;
 
     public function getId(): ?int
     {
@@ -78,14 +71,14 @@ class TacheSemaine
         return $this;
     }
 
-    public function getDomainetaches(): ?DomaineTaches
+    public function getDomaine(): ?DomaineTaches
     {
-        return $this->domainetaches;
+        return $this->domaine;
     }
 
-    public function setDomainetaches(?DomaineTaches $domainetaches): self
+    public function setDomaine(?DomaineTaches $domaine): self
     {
-        $this->domainetaches = $domainetaches;
+        $this->domaine = $domaine;
 
         return $this;
     }
@@ -102,32 +95,14 @@ class TacheSemaine
         return $this;
     }
 
-    /**
-     * @return Collection|SemaineStage[]
-     */
-    public function getSemaineStages(): Collection
+    public function getSemaineStage(): ?SemaineStage
     {
-        return $this->semaineStages;
+        return $this->semaineStage;
     }
 
-    public function addSemaineStage(SemaineStage $semaineStage): self
+    public function setSemaineStage(?SemaineStage $semaineStage): self
     {
-        if (!$this->semaineStages->contains($semaineStage)) {
-            $this->semaineStages[] = $semaineStage;
-            $semaineStage->setTacheSemaine($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSemaineStage(SemaineStage $semaineStage): self
-    {
-        if ($this->semaineStages->removeElement($semaineStage)) {
-            // set the owning side to null (unless already changed)
-            if ($semaineStage->getTacheSemaine() === $this) {
-                $semaineStage->setTacheSemaine(null);
-            }
-        }
+        $this->semaineStage = $semaineStage;
 
         return $this;
     }

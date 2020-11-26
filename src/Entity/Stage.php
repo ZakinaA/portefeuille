@@ -134,6 +134,22 @@ class Stage
      */
     private $horSam;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Etudiant::class, inversedBy="stages")
+     */
+    private $etudiants;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="stages")
+     */
+    private $villes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="stages")
+     */
+    private $enseignants;
+
     /**
      * @ORM\OneToMany(targetEntity=SemaineStage::class, mappedBy="stage")
      */
@@ -421,6 +437,43 @@ class Stage
     public function setHorSam(?int $horSam): self
     {
         $this->horSam = $horSam;
+
+        return $this;
+    }
+
+
+    public function getEtudiants(): ?Etudiant
+    {
+        return $this->etudiants;
+    }
+
+    public function setEtudiants(?Etudiant $etudiants): self
+    {
+        $this->etudiants = $etudiants;
+
+        return $this;
+    }
+
+    public function getVilles(): ?Ville
+    {
+        return $this->villes;
+    }
+
+    public function setVilles(?Ville $villes): self
+    {
+        $this->villes = $villes;
+
+        return $this;
+    }
+
+    public function getEnseignants(): ?Enseignant
+    {
+        return $this->enseignants;
+    }
+
+    public function setEnseignants(?Enseignant $enseignants): self
+    {
+        $this->enseignants = $enseignants;
 
         return $this;
     }

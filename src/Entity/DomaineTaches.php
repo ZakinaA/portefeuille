@@ -24,8 +24,14 @@ class DomaineTaches
      */
     private $libelle;
 
+
     /**
-     * @ORM\OneToMany(targetEntity=TacheSemaine::class, mappedBy="domainetaches")
+     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="domaineTaches")
+     */
+    private $options;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TacheSemaine::class, mappedBy="domaine")
      */
     private $tacheSemaines;
 
@@ -51,6 +57,19 @@ class DomaineTaches
         return $this;
     }
 
+
+    public function getOptions(): ?OptionI
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?OptionI $options): self
+    {
+        $this->options = $options;
+
+        return $this;
+    }
+
     /**
      * @return Collection|TacheSemaine[]
      */
@@ -63,7 +82,7 @@ class DomaineTaches
     {
         if (!$this->tacheSemaines->contains($tacheSemaine)) {
             $this->tacheSemaines[] = $tacheSemaine;
-            $tacheSemaine->setDomainetaches($this);
+            $tacheSemaine->setDomaine($this);
         }
 
         return $this;
@@ -73,8 +92,8 @@ class DomaineTaches
     {
         if ($this->tacheSemaines->removeElement($tacheSemaine)) {
             // set the owning side to null (unless already changed)
-            if ($tacheSemaine->getDomainetaches() === $this) {
-                $tacheSemaine->setDomainetaches(null);
+            if ($tacheSemaine->getDomaine() === $this) {
+                $tacheSemaine->setDomaine(null);
             }
         }
 

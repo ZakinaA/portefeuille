@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SemaineStageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,24 +25,29 @@ class SemaineStage
     private $numSemaine;
 
     /**
-     * @ORM\Column(type="string", length=150, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $apprentissage;
 
     /**
-     * @ORM\Column(type="string", length=150, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $bilan;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TacheSemaine::class, mappedBy="semaineStage")
+     */
+    private $tacheSemaines;
 
     /**
      * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="semaineStages")
      */
     private $stage;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=tacheSemaine::class, inversedBy="semaineStages")
-     */
-    private $tacheSemaine;
+    public function __construct()
+    {
+        $this->tacheSemaines = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -83,6 +90,36 @@ class SemaineStage
         return $this;
     }
 
+    /**
+     * @return Collection|TacheSemaine[]
+     */
+    public function getTacheSemaines(): Collection
+    {
+        return $this->tacheSemaines;
+    }
+
+    public function addTacheSemaine(TacheSemaine $tacheSemaine): self
+    {
+        if (!$this->tacheSemaines->contains($tacheSemaine)) {
+            $this->tacheSemaines[] = $tacheSemaine;
+            $tacheSemaine->setSemaineStage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTacheSemaine(TacheSemaine $tacheSemaine): self
+    {
+        if ($this->tacheSemaines->removeElement($tacheSemaine)) {
+            // set the owning side to null (unless already changed)
+            if ($tacheSemaine->getSemaineStage() === $this) {
+                $tacheSemaine->setSemaineStage(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getStage(): ?Stage
     {
         return $this->stage;
@@ -91,18 +128,6 @@ class SemaineStage
     public function setStage(?Stage $stage): self
     {
         $this->stage = $stage;
-
-        return $this;
-    }
-
-    public function getTacheSemaine(): ?tacheSemaine
-    {
-        return $this->tacheSemaine;
-    }
-
-    public function setTacheSemaine(?tacheSemaine $tacheSemaine): self
-    {
-        $this->tacheSemaine = $tacheSemaine;
 
         return $this;
     }
