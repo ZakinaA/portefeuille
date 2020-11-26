@@ -22,6 +22,11 @@ class Upload
      */
     private $nom;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $upload_date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class Upload
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getUploadDate(): ?\DateTimeInterface
+    {
+        return $this->upload_date;
+    }
+
+    public function setUploadDate(\DateTimeInterface $upload_date): self
+    {
+        $this->upload_date = $upload_date;
 
         return $this;
     }

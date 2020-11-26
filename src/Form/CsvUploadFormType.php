@@ -30,7 +30,8 @@ class CsvUploadFormType extends AbstractType
                     new File([
                         'maxSize' => '1024k',
 //                        'mimeTypes' => [
-//                            'application/csv',
+//                            'text/csv-schema',
+//                            'text/csv',
 //                        ],
 //                        'mimeTypesMessage' => 'Merci d\'ajouter un fichier au format (.csv).',
                     ])

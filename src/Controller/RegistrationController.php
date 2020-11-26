@@ -20,38 +20,38 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $swift_Mailer): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
+      //  $user = new User();
+    //   $form = $this->createForm(RegistrationFormType::class, $user);
+      //  $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+     //   if ($form->isSubmitted() && $form->isValid()) {
 
             // encode the plain password
-            $user->setPassword(
+            //$user->setPassword(
                 $passwordEncoder->encodePassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
+                //    $user,
+                //    $form->get('plainPassword')->getData()
+             //   )
             );
 
 
             //création d'un id d'activation unique pour chaque création de compte
-            $user->setActivation(hash("sha256", uniqid()));
+         //   $user->setActivation(hash("sha256", uniqid()));
 
             //rôle par défaut lors de la création d'un compte
-            $user->setRoles(["ROLE_NOT_ACTIVATED"]);
+           // $user->setRoles(["ROLE_NOT_ACTIVATED"]);
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+           // $entityManager->persist($user);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
             $message = (new \Swift_Message('Activation de votre compte!'))
             ->setFrom('noe.dubosq.allende@gmail.com')
-            ->setTo($user->getEmail())
+         //   ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
-                    'mail/activation.html.twig', ['id' => $user->getActivation()]
+            //        'mail/activation.html.twig', ['id' => $user->getActivation()]
                 ),
                 'text/html'
             );
@@ -59,7 +59,7 @@ class RegistrationController extends AbstractController
             $swift_Mailer->send($message);
 
             return $this->redirectToRoute('app_login');
-        }
+     //   }
 
         return $this->render('inscription/register.html.twig', [
             'registrationForm' => $form->createView(),

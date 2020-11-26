@@ -32,6 +32,8 @@ class ImporterEtudiantController extends AbstractController
                 $form->get('fichier')->getData()
             );
 
+            $upload->setUploadDate(new \DateTime());
+
             $file = new \SplFileObject($form->get('fichier')->getData());
 
             $csv = Reader::createFromFileObject($file);
