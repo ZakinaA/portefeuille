@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class ActiviteController extends AbstractController
+{
+	/*
+     * @Route("/activite", name="activite")
+     */
+
+	public function listerLesSemaines($idStage): Response
+    {
+    	$stage = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->find($id);
+
+        if (!$Stage) {
+            throw $this->createNotFoundException(
+            'Aucun stage trouvé avec le numéro '.$id
+            );
+        }
+
+        return $this->render('activite/consulterSemaine.html.twig', [
+            'controller_name' => 'ActiviteController',
+        ]);
+    }
+
+
+    public function ConsulterSemaine($idStage,$idSemaineStage): Response
+    {
+    	$stage = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->find($id);
+
+        $semaineStage = $this->getDoctrine()
+        ->getRepository(SemaineStage::class)
+        ->find($id);
+
+        if (!$Stage) {
+            throw $this->createNotFoundException(
+            'Aucun stage trouvé avec le numéro '.$id
+            );
+        }
+
+        if (!$SemaineStage) {
+            throw $this->createNotFoundException(
+            'Aucune semaine de stage trouvé avec le numéro '.$id
+            );
+        }
+
+        return $this->render('activite/consulterSemaine.html.twig', [
+            'controller_name' => 'ActiviteController',
+        ]);
+    }
+
+
+
+
+
+
+}
