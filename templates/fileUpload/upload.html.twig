@@ -1,0 +1,17 @@
+{# templates/fileUpload/upload.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Importer étudiant{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+    <h1>Importer des étudiants:</h1>
+    {{ form_start(csvUploadForm) }}
+
+        {{ form_row(csvUploadForm.fichier) }}
+
+        <button class="btn btn-outline-success" type="submit">Importer</button>
+    {{ form_end(csvUploadForm) }}
+    </div>
+
+{% endblock %}
