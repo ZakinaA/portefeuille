@@ -3629,6 +3629,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "symfony/orm-pack",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -3673,6 +3674,8 @@
         ]
     },
     {
+=======
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
         "name": "symfony/polyfill-intl-grapheme",
         "version": "v1.20.0",
         "version_normalized": "1.20.0.0",

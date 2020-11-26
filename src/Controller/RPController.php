@@ -9,12 +9,30 @@ use Symfony\Component\Routing\Annotation\Route;
 class RPController extends AbstractController
 {
     /**
-     * @Route("/r/p", name="r_p")
+     * @Route("/rp", name="rp")
      */
-    public function index(): Response
+    public function consulterRpEtudiant(): Response
     {
-        return $this->render('rp/index.html.twig', [
+        return $this->render('rp/consulter.html.twig', [
             'controller_name' => 'RPController',
         ]);
     }
+
+
+    public function listerLesRPEtudiant()
+    {
+        return $this->render('rp/lister.html.twig', [
+            'controller_name' => 'EtudiantController',
+        ]);                   
+    }
+
+    public function ListerLesRPaCommenter(): Response
+    {
+        return $this->render('rp/lister.html.twig', [
+            'controller_name' => 'EnseignantController',
+        ]);
+    }
 }
+
+
+

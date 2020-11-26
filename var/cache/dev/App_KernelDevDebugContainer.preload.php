@@ -10,6 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
+<<<<<<< HEAD
 require __DIR__.'/ContainerIKHxOsC/App_KernelDevDebugContainer.php';
 require __DIR__.'/ContainerIKHxOsC/getTwig_Runtime_HttpkernelService.php';
 require __DIR__.'/ContainerIKHxOsC/getTwigService.php';
@@ -76,6 +77,73 @@ require __DIR__.'/ContainerIKHxOsC/get_ServiceLocator_IEz6L2DService.php';
 require __DIR__.'/ContainerIKHxOsC/get_ServiceLocator_G9CqTPpService.php';
 require __DIR__.'/ContainerIKHxOsC/get_ServiceLocator_Beq5mCoService.php';
 require __DIR__.'/ContainerIKHxOsC/get_ServiceLocator_C9JCBPCService.php';
+=======
+require __DIR__.'/Container9SjQsro/App_KernelDevDebugContainer.php';
+require __DIR__.'/Container9SjQsro/getTwig_Runtime_HttpkernelService.php';
+require __DIR__.'/Container9SjQsro/getTwigService.php';
+require __DIR__.'/Container9SjQsro/getSession_Storage_NativeService.php';
+require __DIR__.'/Container9SjQsro/getSessionService.php';
+require __DIR__.'/Container9SjQsro/getServicesResetterService.php';
+require __DIR__.'/Container9SjQsro/getSecrets_VaultService.php';
+require __DIR__.'/Container9SjQsro/getRouting_LoaderService.php';
+require __DIR__.'/Container9SjQsro/getFragment_Renderer_InlineService.php';
+require __DIR__.'/Container9SjQsro/getFilesystemService.php';
+require __DIR__.'/Container9SjQsro/getErrorControllerService.php';
+require __DIR__.'/Container9SjQsro/getDoctrine_Orm_DefaultListeners_AttachEntityListenersService.php';
+require __DIR__.'/Container9SjQsro/getDoctrine_Orm_DefaultEntityManagerService.php';
+require __DIR__.'/Container9SjQsro/getDoctrine_Dbal_DefaultConnectionService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_VariadicService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_SessionService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_ServiceService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_RequestAttributeService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_RequestService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_NotTaggedControllerService.php';
+require __DIR__.'/Container9SjQsro/getDebug_ArgumentResolver_DefaultService.php';
+require __DIR__.'/Container9SjQsro/getContainer_EnvVarProcessorsLocatorService.php';
+require __DIR__.'/Container9SjQsro/getContainer_EnvVarProcessorService.php';
+require __DIR__.'/Container9SjQsro/getCacheClearerService.php';
+require __DIR__.'/Container9SjQsro/getCache_SystemClearerService.php';
+require __DIR__.'/Container9SjQsro/getCache_SystemService.php';
+require __DIR__.'/Container9SjQsro/getCache_GlobalClearerService.php';
+require __DIR__.'/Container9SjQsro/getCache_AppClearerService.php';
+require __DIR__.'/Container9SjQsro/getCache_AppService.php';
+require __DIR__.'/Container9SjQsro/getCache_AnnotationsService.php';
+require __DIR__.'/Container9SjQsro/getAnnotations_CacheService.php';
+require __DIR__.'/Container9SjQsro/getTemplateControllerService.php';
+require __DIR__.'/Container9SjQsro/getRedirectControllerService.php';
+require __DIR__.'/Container9SjQsro/getVilleRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getTacheSemaineRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getStatutRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getStageRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getSourceRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getSemaineStageRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getRPRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getRPActiviteRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getPromotionRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getProductionRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getOptionRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getNiveauRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getMatiereRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getLocalisationRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getJourRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getEtudiantRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getEnseignantRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getDomaineTachesRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getCompetenceRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getCommentaireRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getCadreRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getBlocRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getBacRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getActiviteRepositoryService.php';
+require __DIR__.'/Container9SjQsro/getStageControllerService.php';
+require __DIR__.'/Container9SjQsro/getRPControllerService.php';
+require __DIR__.'/Container9SjQsro/getEtudiantControllerService.php';
+require __DIR__.'/Container9SjQsro/getEnseignantControllerService.php';
+require __DIR__.'/Container9SjQsro/get_ServiceLocator_IEz6L2DService.php';
+require __DIR__.'/Container9SjQsro/get_ServiceLocator_G9CqTPpService.php';
+require __DIR__.'/Container9SjQsro/get_ServiceLocator_Beq5mCoService.php';
+require __DIR__.'/Container9SjQsro/get_ServiceLocator_C9JCBPCService.php';
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -95,7 +163,10 @@ $classes[] = 'App\Repository\BlocRepository';
 $classes[] = 'App\Repository\CadreRepository';
 $classes[] = 'App\Repository\CommentaireRepository';
 $classes[] = 'App\Repository\CompetenceRepository';
+<<<<<<< HEAD
 $classes[] = 'App\Repository\DomaineStageRepository';
+=======
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
 $classes[] = 'App\Repository\DomaineTachesRepository';
 $classes[] = 'App\Repository\EnseignantRepository';
 $classes[] = 'App\Repository\EtudiantRepository';

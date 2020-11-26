@@ -29,18 +29,18 @@ etudiantLister:
 
 #lister mes RP (etudiant)
 etudiantListerLesRP:
-    path: /etudiant/listerMesRP/{etu_id}
-    controller: App\Controller\EtudiantController::listerLesRP
+    path: /etudiant/rp/listerMesRP/{etu_id}
+    controller: App\Controller\RPController::listerLesRPEtudiant
 
 #consulter une RP d'un étudiant
 rpConsulter:
     path: /etudiant/rp/consulter/{rp_id}
-    controller: App\Controller\RPController::consulterRp
+    controller: App\Controller\RPController::consulterRpEtudiant
 
 #lister les RP à commenter (prof) 
-enseignantRPaCommenter:
-    path: /enseignant/listerRPaCommenter/{enseignant_id}/{statut_id}
-    controller: App\Controller\EnseignantController::listerRPaCommenter
+enseignantLesRPaCommenter:
+    path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
+    controller: App\Controller\RPController::listerLesRPaCommenter
 
 #lister toutes les RP d'une promo
 rpListerPromo:
@@ -49,8 +49,8 @@ rpListerPromo:
 
 #lister les stages d'un etudiant
 EtudiantListerStage:
-    path: /etudiant/listerLesStages/{etu_id}
-    controller: App\Controller\EtudiantController::listerLesStages
+    path: /etudiant/stage/listerLesStages/{etu_id}
+    controller: App\Controller\StageController::listerLesStages
 
 #consulter les infos de stage d'un étudiant
 StageConsulter:
@@ -64,6 +64,7 @@ StageActQuoti:
 
 #Visualiser les stages en cours qui me sont affecté (prof)
 ListerStagesAffect:
-    path: /enseignant/ListerStagesAffect/{enseignant_id}
-    controller: App\Controller\EnseignantController::ListerStagesAffect
+    path: /enseignant/stage/ListerStagesAffect/{enseignant_id}
+    controller: App\Controller\StageController::ListerStagesAffect
+
 

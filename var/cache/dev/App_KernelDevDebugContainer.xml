@@ -229,10 +229,13 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+<<<<<<< HEAD
     <service id="App\Repository\DomaineStageRepository" class="App\Repository\DomaineStageRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+=======
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
     <service id="App\Repository\DomaineTachesRepository" class="App\Repository\DomaineTachesRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -1987,7 +1990,11 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.pGnK8MC"/>
+=======
+      <argument type="service" id=".service_locator.ghadhVw"/>
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -2448,8 +2455,11 @@
     <service id=".abstract.instanceof.App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CompetenceRepository" class="App\Repository\CompetenceRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CompetenceRepository" class="App\Repository\CompetenceRepository" autowire="true" autoconfigure="true" abstract="true"/>
+<<<<<<< HEAD
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DomaineStageRepository" class="App\Repository\DomaineStageRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DomaineStageRepository" class="App\Repository\DomaineStageRepository" autowire="true" autoconfigure="true" abstract="true"/>
+=======
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DomaineTachesRepository" class="App\Repository\DomaineTachesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DomaineTachesRepository" class="App\Repository\DomaineTachesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EnseignantRepository" class="App\Repository\EnseignantRepository" autowire="true" abstract="true"/>
@@ -2800,7 +2810,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.pGnK8MC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id=".service_locator.ghadhVw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActiviteRepository" type="service" id="App\Repository\ActiviteRepository"/>
@@ -2809,7 +2823,10 @@
         <argument key="App\Repository\CadreRepository" type="service" id="App\Repository\CadreRepository"/>
         <argument key="App\Repository\CommentaireRepository" type="service" id="App\Repository\CommentaireRepository"/>
         <argument key="App\Repository\CompetenceRepository" type="service" id="App\Repository\CompetenceRepository"/>
+<<<<<<< HEAD
         <argument key="App\Repository\DomaineStageRepository" type="service" id="App\Repository\DomaineStageRepository"/>
+=======
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
         <argument key="App\Repository\DomaineTachesRepository" type="service" id="App\Repository\DomaineTachesRepository"/>
         <argument key="App\Repository\EnseignantRepository" type="service" id="App\Repository\EnseignantRepository"/>
         <argument key="App\Repository\EtudiantRepository" type="service" id="App\Repository\EtudiantRepository"/>

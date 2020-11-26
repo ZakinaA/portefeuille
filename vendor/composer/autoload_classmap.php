@@ -10,6 +10,7 @@ return array(
     'App\\Controller\\EtudiantController' => $baseDir . '/src/Controller/EtudiantController.php',
     'App\\Controller\\RPController' => $baseDir . '/src/Controller/RPController.php',
     'App\\Controller\\StageController' => $baseDir . '/src/Controller/StageController.php',
+<<<<<<< HEAD
     'App\\Entity\\Bac' => $baseDir . '/src/Entity/Bac.php',
     'App\\Entity\\Enseignant' => $baseDir . '/src/Entity/Enseignant.php',
     'App\\Entity\\Etudiant' => $baseDir . '/src/Entity/Etudiant.php',
@@ -23,6 +24,9 @@ return array(
     'App\\Repository\\OptionRepository' => $baseDir . '/src/Repository/OptionRepository.php',
     'App\\Repository\\PromotionRepository' => $baseDir . '/src/Repository/PromotionRepository.php',
     'App\\Repository\\VilleRepository' => $baseDir . '/src/Repository/VilleRepository.php',
+=======
+    'App\\Kernel' => $baseDir . '/src/Kernel.php',
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Doctrine\\Bundle\\DoctrineBundle\\Command\\CreateDatabaseDoctrineCommand' => $vendorDir . '/doctrine/doctrine-bundle/Command/CreateDatabaseDoctrineCommand.php',
     'Doctrine\\Bundle\\DoctrineBundle\\Command\\DoctrineCommand' => $vendorDir . '/doctrine/doctrine-bundle/Command/DoctrineCommand.php',

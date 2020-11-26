@@ -1,3 +1,7 @@
 <?php //%255B%255BC%255DApp%255CKernel%2523configureContainer%255D%255B1%255D
 
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1605782822];
+=======
+return [PHP_INT_MAX, 1605779247];
+>>>>>>> 5dcc1f8f085ee197c996394503fcfa7c32b399df
