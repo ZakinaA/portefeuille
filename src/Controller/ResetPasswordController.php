@@ -88,7 +88,7 @@ class ResetPasswordController extends AbstractController
 
         $token = $this->getTokenFromSession();
         if (null === $token) {
-            throw $this->createNotFoundException('Aucune demande de réinitialisation de mote de passe n\'a été trouvée.');
+            throw $this->createNotFoundException('Aucune demande de réinitialisation de mot de passe n\'a été trouvée.');
         }
 
         try {

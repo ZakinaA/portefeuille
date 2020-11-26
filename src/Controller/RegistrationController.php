@@ -16,7 +16,7 @@ use function Sodium\crypto_pwhash_scryptsalsa208sha256_str;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/admin/importer", name="app_importation_etudiant")
+     * @Route("/admin/ajouter_etudiant", name="app_ajouter_etudiant")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $swift_Mailer): Response
     {

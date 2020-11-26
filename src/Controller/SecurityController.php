@@ -57,7 +57,7 @@ class SecurityController extends AbstractController
         }
 
         if($this->get('security.authorization_checker')->isGranted('ROLE_DEFAULT_PASSWORD')){
-            return $this->redirectToRoute('app_login');
+            return $this->redirect("/portefeuille/public/reset-password");
         }
 
         if($this->get('security.authorization_checker')->isGranted('ROLE_NOT_ACTIVATED')){

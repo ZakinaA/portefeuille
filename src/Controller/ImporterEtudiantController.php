@@ -37,7 +37,7 @@ class ImporterEtudiantController extends AbstractController
             $file = new \SplFileObject($form->get('fichier')->getData());
 
             $csv = Reader::createFromFileObject($file);
-            $csv->setDelimiter(',');
+            $csv->setDelimiter(';');
 
             $records = $csv->getRecords();
 
