@@ -41,6 +41,7 @@
     <div class="mb-3"></div>
 
     <button id="connexion" class="btn btn-outline-success btn-block" type="submit">Se connecter</button>
+        <a href="/portefeuille/public/reset-password">Mot de passe oublié?</a>
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
