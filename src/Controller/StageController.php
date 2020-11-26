@@ -11,10 +11,21 @@ class StageController extends AbstractController
     /**
      * @Route("/stage", name="stage")
      */
-    public function index(): Response
+    public function consulterStage(): Response
     {
-        return $this->render('stage/index.html.twig', [
+        return $this->render('stage/consulter.html.twig', [
             'controller_name' => 'StageController',
         ]);
     }
+
+    public function ListerStagesAffect(): Response
+    {
+        return $this->render('stage/lister.html.twig', [
+            'controller_name' => 'EnseignantController',
+        ]);
+    }
+
+    
 }
+
+
