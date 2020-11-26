@@ -54,6 +54,11 @@ class Enseignant
      */
     private $RPs;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="enseignants")
+     */
+    private $matiere;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -181,6 +186,18 @@ class Enseignant
                 $rP->setEnseignant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMatiere(): ?Matiere
+    {
+        return $this->matiere;
+    }
+
+    public function setMatiere(?Matiere $matiere): self
+    {
+        $this->matiere = $matiere;
 
         return $this;
     }

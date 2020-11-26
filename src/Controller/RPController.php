@@ -18,6 +18,7 @@ class RPController extends AbstractController
         ]);
     }
 
+
     public function listerLesRPEtudiant()
     {
         return $this->render('rp/lister.html.twig', [
@@ -32,3 +33,6 @@ class RPController extends AbstractController
         ]);
     }
 }
+
+
+
