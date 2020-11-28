@@ -82,8 +82,12 @@ authenticators will be ignored, and can be blank. [App\Security\LoginFormAuthent
  
 ```
 
-## 4. Création du formulaire d’ajout d’utilisateur:
-//doctrine inclus la possibilité de créer un formulaire d’ajout d’utilisateur très complet encore une fois. Aucune modification sont nécessaires, il suffit de chercher la route /register.
+# Importation des étudiants à partir d'un fichier csv
+## 1. Pré requis :
 ```bash
-> php bin/console make:registration-form
- ```
+composer require league/csv
+composer require symfony/mailer
+composer require symfony/swiftmailer-bundle
+```
+Il faudra aussi configurer un serveur smtp, ici j'utilise mon compte google pour faire des tests, 
+mais rien n'empêche d'utiliser un véritable smtp avec une nom de domaine privé.
