@@ -66,7 +66,7 @@ Does this app need to hash/check user passwords? (yes/no) [yes]:
  The entry point for your firewall is what should happen when an anonymous user tries to access
 a protected page. For example, a common "entry point" behavior is to redirect to the login page.
 The "entry point" behavior is controlled by the start() method on your authenticator.
-However, you will now have multiple authenticators. You need to choose which authenticator's
+However, you will now have multiple authenticators. You need to choose which authenticator\'s
 start() method should be used as the entry point (the start() method on all other
 authenticators will be ignored, and can be blank. [App\Security\LoginFormAuthenticator]:
   [0] App\Security\LoginFormAuthenticator
