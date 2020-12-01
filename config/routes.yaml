@@ -1,0 +1,70 @@
+
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+etudiantAjouter:
+    path: /etudiant/ajouter
+    controller: App\Controller\EtudiantController::ajouterEtudiant
+rpAjouter:
+    path: /rp/ajouter
+    controller: App\Controller\RPController::ajouterRp
+stageAjouter:
+    path: /stage/ajouter
+    controller: App\Controller\StageController::ajouterStage
+
+enseignantAjouter:
+    path: /enseignant/ajouter
+    controller: App\Controller\EnseignantController::ajouterEnseignant
+
+route_accueil:
+    path: /accueil
+    controller: App\Controller\EtudiantController::index
+
+etudiantLister:
+    path: /etudiant/lister/{annee}
+    controller: App\Controller\EtudiantController::listerEtudiant
+
+
+
+
+#lister mes RP (etudiant)
+etudiantListerLesRP:
+    path: /etudiant/rp/listerMesRP/{etu_id}
+    controller: App\Controller\RPController::listerLesRPEtudiant
+
+#consulter une RP d'un étudiant
+rpConsulter:
+    path: /etudiant/rp/consulter/{rp_id}
+    controller: App\Controller\RPController::consulterRpEtudiant
+
+#lister les RP à commenter (prof) 
+enseignantLesRPaCommenter:
+    path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
+    controller: App\Controller\RPController::listerLesRPaCommenter
+
+#lister toutes les RP d'une promo
+rpListerPromo:
+    path: /enseignant/rp/listerParPromo/{annee}
+    controller: App\Controller\RPController::listerParPromo
+
+#lister les stages d'un etudiant
+EtudiantListerStage:
+    path: /etudiant/stage/listerLesStages/{etu_id}
+    controller: App\Controller\StageController::listerLesStages
+
+#consulter les infos de stage d'un étudiant
+StageConsulter:
+    path: /etudiant/stage/consulter/{stage_id}
+    controller: App\Controller\StageController::consulterStage
+
+#consulter l'activité quotidienne d'un stage d'un eleve
+StageActQuoti:
+    path: /etudiant/stage/consulterActJour/{tachesemaine_id}
+    controller: App\Controller\StageController::consulterActJour
+
+#Visualiser les stages en cours qui me sont affecté (prof)
+ListerStagesAffect:
+    path: /enseignant/stage/ListerStagesAffect/{enseignant_id}
+    controller: App\Controller\StageController::ListerStagesAffect
+
+
