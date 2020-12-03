@@ -1,0 +1,282 @@
+{% extends "entete.html.twig" %}
+ {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Suivi des competences SIO</title>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+  <link href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1 class="display-4"><u>Activité quotidienne</u></h1>
+       <br> 
+ <table class="table table-dark" id="table" data-toggle="BootstrapTable" data-height="460">
+          <thead>
+            <tr>
+          <th scope="col"></th>
+          <th scope="col">Lundi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /></th>
+          <th scope="col">Mardi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /></th>
+          <th scope="col">Mercredi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /></th> 
+          <th scope="col">Jeudi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /><br></th>
+          <th scope="col">Vendredi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /></th>
+          <th scope="col">Samedi&nbsp;&nbsp;<input type="button" value="Ajouter" onclick="addRow(document.getElementById('tableau'), document.getElementById('rowText').value);" /></th>
+          
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+            <td>DUREE : <br> <br> 
+                DOMAINE : <br><br> 
+                DESCRIPTION :</td>
+            <td>
+            <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br> 
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+
+              </SELECT>
+            <br> 
+             <textarea type="textarea" size=12/></textarea>
+            </td>
+
+            <td>
+              <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+              </SELECT>
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br> 
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+              </SELECT>
+            <br> 
+             <textarea type="textarea" size=12/></textarea>
+            </td>
+
+            <td>
+              <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+             
+              </SELECT>
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br> 
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+              </SELECT>
+            <BR>
+            <textarea type="textarea" size=12/></textarea>
+ 
+      
+         
+           
+            
+
+            <td>
+              <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+              </SELECT>
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br> 
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+              </SELECT>
+            <BR>
+            <textarea type="textarea" size=12/></textarea>
+            </td>
+
+            
+            <td>
+              <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+              </SELECT>
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br>
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+              </SELECT>
+            <BR>
+             <textarea type="textarea" size=12/></textarea>
+            </td>
+
+            
+            <td>
+              <FORM>
+              <input type="number" name="howmuch" size=2 min="0">
+              </SELECT>
+              h
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>0
+              <OPTION>15
+              <OPTION>30
+              <OPTION>45
+              </SELECT>
+              min
+            <br>
+              <FORM>
+              <SELECT name="nom" size="1">
+              <OPTION>Administration
+              <OPTION>Analyse du besoin
+              <OPTION>Automatisation de tâche
+              <OPTION>Base de données
+              <OPTION>Configuration
+              <OPTION>Deploiement
+              <OPTION>Développement
+              <OPTION>Documentation
+              <OPTION>Exploitation
+              <OPTION>Formation d'utilisateurs
+              <OPTION>Gestion de parc
+              <OPTION>Gestion de projet
+              </SELECT>
+            <BR>
+             <textarea type="textarea" size=12/></textarea>
+            </td>
+
+
+            
+          </tr>
+          </tbody>
+        </table>
+
+       
+        <hr class="featurette-divider p-3">
+
+
+        
+
+  <h1 class="display-4"><u>Bilan de la semaine</u></h1>
+  <br>
+       Apprentissage :<textarea type="textarea" size=12/></textarea>
+ <br>
+ <br>
+
+
+      Bilan et difficultés :<textarea type="textarea" size=12/></textarea>
+
+    
+
+            <!-- BOUCLE RECUPERATION LIBELLE, STATUT, CALCUL NB ACTIVITE 1ERE ANNEE SELON ID -->
+
+
+        <!-- SI AUCUNES OCCURENCES, AFFICHER MESSAGE POUR PREVENIR QU'AUCUNES OCCURENCES N'A ETE RENSEIGNE -->
+
+       
+
+<div class="container">
+            <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a>
+
+  <div class="alert alert-light" role="alert">
+  * Champ Obligatoire <a href="#" class="alert-link"></a>
+</div>
+</div>
+   
+</body>
+</html>
+{% endblock %}

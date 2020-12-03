@@ -12,6 +12,5 @@ class EnseignantController extends AbstractController
      * @Route("/enseignant", name="enseignant")
      */
     
-
-    
+ 
 }

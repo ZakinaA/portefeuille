@@ -95,11 +95,6 @@ class Stage
     private $dateFin;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $dureeStage;
-
-    /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $sujet;
@@ -329,17 +324,7 @@ class Stage
         return $this;
     }
 
-    public function getDureeStage(): ?int
-    {
-        return $this->dureeStage;
-    }
-
-    public function setDureeStage(?int $dureeStage): self
-    {
-        $this->dureeStage = $dureeStage;
-
-        return $this;
-    }
+    
 
     public function getSujet(): ?string
     {
