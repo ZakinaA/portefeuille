@@ -29,8 +29,8 @@ etudiantLister:
 
 #lister mes RP (etudiant)
 etudiantListerLesRP:
-    path: /etudiant/rp/listerMesRP/{etu_id}
-    controller: App\Controller\RPController::listerLesRPEtudiant
+    path: /etudiant/listerMesRP/{idEtudiant}
+    controller: App\Controller\RPController::listerLesRP
 
 #consulter une RP d'un étudiant
 rpConsulter:
