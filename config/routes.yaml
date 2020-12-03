@@ -50,7 +50,7 @@ rpListerPromo:
 #lister les stages d'un etudiant
 EtudiantListerStage:
     path: /etudiant/stage/listerLesStages/{etu_id}
-    controller: App\Controller\StageController::listerLesStages
+    controller: App\Controller\StageController::ListerStagesEtudiant
 
 #consulter les infos de stage d'un étudiant
 StageConsulter:
