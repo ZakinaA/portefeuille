@@ -37,7 +37,7 @@ rpConsulter:
     path: /etudiant/rp/consulter/{rp_id}
     controller: App\Controller\RPController::consulterRpEtudiant
 
-#lister les RP à commenter (prof) 
+#lister les RP à commenter (prof)
 enseignantLesRPaCommenter:
     path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
     controller: App\Controller\EnseignantController::listerLesRPaCommenter
@@ -66,7 +66,8 @@ StageActQuoti:
 ListerStagesAffect:
     path: /enseignant/stage/ListerStagesAffect/{enseignant_id}
     controller: App\Controller\StageController::ListerStagesAffect
-
+    
+#Consulter les informations d'un étudiant
 etudiantConsulter:
     path: /etudiant/consulter/{etudiant_id}
     controller: App\Controller\EtudiantController::consulterEtudiant

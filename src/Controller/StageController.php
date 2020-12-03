@@ -17,41 +17,43 @@ class StageController extends AbstractController
     /**
      * @Route("/stage", name="stage")
      */
-    public function consulterStage(): Response
-    {
-        return $this->render('stage/consulter.html.twig', [
-            'controller_name' => 'StageController',
-        ]);
-    }
+     public function consulterStage($stage_id)
+     {
+
+         $stage = $this->getDoctrine()
+         ->getRepository(Stage::class)
+         ->find($stage_id);
+
+
+         return $this->render('stage/consulter.html.twig', ['pStage' => $stage]);
+     }
 
     public function ListerStagesAffect($enseignant_id){
 
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
         ->findByEnseignant($enseignant_id);
- 
+
         return $this->render('stage/lister.html.twig', [
-            'pStages' => $stages,]);  
- 
+            'pStages' => $stages,]);
+
     }
 
     public function ListerStagesEtudiant($etu_id){
-        
+
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
         ->findOneById($etu_id);
- 
+
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
         ->findByEtudiant($etudiant);
 
-        
- 
+
+
         return $this->render('stage/lister.html.twig', [
-            'pStages' => $stages,]);  
+            'pStages' => $stages,]);
     }
 
-    
+
 }
-
-
