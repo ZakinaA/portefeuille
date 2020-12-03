@@ -40,7 +40,7 @@ rpConsulter:
 #lister les RP à commenter (prof) 
 enseignantLesRPaCommenter:
     path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
-    controller: App\Controller\RPController::listerLesRPaCommenter
+    controller: App\Controller\EnseignantController::listerLesRPaCommenter
 
 #lister toutes les RP d'une promo
 rpListerPromo:
