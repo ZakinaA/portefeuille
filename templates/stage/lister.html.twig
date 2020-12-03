@@ -23,7 +23,9 @@
             <td>{{stage.etudiant.nom}} {{stage.etudiant.prenom}}</td>
             <td>{{stage.lieu}}</td>
             <td>{{stage.coordonneestut}}</td>
-            <td><a href="#">Carnet de bord</a></td>
+            <td><a href="#">Détail</a></td>
+            <td><a href="../../../etudiant/activite/consulterSemaine/{{stage.id}}">Activités</a></td>
+
   {% else %}
     <tr>
     <td>Aucun stage n'a été trouvé.</td>
@@ -34,7 +36,7 @@
         <br>
         <br>
 
-      
+
 
 
 
@@ -43,8 +45,3 @@
 </html>
 
 {% endblock %}
-
-      
-
-
-
