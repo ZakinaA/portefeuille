@@ -67,4 +67,6 @@ ListerStagesAffect:
     path: /enseignant/stage/ListerStagesAffect/{enseignant_id}
     controller: App\Controller\StageController::ListerStagesAffect
 
-
+etudiantConsulter:
+    path: /etudiant/consulter/{etudiant_id}
+    controller: App\Controller\EtudiantController::consulterEtudiant

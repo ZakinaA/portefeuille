@@ -25,6 +25,18 @@ class EtudiantController extends AbstractController
          $annee = '2020';
 
          return $this->render('etudiant/vue_accueil.html.twig', ['pAnnee' => $annee]);   
-         }                       
+         } 
+
+    public function consulterEtudiant($etudiant_id)
+    {   
+
+        $etudiant = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->find($etudiant_id);
+        
+
+
+         return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant]);
+         }                      
 }
 

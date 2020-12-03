@@ -24,14 +24,16 @@ class StageController extends AbstractController
         ]);
     }
 
-    public function ListerStagesAffect(): Response
-    {
-        return $this->render('stage/lister.html.twig', [
-            'controller_name' => 'StageController',
-        ]);
-    }
+    public function ListerStagesAffect($enseignant_id){
 
-    
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEnseignant($enseignant_id);
+ 
+        return $this->render('stage/lister.html.twig', [
+            'pStages' => $stages,]);  
+ 
+    }
 
     public function ListerStagesEtudiant($etu_id){
         
