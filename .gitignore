@@ -7,7 +7,13 @@
 /public/bundles/
 /var/
 /vendor/
+<<<<<<< HEAD
 /composer.json/
 /composer.lock/
 /symfony.lock/
+=======
+/composer.lock/
+/symfony.lock/
+/composer.json/
+>>>>>>> 51282758080a1a77133b7b522c07d92fce53b446
 ###< symfony/framework-bundle ###
