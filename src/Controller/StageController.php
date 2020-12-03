@@ -5,6 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Etudiant;
+use App\Entity\Stage;
+use App\Controller\StageController;
+use App\Entity\TacheSemaine;
+use App\Entity\RPActivite;
+use App\Entity\Enseignant;
 
 class StageController extends AbstractController
 {
@@ -18,11 +24,31 @@ class StageController extends AbstractController
         ]);
     }
 
-    public function ListerStagesAffect(): Response
-    {
+    public function ListerStagesAffect($enseignant_id){
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEnseignant($enseignant_id);
+ 
         return $this->render('stage/lister.html.twig', [
-            'controller_name' => 'EnseignantController',
-        ]);
+            'pStages' => $stages,]);  
+ 
+    }
+
+    public function ListerStagesEtudiant($etu_id){
+        
+        $etudiant = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->findOneById($etu_id);
+ 
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiant);
+
+        
+ 
+        return $this->render('stage/lister.html.twig', [
+            'pStages' => $stages,]);  
     }
 
     
