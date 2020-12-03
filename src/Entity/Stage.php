@@ -136,11 +136,6 @@ class Stage
     private $etudiant;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="stages")
-     */
-    private $ville;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="stages")
      */
     private $enseignant;
@@ -433,18 +428,6 @@ class Stage
     public function setEtudiant(?Etudiant $etudiant): self
     {
         $this->etudiant = $etudiant;
-
-        return $this;
-    }
-
-    public function getVille(): ?Ville
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?Ville $ville): self
-    {
-        $this->ville = $ville;
 
         return $this;
     }
