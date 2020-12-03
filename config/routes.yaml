@@ -66,8 +66,13 @@ StageActQuoti:
 ListerStagesAffect:
     path: /enseignant/stage/ListerStagesAffect/{enseignant_id}
     controller: App\Controller\StageController::ListerStagesAffect
-    
+
 #Consulter les informations d'un étudiant
 etudiantConsulter:
     path: /etudiant/consulter/{etudiant_id}
     controller: App\Controller\EtudiantController::consulterEtudiant
+
+#Lister les stages des étudiants d'une promotion sélectionnée
+stagePromo:
+  path: /enseignant/stage/listerStagePromo/{promotion_id}
+  controller: App\Controller\StageController::ListerStagesPromo

@@ -11,6 +11,7 @@ use App\Controller\StageController;
 use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
+use App\Entity\Promotion;
 
 class StageController extends AbstractController
 {
@@ -52,6 +53,26 @@ class StageController extends AbstractController
 
 
         return $this->render('stage/lister.html.twig', [
+            'pStages' => $stages,]);
+    }
+
+    public function ListerStagesPromo($promotion_id){
+
+        $promotion = $this->getDoctrine()
+        ->getRepository(Promotion::class)
+        ->findOneById($promotion_id);
+
+        $etudiants = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->findByPromotion($promotion);
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiants);
+
+
+
+        return $this->render('stage/listerPromo.html.twig', [
             'pStages' => $stages,]);
     }
 
