@@ -32,7 +32,7 @@
 					
 					
 				    <tr>
-				      <td><a href="{{ path('rpConsulter', { 'id': RP.id }) }}">{{ RP.libcourt }}</a></td>
+				      <td><a class="text-white" href="{{ path('rpConsulter', { 'rp_id': RP.id }) }}">{{ RP.libcourt }}</a></td>
 				      <td>{{ RP.activites.count }}</td> 
 					  <td>{{ RP.statut.libelle }}</td>		    
 				      <td>{{ RP.dateDebut|date("d/m/Y") }}</td>
