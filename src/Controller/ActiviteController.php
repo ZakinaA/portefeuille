@@ -44,12 +44,12 @@ class ActiviteController extends AbstractController
         ->getRepository(Stage::class)
         ->find($stage_id);
 
-        /*
+        
         $semaineStage = $this->getDoctrine()
         ->getRepository(SemaineStage::class)
         ->find($semaineStage_id);
 
-        */
+        
 
         if (!$stage) {
             throw $this->createNotFoundException(
@@ -57,22 +57,22 @@ class ActiviteController extends AbstractController
             );
         }
 
-        /*
-        if (!$SemaineStage) {
+        
+        if (!$semaineStage) {
             throw $this->createNotFoundException(
             'Aucune semaine de stage trouvé avec le numéro '.$semaineStage_id
             );
         }
 
-        */
+        
 
         
 
-        return new Response('gjhgjh');
+       
 
-       /* return $this->render('activite/consulterSemaine.html.twig', [
+        return $this->render('activite/consulterSemaine.html.twig', [
             'controller_name' => 'ActiviteController',
-        ]);*/
+        ]);
     }
 /* public function consulterSemaine(): Response
     {
