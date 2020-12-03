@@ -29,7 +29,7 @@ etudiantLister:
 
 #lister mes RP (etudiant)
 etudiantListerLesRP:
-    path: /etudiant/listerMesRP/{idEtudiant}
+    path: /etudiant/rp/listerMesRP/{idEtudiant}
     controller: App\Controller\RPController::listerLesRP
 
 #consulter une RP d'un étudiant
@@ -69,7 +69,7 @@ ListerStagesAffect:
     
 #Consulter les informations d'un étudiant
 etudiantConsulter:
-    path: /etudiant/consulter/{etudiant_id}
+    path: /etudiant/etudiant/consulter/{etudiant_id}
     controller: App\Controller\EtudiantController::consulterEtudiant
 
 ConsulterSemaine:
