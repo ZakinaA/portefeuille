@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RP;
 use App\Entity\Etudiant;
 use App\Entity\RPActivite; 
+use App\Form\RPType;
 
 class RPController extends AbstractController
 {
@@ -34,6 +35,16 @@ class RPController extends AbstractController
             'controller_name' => 'EnseignantController',
         ]);
     }
+
+
+    public function ajouterRp(){
+ 
+        $rp = new RP();
+        $form = $this->createForm(RPType::class, $rp);
+                return $this->render('rp/ajouter.html.twig', array(
+                'form' => $form->createView(), ));
+    }
+
 
     public function listerLesRP($idEtudiant){
             

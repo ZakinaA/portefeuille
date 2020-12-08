@@ -237,4 +237,17 @@ class Enseignant
 
         return $this;
     }
+
+
+
+
+    public function countRpPromo(){
+        $resultat = array();
+        foreach($this->RPs as $rp){
+            if($rp->annee()){
+                $resultat[]=$resultat + 1;
+            }
+        }
+        return $resultat;
+    }
 }
