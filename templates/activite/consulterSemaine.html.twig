@@ -42,13 +42,23 @@
         </tr>
       </thead>
       <tbody>
-         {% for key in paramStage %}
-            Key : {{ key.id }}
-        {% endfor %}
+
+         {% for tache in pSemaineStage.tacheSemaines%}
+         <tr>
+                <td>{{ tache.duree }}</td>
+               <td>{{ tache.description }}</td>
+
+          </tr>     
+          {% endfor %}
+
+
+
       </tbody>
     </table>
    </div>
   </div>
+
+
 
      <div class="row align-items-center">
     <div class="col-md-2 text-center">

@@ -73,7 +73,7 @@ etudiantConsulter:
     controller: App\Controller\EtudiantController::consulterEtudiant
 
 ConsulterSemaine:
-    path: /etudiant/activite/consulterSemaine/{stage_id}
+    path: /etudiant/activite/consulterSemaine/{semaineStage_id}
     controller: App\Controller\ActiviteController::ConsulterSemaine
 
 ListerSemaine:
