@@ -303,5 +303,6 @@ class Etudiant
         }
 
         return $this;
+
     }   
 }
