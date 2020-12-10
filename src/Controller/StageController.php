@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Etudiant;
 use App\Entity\Stage;
-use App\Controller\StageController;
 use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
@@ -108,17 +107,18 @@ class StageController extends AbstractController
             'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
     }
 
-    public function newEnseignant($idStage,$idEnseignant){
-
-        $stage = $this->getDoctrine()
-        ->getRepository(Stage::class)
-        ->find($idStage);
-
-        echo "";
-
-        return $this->render('stage/listerPromo.html.twig', [
-            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
-    }
+        //TODO: A modifier
+//    public function newEnseignant($idStage,$idEnseignant){
+//
+//        $stage = $this->getDoctrine()
+//        ->getRepository(Stage::class)
+//        ->find($idStage);
+//
+//        echo "";
+//
+//        return $this->render('stage/listerPromo.html.twig', [
+//            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
+//    }
 
 
 }
