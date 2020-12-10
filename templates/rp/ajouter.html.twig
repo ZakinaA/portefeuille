@@ -12,16 +12,17 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="display-4"><u>Nouvelle réalisation professionnelle</u></h1>
+    <center><h1 class="display-4"><u>Nouvelle réalisation professionnelle</u></h1></center>
        <br> 
 			{{ form_start(form) }}
-			{{ form_row(form.libcourt, 
-				{
-					class: 'form-control',
-					libelle: 'Libcourt'
-				}) 
-			}}
+
 			{{ form_end(form) }}
+
+
+<br>
+<div class="col-12">
+	<button type="submit" class="btn btn-primary">Ajouter</button>
+</div>
 
 </div>
 </body>
