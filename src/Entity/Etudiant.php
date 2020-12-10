@@ -35,7 +35,7 @@ class Etudiant
     private $mail;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $mobile;
 
@@ -136,12 +136,12 @@ class Etudiant
         return $this;
     }
 
-    public function getMobile(): ?int
+    public function getMobile(): ?string
     {
         return $this->mobile;
     }
 
-    public function setMobile(int $mobile): self
+    public function setMobile(?string $mobile): self
     {
         $this->mobile = $mobile;
 

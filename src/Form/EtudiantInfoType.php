@@ -21,7 +21,7 @@ class EtudiantInfoType extends AbstractType
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
             ->add('mail', TextType::class)
-            ->add('mobile', IntegerType::class)
+            ->add('mobile', TextType::class)
             ->add('datenaiss', DateType::class, array('input' => 'datetime',
                                                           'widget' => 'single_text',
                                                           'required' => true,
