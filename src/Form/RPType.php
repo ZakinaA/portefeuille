@@ -26,12 +26,12 @@ class RPType extends AbstractType
                                                           'widget' => 'single_text',  
                                                           'required' => true,
                                                           'label' =>'Date de début',
-                                                          'placeholder' => 'jj/mm/aaaa'))
+                                                          'placeholder' => 'JJ/MM/AAAA'))
             ->add('dateFin', DateType::class, array('input' => 'datetime',
                                                           'widget' => 'single_text', 
                                                           'required' => true,
                                                           'label' =>'Date de fin',
-                                                          'placeholder' => 'jj/mm/aaaa'))
+                                                          'placeholder' => 'JJ/MM/AAAA'))
             ->add('environnement', TextType::class)
             ->add('moyen', TextType::class)
             ->add('localisation', EntityType::class, array('class' => 'App\Entity\Localisation','choice_label' => 'Libelle' ))  
