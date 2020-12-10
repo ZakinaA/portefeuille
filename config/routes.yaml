@@ -73,6 +73,12 @@ etudiantConsulter:
     controller: App\Controller\EtudiantController::consulterEtudiant
 
 
+    
+#Modifier les information de l'etudiant
+etudiantModifier:
+    path: /etudiant/etudiant/modifier/{etudiant_id}
+    controller: App\Controller\EtudiantController::modifierEtudiant
+
 #Lister les stages des étudiants d'une promotion sélectionnée
 stagePromo:
   path: /enseignant/stage/listerStagePromo/{promotion_id}
@@ -85,3 +91,7 @@ ConsulterSemaine:
 ListerSemaine:
     path: /etudiant/stage/listerLesSemaines/{stage_id}
     controller: App\Controller\ActiviteController::listerLesSemaines
+
+ListerAncienStages:
+    path: /stage/ListerAncienStages
+    controller: App\Controller\StageController::ListerAncienStages

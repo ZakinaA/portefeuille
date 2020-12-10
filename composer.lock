@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1d2c21e3b9170b954e52a139682779b",
+    "content-hash": "f498728e29aa89ef4f6ee1aaab068d7c",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -3023,17 +3023,16 @@
         },
         {
             "name": "symfony/form",
-
-            "version": "v5.2.0",
+            "version": "v5.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "b01ac08da313b892e028b0aa77c89ccb610d139a"
+                "reference": "56847a7c9df55341b6e99ec8ba8a097e9f66be73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/b01ac08da313b892e028b0aa77c89ccb610d139a",
-                "reference": "b01ac08da313b892e028b0aa77c89ccb610d139a",
+                "url": "https://api.github.com/repos/symfony/form/zipball/56847a7c9df55341b6e99ec8ba8a097e9f66be73",
+                "reference": "56847a7c9df55341b6e99ec8ba8a097e9f66be73",
                 "shasum": ""
             },
             "require": {
@@ -3104,9 +3103,6 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/form/tree/v5.1.9"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3121,9 +3117,7 @@
                     "type": "tidelift"
                 }
             ],
-
-            "time": "2020-11-28T11:24:18+00:00"
-
+            "time": "2020-11-28T10:57:20+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -5509,5 +5503,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

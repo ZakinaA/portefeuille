@@ -19,10 +19,6 @@ class Stage
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     */
-    private $nomtut;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
@@ -159,18 +155,6 @@ class Stage
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNomtut(): ?string
-    {
-        return $this->nomtut;
-    }
-
-    public function setNomtut(?string $nomtut): self
-    {
-        $this->nomtut = $nomtut;
-
-        return $this;
     }
 
     public function getTeltut(): ?string
