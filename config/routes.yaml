@@ -26,6 +26,16 @@ etudiantLister:
 
 
 
+#accueil des etudiants
+etudiantAccueil:
+    path: /etudiant/accueil/{etudiant_id}
+    controller: App\Controller\EtudiantController::accueilEtudiant
+
+#accueil des enseignants
+enseignantAccueil:
+    path: /enseignant/accueil/{enseignant_id}
+    controller: App\Controller\EnseignantController::accueilEnseignant
+
 
 #lister mes RP (etudiant)
 etudiantListerLesRP:

@@ -14,13 +14,17 @@ class EnseignantController extends AbstractController
     /**
      * @Route("/enseignant", name="enseignant")
      */
-     public function index(): Response
-    {
-        return $this->render('enseignant/index.html.twig', [
-            'controller_name' => 'EnseignantController',
-        ]);
+    public function accueilEnseignant($enseignant_id)
+    {   
 
-    }
+        $enseignant = $this->getDoctrine()
+        ->getRepository(Enseignant::class)
+        ->find($enseignant_id);
+        
+
+
+         return $this->render('enseignant/accueil.html.twig', ['pEnseignant' => $enseignant]);
+         } 
 
     public function listerLesRPaCommenter($enseignant_id)
     {

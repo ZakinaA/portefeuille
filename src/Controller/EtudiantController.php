@@ -14,17 +14,16 @@ class EtudiantController extends AbstractController
      * @Route("/etudiant", name="etudiant")
      */
 
-    public function index()
-    {
-        /* Cette simple instruction permet d'envoyer des informations au navigateur sans passer par une vue.
+    public function accueilEtudiant($etudiant_id)
+    {   
 
-        return new Response('<html><body>Salut Les SIO</body></html>');
-        */
- 
-         // initialise une variable qui sera exploitée dans la vue
-         $annee = '2020';
+        $etudiant = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->find($etudiant_id);
+        
 
-         return $this->render('etudiant/vue_accueil.html.twig', ['pAnnee' => $annee]);   
+
+         return $this->render('etudiant/accueil.html.twig', ['pEtudiant' => $etudiant]);
          } 
 
     public function consulterEtudiant($etudiant_id)
