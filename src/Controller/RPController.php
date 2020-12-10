@@ -9,6 +9,7 @@ use App\Entity\RP;
 use App\Entity\Etudiant;
 use App\Entity\RPActivite; 
 use App\Form\RPType;
+use Symfony\Component\HttpFoundation\Request;
 
 class RPController extends AbstractController
 {
@@ -37,13 +38,38 @@ class RPController extends AbstractController
     }
 
 
-    public function ajouterRp(){
+    // public function ajouterRp_Description(){
  
+    //     $rp = new RP();
+    //     $form = $this->createForm(RPType::class, $rp);
+    //             return $this->render('rp/ajouter_Description.html.twig', array(
+    //             'form' => $form->createView(), ));
+    // }
+
+
+    public function ajouterRp_Description(Request $request){
         $rp = new RP();
+
         $form = $this->createForm(RPType::class, $rp);
-                return $this->render('rp/ajouter.html.twig', array(
-                'form' => $form->createView(), ));
+        $form->handleRequest($request);
+ 
+    if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $rp = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($rp);
+            $entityManager->flush();
+            //var_dump($rp);
+ 
+        return $this->render('rp/consulter.html.twig', ['etudiant' => $etudiant,]);
     }
+    else
+        {
+            //var_dump($rp);
+            return $this->render('rp/ajouter_Description.html.twig', array('form' => $form->createView(),));
+    }
+}
+
 
 
     public function listerLesRP($idEtudiant){
@@ -59,7 +85,6 @@ class RPController extends AbstractController
                 );
             }
 
-            
             return $this->render('rp/lister.html.twig', [ 'pEtudiant' => $etudiant,]);
 
     }
