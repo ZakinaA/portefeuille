@@ -237,4 +237,16 @@ class Enseignant
 
         return $this;
     }
+
+    public function getNbRpDeLaPromo($nomPromo){
+      $nb = 0;
+      foreach ($this->RPs as $rp)
+      {
+        if ($rp->getEtudiant()->getPromotion()->getNom() == $nomPromo )
+        {
+          $nb++;
+        }
+      }
+      return $nb;
+    }
 }
