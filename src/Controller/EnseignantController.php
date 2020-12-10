@@ -23,6 +23,7 @@ class EnseignantController extends AbstractController
         
 
 
+<<<<<<< HEAD
          return $this->render('enseignant/accueil.html.twig', ['pEnseignant' => $enseignant]);
          } 
 
@@ -38,4 +39,7 @@ class EnseignantController extends AbstractController
 
     	return $this->render('enseignant/lister.html.twig', ['RPCommenter' => $RPaCommenter]);
     } 
+=======
+    }
+>>>>>>> 169ffb67c0c326ca432f23950c6529867697cf5f
 }

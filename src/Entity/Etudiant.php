@@ -305,6 +305,7 @@ class Etudiant
         return $this;
     }
 
+<<<<<<< HEAD
     public function add($a, $b)
     {
         return $a + $b;
@@ -337,4 +338,7 @@ class Etudiant
     }
     return $nb;
     }
+=======
+
+>>>>>>> 169ffb67c0c326ca432f23950c6529867697cf5f
 }
