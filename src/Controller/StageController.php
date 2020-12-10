@@ -11,6 +11,8 @@ use App\Controller\StageController;
 use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
+use App\Entity\Promotion;
+use App\Entity\Matiere;
 
 class StageController extends AbstractController
 {
@@ -53,6 +55,69 @@ class StageController extends AbstractController
 
         return $this->render('stage/lister.html.twig', [
             'pStages' => $stages,]);
+    }
+
+    public function ListerStagesPromo($promotion_id){
+
+        $promotion = $this->getDoctrine()
+        ->getRepository(Promotion::class)
+        ->findOneById($promotion_id);
+
+        $etudiants = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->findByPromotion($promotion);
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiants,array('etudiant'=>'asc'));
+
+
+        $stage1annee = array();
+        $stage2annee = array();
+
+
+        foreach ($stages as $stage){
+            foreach ($stages as $stage2){
+                if($stage->getId()!=$stage2->getId()){
+                    if($stage->getEtudiant()->getId()==$stage2->getEtudiant()->getId()){
+                        if($stage->getDateDebut()<=$stage2->getDateDebut()){
+                            $stage1annee[] = $stage;
+                        }else{
+                            $stage2annee[] = $stage;
+                        }
+                    }
+                }
+            }
+        }    
+
+
+
+        $enseignants1 = $this->getDoctrine() //Admin
+        ->getRepository(Enseignant::class)
+        ->findByNiveau('0');
+
+        $enseignants2 = $this->getDoctrine() // Enseignant
+        ->getRepository(Enseignant::class)
+        ->findByNiveau('1');
+
+        $enseignants = $enseignants1 + $enseignants2;
+
+
+
+        return $this->render('stage/listerPromo.html.twig', [
+            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
+    }
+
+    public function newEnseignant($idStage,$idEnseignant){
+
+        $stage = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->find($idStage);
+
+        echo "";
+
+        return $this->render('stage/listerPromo.html.twig', [
+            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
     }
 
 

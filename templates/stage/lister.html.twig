@@ -20,10 +20,13 @@
           <tbody>
                 {% for stage in pStages %}
             <tr>
-            <td>{{stage.etudiant.nom}} {{stage.etudiant.prenom}}</td>
+            <td><a class="text-white" href="{{ path('StageConsulter', { 'stage_id': stage.id }) }}">{{stage.etudiant.nom}} {{stage.etudiant.prenom}}</a></td>
+            
             <td>{{stage.lieu}}</td>
             <td>{{stage.coordonneestut}}</td>
-            <td><a href="#">Carnet de bord</a></td>
+            <td><a href="../../../etudiant/stage/consulter/{{stage.id}}">Détail</a></td>
+            <td><a href="../../../etudiant/activite/consulterSemaine/{{stage.id}}">Activités</a></td>
+
   {% else %}
     <tr>
     <td>Aucun stage n'a été trouvé.</td>
@@ -34,7 +37,7 @@
         <br>
         <br>
 
-      
+
 
 
 
@@ -43,8 +46,3 @@
 </html>
 
 {% endblock %}
-
-      
-
-
-

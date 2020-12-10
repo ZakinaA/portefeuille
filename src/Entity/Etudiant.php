@@ -304,45 +304,8 @@ class Etudiant
 
         return $this;
     }
-
-
-
-     public function add($a, $b)
-    {
-        return $a + $b;
-    }
-
-    public function getNbRpValides(): ?int
-{
-    $nb = 0;
-    foreach ($this->RPs as $rp)
-    {
-        $idStatut = $rp->getStatut()->getId();
-        if ($idStatut == 4 )
-        {
-            $nb++;
-        }
-
-    }
-    return $nb;
 }
 
-public function getNbRpValidesParStatut(int $pIdStatut): ?int
-{
-    $nb = 0;
-    foreach ($this->RPs as $rp)
-    {
-        $idStatut = $rp->getStatut()->getId();
-        if ($idStatut == $pIdStatut )
-        {
-            $nb++;
-        }
-
-    }
-    return $nb;
-}
-
-}
 
 
    
