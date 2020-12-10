@@ -7,8 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RP;
 use App\Entity\Etudiant;
-use App\Entity\RPActivite; 
+use App\Entity\RPActivite;
+use App\Entity\Enseignant; 
 use App\Form\RPType;
+use App\Entity\Statut;
 
 class RPController extends AbstractController
 {
@@ -29,11 +31,24 @@ class RPController extends AbstractController
         ]);                   
     }
 
-    public function ListerLesRPaCommenter(): Response
+    public function listerLesRPaCommenter($enseignant_id)
     {
-        return $this->render('rp/lister.html.twig', [
-            'controller_name' => 'EnseignantController',
-        ]);
+
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaCommenter = $repository->findBy(
+            ['enseignant' => $enseignant_id, 'statut' => 2]);
+        
+        return $this->render('rp/lister.html.twig', ['pRP' => $RPaCommenter]);
+    }
+
+    public function listerLesRPaModifier($etudiant_id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaModifier = $repository->findBy(
+            ['etudiant' => $etudiant_id, 'statut' => 3]);
+        
+        return $this->render('rp/lister.html.twig', ['pRP' => $RPaModifier]);
     }
 
 
@@ -60,7 +75,7 @@ class RPController extends AbstractController
             }
 
             
-            return $this->render('rp/lister.html.twig', [ 'pEtudiant' => $etudiant,]);
+            return $this->render('rp/lister.html.twig', [ 'pRP' => $etudiant,]);
 
     }
 }
