@@ -305,7 +305,9 @@ class Etudiant
         return $this;
     }
 
+    }
 
+/*
      public function getNbRpValides(): ?int
     {
         $nb =0;
@@ -335,11 +337,10 @@ class Etudiant
         }
         return $nb;
     }
-//Dans l’entity Etudiant
-public function add($a, $b)
-{
-return $a + $b;
-}
-
-
+    //Dans l’entity Etudiant
+    public function add($a, $b)
+    {
+        return $a + $b;
+    }  
+*/
 }

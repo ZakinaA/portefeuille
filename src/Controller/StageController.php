@@ -12,22 +12,50 @@ use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
 use App\Form\StageType;
+use App\Entity\Promotion;
+
 
 class StageController extends AbstractController
 {
     /**
      * @Route("/stage", name="stage")
      */
-    public function consulterStage(): Response
-    {
-        return $this->render('stage/consulter.html.twig', [
-            'controller_name' => 'StageController',
-        ]);
+     public function consulterStage($stage_id)
+     {
+
+         $stage = $this->getDoctrine()
+         ->getRepository(Stage::class)
+         ->find($stage_id);
+
+
+         return $this->render('stage/consulter.html.twig', ['pStage' => $stage]);
+     }
+
+    public function ListerStagesAffect($enseignant_id){
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEnseignant($enseignant_id);
+
+        return $this->render('stage/lister.html.twig', [
+            'pStages' => $stages,]);
+
     }
 
-    public function ListerStagesAffect(): Response
-    {
+    public function ListerStagesEtudiant($etu_id){
+
+        $etudiant = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->findOneById($etu_id);
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiant);
+
+
+
         return $this->render('stage/lister.html.twig', [
+
             'controller_name' => 'StageController',
         ]);
     }
@@ -63,4 +91,29 @@ class StageController extends AbstractController
     
 }
 
+            'pStages' => $stages,]);
+    }
 
+    public function ListerStagesPromo($promotion_id){
+
+        $promotion = $this->getDoctrine()
+        ->getRepository(Promotion::class)
+        ->findOneById($promotion_id);
+
+        $etudiants = $this->getDoctrine()
+        ->getRepository(Etudiant::class)
+        ->findByPromotion($promotion);
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiants);
+
+
+
+
+        return $this->render('stage/listerPromo.html.twig', [
+            'pStages' => $stages,]);
+    }
+
+
+}

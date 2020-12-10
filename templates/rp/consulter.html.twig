@@ -1,7 +1,5 @@
 {% extends "entete.html.twig" %}
- {% block content %}
-
-
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +19,8 @@
     <table>
       <tr>
         <td width="100%">
-          <label for="formGroupExampleInput">Libellé *</label>
-          <input type="text" class="form-control" id="libelle" placeholder="Libellé" value="[BLOC 6] Virtualisation de serveur">
-        </td>
-        <td width="1%">
-          <img src="https://img.icons8.com/fluent-systems-regular/24/000000/info.png"/ title="Préfixer le libellé par le cadre de réalisation : [PPE1], [SI6], [SISR2], [STAGE1],...">
+          <label for="formGroupExampleInput">Libellé*</label><br>
+          {{consulter.libcourt}}
         </td>
       </tr>
     </table>
@@ -36,17 +31,27 @@
     <table>
       <tr>
         <td width="100%">
-          <label for="formGroupExampleInput2">Contexte *</label>
-          <input type="text" class="form-control" id="contexte" placeholder="Contexte">
-        </td>
-        <td width="1%">
-          <img src="https://img.icons8.com/fluent-systems-regular/24/000000/info.png"/ title="Dire ce que l'entreprise veut changer à son activité (exemple : on souhaite permettre aux clients de passer commande sur le site / le parc informatique doit faire l'objet d'un suivi)">
+          <label for="formGroupExampleInput2">Contexte</label>
+          <br>
+          {{consulter.contexte}}
         </td>
       </tr>
     </table>
   </div>
 
 
+  <div class="form-group">
+    <table>
+      <tr>
+        <td width="100%">
+          <label for="formGroupExampleInput3">Définition du besoin</label>
+          <br>
+         {{consulter.descriptif}}
+        </td>
+        
+      </tr>
+    </table>
+  </div>
 </form>
 
 <br><br>
@@ -56,24 +61,33 @@
   <div class="container">
   <form>
   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="localisation">Localisation</label>
+      <br>
+      {{consulter.localisation.libelle}}
+    </div>
     <div class="form-group col-md-4">
       <label for="source">Source</label>
-      <input type="text" class="form-control" id="source" placeholder="Source">
+      <br>
+      {{consulter.source.libelle}}
       </select>
     </div>
     <div class="form-group col-md-2">
-      <label for="source">Composition</label>
-      <input type="text" class="form-control" id="source" placeholder="Composition">
+      <label for="source">Cadre</label>
+      <br>
+      {{consulter.cadre.libelle}}
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="debut">Debut</label>
-      <input type="date" class="form-control" id="debut">
+      <br>
+      {{consulter.dateDebut|date("Y/M/D")}}
     </div>
     <div class="form-group col-md-6">
       <label for="fin">Fin</label>
-      <input type="date" class="form-control" id="fin">
+      <br>
+      {{consulter.dateFin|date("Y/M/D")}}
     </div>
   </div>
 </form>
@@ -85,34 +99,17 @@
 <form>
   <div class="form-group">
     <label for="env_tech">Env.tech</label>
-    <input type="text" class="form-control" id="env_tech" placeholder="Environnement technologique">
+    <br>
+    {{consulter.environnement}}
   </div>
   <div class="form-group">
     <label for="moyens">Moyens</label>
-    <input type="text" class="form-control" id="moyen" placeholder="Moyens">
-  </div>
-  <div class="form-group">
-    <label for="avis">Avis</label>
-    <input type="text" class="form-control" id="avis" placeholder="Avis">
+    <br>
+    {{consulter.moyen}}
   </div>
 </form>
 
-            <!-- BOUCLE RECUPERATION LIBELLE, STATUT, CALCUL NB ACTIVITE 1ERE ANNEE SELON ID -->
-
-
-        <!-- SI AUCUNES OCCURENCES, AFFICHER MESSAGE POUR PREVENIR QU'AUCUNES OCCURENCES N'A ETE RENSEIGNE -->
-
-        <br><br>
-            <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a>
-
-  <div class="alert alert-light" role="alert">
-  * Champ Obligatoire <a href="#" class="alert-link">
-</div>
-
-
 </div>
 </body>
-
 </html>
-
 {% endblock %}

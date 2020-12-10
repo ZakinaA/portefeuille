@@ -11,7 +11,7 @@
   <link href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css" rel="stylesheet">
   </head>
   <html>
-    
+
     <body>
       <center>
       <h1>Consultation de stage</h1>
@@ -22,71 +22,71 @@
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Nom de l'entreprise</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Jean Rostand">
+              <input type="text" id="disabledTextInput" class="form-control" value="{{pStage.nomentreprise}}">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">SIRET</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="19140017500011">
+              <label for="disabledTextInput">SIRET</label>
+              <input type="text" id="disabledTextInput" class="form-control" value="{{pStage.siret}}">
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Directeur</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Sébastien DUVAL-ROCHER">
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.directeur}}>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Ville</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Caen">
+              <label for="disabledTextInput">Ville</label>
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.ville.nom}}>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Adresse</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="98 route d'Ifs">
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.adrentreprise}}>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Téléphone</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="02.31.52.19.40">
+              <label for="disabledTextInput">Téléphone</label>
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.telentreprise}}>
             </div>
           </div>
           <center><div class="col-md-6 mb-3">
-            <label for="validationCustom02" >Mail</label>
-            <input type="mail" id="disabledTextInput" class="form-control" placeholder="jean.rostand@ac-caen.fr">
+            <label for="disabledTextInput" >Mail</label>
+            <input type="mail" id="disabledTextInput" class="form-control" value={{pStage.mailentreprise}}>
           </div></center>
           <hr class="featurette-divider p-2">
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Nom du tuteur</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Patrick Mailhet">
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.coordonneestut}}>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Téléphone du tuteur</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="06.25.34.62.58">
+              <label for="disabledTextInput">Téléphone du tuteur</label>
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.teltut}}>
             </div>
           </div>
           <center><div class="col-md-6 mb-3">
-            <label for="validationCustom02" >Mail du tuteur</label>
-            <input type="mail" id="disabledTextInput" class="form-control" placeholder="Patrick.Maihlet@ac-caen.fr">
+            <label for="disabledTextInput" >Mail du tuteur</label>
+            <input type="mail" id="disabledTextInput" class="form-control" value={{pStage.mailtut}}>
           </div></center>
           <hr class="featurette-divider p-2">
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Date de debut du stage</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="04/01/2021">
+              <input type="text" id="disabledTextInput" class="form-control" value="{{pStage.dateDebut|date('Y-m-d')}}">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Date de fin du stage</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="26/02/2021">
+              <label for="disabledTextInput">Date de fin du stage</label>
+              <input type="text" id="disabledTextInput" class="form-control" value="{{pStage.dateFin|date('Y-m-d')}}">
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Durée</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="8 Semaines">
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.nbsemaine}}>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Sujet</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Mise en place de mise à jour automatique du menu">
+              <label for="disabledTextInput">Sujet</label>
+              <input type="text" id="disabledTextInput" class="form-control" value={{pStage.sujet}}>
             </div>
           </div>
         </form>
@@ -106,22 +106,14 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Début de journée</th>
-              <td>8h - 12h</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>0H</td>
-            </tr>
-            <tr>
-              <th scope="row">Fin de journée</th>
-              <td>14h - 17h</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>8H</td>
-              <td>0H</td>
+              <th scope="row">Horaires</th>
+              <td></td>
+              <td>{{pStage.horLun}}</td>
+              <td>{{pStage.horMar}}</td>
+              <td>{{pStage.horMer}}</td>
+              <td>{{pStage.horJeu}}</td>
+              <td>{{pStage.horVen}}</td>
+              <td>{{pStage.horSam}}</td>
             </tr>
           </tbody>
         </table>
