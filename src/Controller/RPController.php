@@ -10,6 +10,7 @@ use App\Entity\Etudiant;
 use App\Entity\RPActivite; 
 use App\Entity\Statut; 
 use App\Form\RPType;
+use App\Entity\Enseignant; 
 use Symfony\Component\HttpFoundation\Request;
 
 class RPController extends AbstractController
@@ -31,11 +32,26 @@ class RPController extends AbstractController
         ]);                   
     }
 
-    public function ListerLesRPaCommenter(): Response
+    public function listerLesRPaCommenter($enseignant_id)
     {
-        return $this->render('rp/lister.html.twig', [
-            'controller_name' => 'EnseignantController',
-        ]);
+
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaCommenter = $repository->findBy(
+            ['enseignant' => $enseignant_id, 'statut' => 2],array('libcourt'=>'asc'));
+        
+        return $this->render('rp/lister.html.twig', ['pRP' => $RPaCommenter]);
+    }
+
+    public function listerLesRPaModifier($etudiant_id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaModifier = $repository->findBy(
+
+            ['etudiant' => $etudiant_id, 'statut' => 3],array('libcourt'=>'asc'));
+
+
+        return $this->render('rp/lister.html.twig', ['pRP' => $RPaModifier]);
     }
 
 
@@ -81,20 +97,20 @@ class RPController extends AbstractController
 
 
 
-    public function listerLesRP($idEtudiant){
+    public function listerLesRP($etudiant_id){
             
-            $etudiant = $this->getDoctrine()
-            ->getRepository(Etudiant::class)
-            ->find($idEtudiant);
+            $MesRp = $this->getDoctrine()
+            ->getRepository(RP::class)
+            ->findByEtudiant($etudiant_id);
 
 
-            if (!$etudiant) {
+            if (!$MesRp) {
                 throw $this->createNotFoundException(
-                'Aucun étudiant trouvé avec le numéro '.$idEtudiant
+                'Aucun étudiant trouvé avec le numéro '.$etudiant_id
                 );
             }
-
-            return $this->render('rp/lister.html.twig', [ 'pEtudiant' => $etudiant,]);
+            
+            return $this->render('rp/lister.html.twig', [ 'pRP' => $MesRp,]);
 
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +13,7 @@ use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
 use App\Entity\Promotion;
+use App\Entity\Matiere;
 
 class StageController extends AbstractController
 {
@@ -29,6 +31,19 @@ class StageController extends AbstractController
          return $this->render('stage/consulter.html.twig', ['pStage' => $stage]);
      }
 
+
+
+     public function ListerAncienStages()
+    {
+
+        
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findAll();
+         return $this->render('stage/ListerAncienStage.html.twig', [
+            'pStages' => $stages,]);   
+    }
+
     public function ListerStagesAffect($enseignant_id){
 
         $stages = $this->getDoctrine()
@@ -40,11 +55,11 @@ class StageController extends AbstractController
 
     }
 
-    public function ListerStagesEtudiant($etu_id){
+    public function ListerStagesEtudiant($etudiant_id){
 
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
-        ->findOneById($etu_id);
+        ->findOneById($etudiant_id);
 
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
@@ -68,12 +83,55 @@ class StageController extends AbstractController
 
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
-        ->findByEtudiant($etudiants);
+        ->findByEtudiant($etudiants,array('etudiant'=>'asc'));
+
+
+        $stage1annee = array();
+        $stage2annee = array();
+
+
+        foreach ($stages as $stage){
+            foreach ($stages as $stage2){
+                if($stage->getId()!=$stage2->getId()){
+                    if($stage->getEtudiant()->getId()==$stage2->getEtudiant()->getId()){
+                        if($stage->getDateDebut()<=$stage2->getDateDebut()){
+                            $stage1annee[] = $stage;
+                        }else{
+                            $stage2annee[] = $stage;
+                        }
+                    }
+                }
+            }
+        }    
+
+
+
+        $enseignants1 = $this->getDoctrine() //Admin
+        ->getRepository(Enseignant::class)
+        ->findByNiveau('0');
+
+        $enseignants2 = $this->getDoctrine() // Enseignant
+        ->getRepository(Enseignant::class)
+        ->findByNiveau('1');
+
+        $enseignants = $enseignants1 + $enseignants2;
 
 
 
         return $this->render('stage/listerPromo.html.twig', [
-            'pStages' => $stages,]);
+            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
+    }
+
+    public function newEnseignant($idStage,$idEnseignant){
+
+        $stage = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->find($idStage);
+
+        echo "";
+
+        return $this->render('stage/listerPromo.html.twig', [
+            'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
     }
 
 

@@ -5,11 +5,8 @@
 
 <body>
 <div class="container">
-  <h1 class="display-4"><u>Tableau de suivi de stage</u></h1><br>
-
-
-      <h4 align="left"><u>Suivi de stage</u></h4>
-        <table class="table table-dark" id="table" data-toggle="BootstrapTable" data-height="460">
+  <center><h1 class="display-4">Tableau de suivi de stage</h1><br></center>
+        <table class="table" id="table" data-toggle="BootstrapTable" data-height="460">
           <thead>
             <tr>
             <th scope="col">Etudiant</th>
@@ -20,10 +17,10 @@
           <tbody>
                 {% for stage in pStages %}
             <tr>
-            <td><a class="text-white" href="{{ path('StageConsulter', { 'stage_id': stage.id }) }}">{{stage.etudiant.nom}} {{stage.etudiant.prenom}}</a></td>
+            <td><a class="text" href="{{ path('StageConsulter', { 'stage_id': stage.id }) }}">{{stage.etudiant.nom}} {{stage.etudiant.prenom}}</a></td>
             
             <td>{{stage.lieu}}</td>
-            <td>{{stage.coordonneestut}}</td>
+            <td>{{stage.nomtut}}</td>
             <td><a href="../../../etudiant/stage/consulter/{{stage.id}}">Détail</a></td>
             <td><a href="../../../etudiant/activite/consulterSemaine/{{stage.id}}">Activités</a></td>
 
