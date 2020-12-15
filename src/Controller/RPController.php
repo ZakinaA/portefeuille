@@ -46,8 +46,10 @@ class RPController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(RP::class);
         $RPaModifier = $repository->findBy(
+
             ['etudiant' => $etudiant_id, 'statut' => 3],array('libcourt'=>'asc'));
-        
+
+
         return $this->render('rp/lister.html.twig', ['pRP' => $RPaModifier]);
     }
 
