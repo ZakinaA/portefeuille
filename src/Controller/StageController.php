@@ -13,6 +13,7 @@ use App\Entity\RPActivite;
 use App\Entity\Enseignant;
 use App\Entity\Promotion;
 use App\Entity\Matiere;
+use App\Entity\SemaineStage;
 
 class StageController extends AbstractController
 {
@@ -121,4 +122,51 @@ class StageController extends AbstractController
     }
 
 
-}
+
+
+
+
+
+ public function listerSemaine($idStage){
+       
+                    
+
+           // var_dump($semaineStage);
+
+       $stage = $this->getDoctrine()->getRepository(Stage::class)->find($idStage);
+
+       /*foreach  ($stage->getSemaineStages() as $ss ){
+        var_dump ($ss);
+       }*/
+       // var_dump($stage);
+
+            //var_dump($stage);
+
+        return $this->render('stage/listerSemaine.html.twig', ['stage' => $stage]);
+     } 
+            
+        
+    }   
+
+
+
+
+
+
+
+
+
+
+
+/*public function listerSemaine($stage_id)
+     {
+        $stage = $this->getDoctrine()->getRepository(Stage::class)->find($stage_id);
+var_dump($stage);
+
+
+         return $this->render('stage/listerSemaine.html.twig', ['stage' => $stage]);
+     }*/
+
+
+
+

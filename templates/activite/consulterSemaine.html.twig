@@ -5,18 +5,25 @@
 <body>
 <div class="container">
     <h1 class="display-4"><u>Activité quotidienne</u></h1>
-    <FORM>
-    <SELECT class="form-control" name="nom" size="1">
-    <OPTION>Semaine 1</OPTION>
-    <OPTION>Semaine 2</OPTION>
-    <OPTION>Semaine 3</OPTION>
-    <OPTION>Semaine 4</OPTION>
-    <OPTION>Semaine 5</OPTION>
-    <OPTION>Semaine 6</OPTION>
-    <OPTION>Semaine 7</OPTION>
-    <OPTION>Semaine 8</OPTION>
-    </SELECT>
-    </FORM>
+   <table class="table" border ="2px">
+<thead>
+          <tr>
+{% set numSemaine = -1 %}
+{% for semaineStage in stage.semaineStages %}
+
+          
+
+          {% if numSemaine != semaineStage.numSemaine %}
+      
+    {% set numSemaine = semaineStage.numSemaine %}
+    {% endif%}      
+          
+           
+<td> <a class="dropdown-item" href="{{path ('ConsulterSemaine',{'idStage': stage.id, 'idSemaineStage': semaineStage.id}) }} ">semaine {{semaineStage.numSemaine}}</a></td>
+           
+{%endfor%}
+
+ </table>
   </br></br>
 <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea> -->
   <!--  <div class="row align-items-center">
@@ -27,7 +34,11 @@
 
 {% set idJour = -1%}
 
+
+
 {% for tache in tacheSemaine %}
+
+
 
           {% if idJour == -1 %}
 
@@ -77,7 +88,7 @@
 
 
 <div class="container">
-            <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a>
+     <!--       <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a> -->
 
   <div class="alert alert-light" role="alert">
 </div>
