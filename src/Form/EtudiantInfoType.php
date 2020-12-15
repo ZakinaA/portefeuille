@@ -22,11 +22,11 @@ class EtudiantInfoType extends AbstractType
             ->add('prenom', TextType::class)
             ->add('mail', TextType::class)
             ->add('mobile', TextType::class)
-            ->add('datenaiss', DateType::class, array('input' => 'datetime',
-                                                          'widget' => 'single_text',
-                                                          'required' => true,
-                                                          'label' =>'date de naissance',
-                                                          'placeholder' => 'jj/mm/aaaa'))
+            //->add('datenaiss', DateType::class, array('input' => 'datetime',
+             //                                             'widget' => 'single_text',
+             //                                             'required' => true,
+               //                                           'label' =>'date de naissance',
+               //                                           'placeholder' => 'jj/mm/aaaa'))
             ->add('sexe', TextType::class)
             ->add('adrperso', TextType::class)
             
