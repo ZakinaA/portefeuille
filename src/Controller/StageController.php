@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,6 +30,19 @@ class StageController extends AbstractController
          return $this->render('stage/consulter.html.twig', ['pStage' => $stage]);
      }
 
+
+
+     public function ListerAncienStages()
+    {
+
+        
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findAll();
+         return $this->render('stage/ListerAncienStage.html.twig', [
+            'pStages' => $stages,]);   
+    }
+
     public function ListerStagesAffect($enseignant_id){
 
         $stages = $this->getDoctrine()
@@ -40,11 +54,11 @@ class StageController extends AbstractController
 
     }
 
-    public function ListerStagesEtudiant($etu_id){
+    public function ListerStagesEtudiant($etudiant_id){
 
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
-        ->findOneById($etu_id);
+        ->findOneById($etudiant_id);
 
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
