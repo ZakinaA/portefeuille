@@ -111,6 +111,7 @@ class RP
         $this->activites = new ArrayCollection();
         $this->commentaire = new ArrayCollection();
         $this->productions = new ArrayCollection();
+  
     }
 
     public function getId(): ?int

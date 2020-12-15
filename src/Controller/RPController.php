@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RP;
 use App\Entity\Etudiant;
 use App\Entity\RPActivite; 
+use App\Entity\Statut; 
 use App\Form\RPType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -56,12 +57,20 @@ class RPController extends AbstractController
     if ($form->isSubmitted() && $form->isValid()) {
  
             $rp = $form->getData();
+
+            $statut = $this->getDoctrine()
+            ->getRepository(Statut::class)
+            ->find(1);
+            $rp->setStatut($statut);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($rp);
             $entityManager->flush();
-            //var_dump($rp);
  
-        return $this->render('rp/consulter.html.twig', ['etudiant' => $etudiant,]);
+        //$etudiant = $rp->getEtudiant();
+
+        //var_dump($rp->getStatut());
+        return $this->render('rp/consulter.html.twig', [ 'consulter' => $rp,]);
     }
     else
         {

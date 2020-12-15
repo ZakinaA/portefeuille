@@ -24,14 +24,16 @@
 				  </thead>
 				  <tbody>
 				  	
-
+				
 					{% for RP in pEtudiant.RPs %}
 					
 					
 				    <tr>
 				      <td><a class="text-white" href="{{ path('rpConsulter', { 'rp_id': RP.id }) }}">{{ RP.libcourt }}</a></td>
 				      <td>{{ RP.activites.count }}</td> 
-					  <td>{{ RP.statut.libelle }}</td>		    
+
+				       <td>{{ RP.statut.libelle }}</td>		   
+					 
 				      <td>{{ RP.dateDebut|date("d/m/Y") }}</td>
 
 				      <td><a href="supprimer.html.twig"><img src="https://img.icons8.com/flat_round/64/000000/delete-sign.png" width="20px" title="Cliquez pour supprimer"></a>
@@ -40,6 +42,7 @@
 				    
 				    {% endfor %}
 				    
+				   
 				  </tbody>
 				</table>
 				<br>
