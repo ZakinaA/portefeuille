@@ -6,7 +6,7 @@ use App\Repository\EtudiantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=EtudiantRepository::class)
  */
@@ -35,7 +35,7 @@ class Etudiant
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $mobile;
 
@@ -60,6 +60,16 @@ class Etudiant
     private $adrperso;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
+    /**
      * @ORM\Column(type="string", length=150)
      */
     private $statut;
@@ -73,11 +83,6 @@ class Etudiant
      * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
      */
     private $optionI;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
-     */
-    private $villePerso;
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
@@ -136,12 +141,12 @@ class Etudiant
         return $this;
     }
 
-    public function getMobile(): ?string
+    public function getMobile(): ?int
     {
         return $this->mobile;
     }
 
-    public function setMobile(?string $mobile): self
+    public function setMobile(int $mobile): self
     {
         $this->mobile = $mobile;
 
@@ -196,6 +201,29 @@ class Etudiant
         return $this;
     }
 
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -228,18 +256,6 @@ class Etudiant
     public function setOptionI(?OptionI $optionI): self
     {
         $this->optionI = $optionI;
-
-        return $this;
-    }
-
-    public function getVillePerso(): ?Ville
-    {
-        return $this->villePerso;
-    }
-
-    public function setVillePerso(?Ville $villePerso): self
-    {
-        $this->villePerso = $villePerso;
 
         return $this;
     }
@@ -304,5 +320,6 @@ class Etudiant
 
         return $this;
     }
-}
 
+
+}
