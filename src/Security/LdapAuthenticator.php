@@ -121,7 +121,9 @@ class LdapAuthenticator extends AbstractFormLoginAuthenticator
         $roles = $token->getUser()->getRoles()[0];
 
         //redirection en fonction du role
+        //TODO : modifier les redirections vers les vues valides
         if ($roles == "ROLE_ETUDIANT"){
+
             return new RedirectResponse($this->urlGenerator->generate('route_accueil'));
         }
         elseif ($roles == "ROLE_ENSEIGNANT"){
