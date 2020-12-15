@@ -6,6 +6,8 @@ use App\Entity\Etudiant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\RP;
+use App\Entity\Stage;
 
 class EtudiantController extends AbstractController
 {
@@ -15,16 +17,22 @@ class EtudiantController extends AbstractController
      */
 
     public function accueilEtudiant($etudiant_id)
-    {   
+    {
+
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaModifier = $repository->findBy(
+            ['etudiant' => $etudiant_id, 'statut' => 3],array('libcourt'=>'asc'));
 
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
-        ->find($etudiant_id);
+        ->findOneById($etudiant_id);
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEtudiant($etudiant);
         
-
-
-         return $this->render('etudiant/accueil.html.twig', ['pEtudiant' => $etudiant]);
-         } 
+        return $this->render('etudiant/accueil.html.twig', ['pRP' => $RPaModifier, 'pStages' => $stages]);
+    }
 
     public function consulterEtudiant($etudiant_id)
     {   
@@ -32,6 +40,7 @@ class EtudiantController extends AbstractController
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
         ->find($etudiant_id);
+
         
 
 

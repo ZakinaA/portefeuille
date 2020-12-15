@@ -41,11 +41,11 @@ class StageController extends AbstractController
 
     }
 
-    public function ListerStagesEtudiant($etu_id){
+    public function ListerStagesEtudiant($etudiant_id){
 
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
-        ->findOneById($etu_id);
+        ->findOneById($etudiant_id);
 
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)

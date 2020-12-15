@@ -39,7 +39,7 @@ enseignantAccueil:
 
 #lister mes RP (etudiant)
 etudiantListerLesRP:
-    path: /etudiant/rp/listerMesRP/{idEtudiant}
+    path: /etudiant/rp/listerMesRP/{etudiant_id}
     controller: App\Controller\RPController::listerLesRP
 
 #consulter une RP d'un étudiant
@@ -64,7 +64,7 @@ rpListerPromo:
 
 #lister les stages d'un etudiant
 EtudiantListerStage:
-    path: /etudiant/stage/listerLesStages/{etu_id}
+    path: /etudiant/stage/listerLesStages/{etudiant_id}
     controller: App\Controller\StageController::ListerStagesEtudiant
 
 #consulter les infos de stage d'un étudiant

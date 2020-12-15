@@ -36,7 +36,7 @@ class RPController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(RP::class);
         $RPaCommenter = $repository->findBy(
-            ['enseignant' => $enseignant_id, 'statut' => 2]);
+            ['enseignant' => $enseignant_id, 'statut' => 2],array('libcourt'=>'asc'));
         
         return $this->render('rp/lister.html.twig', ['pRP' => $RPaCommenter]);
     }
@@ -46,7 +46,7 @@ class RPController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(RP::class);
         $RPaModifier = $repository->findBy(
-            ['etudiant' => $etudiant_id, 'statut' => 3]);
+            ['etudiant' => $etudiant_id, 'statut' => 3],array('libcourt'=>'asc'));
         
         return $this->render('rp/lister.html.twig', ['pRP' => $RPaModifier]);
     }
@@ -61,21 +61,21 @@ class RPController extends AbstractController
     }
 
 
-    public function listerLesRP($idEtudiant){
+    public function listerLesRP($etudiant_id){
             
-            $etudiant = $this->getDoctrine()
-            ->getRepository(Etudiant::class)
-            ->find($idEtudiant);
+            $MesRp = $this->getDoctrine()
+            ->getRepository(RP::class)
+            ->findByEtudiant($etudiant_id);
 
 
-            if (!$etudiant) {
+            if (!$MesRp) {
                 throw $this->createNotFoundException(
-                'Aucun étudiant trouvé avec le numéro '.$idEtudiant
+                'Aucun étudiant trouvé avec le numéro '.$etudiant_id
                 );
             }
 
             
-            return $this->render('rp/lister.html.twig', [ 'pRP' => $etudiant,]);
+            return $this->render('rp/lister.html.twig', [ 'pRP' => $MesRp,]);
 
     }
 }
