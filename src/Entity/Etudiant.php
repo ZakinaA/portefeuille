@@ -79,10 +79,6 @@ class Etudiant
      */
     private $promotion;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
-     */
-    private $optionI;
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
@@ -248,17 +244,7 @@ class Etudiant
         return $this;
     }
 
-    public function getOptionI(): ?OptionI
-    {
-        return $this->optionI;
-    }
-
-    public function setOptionI(?OptionI $optionI): self
-    {
-        $this->optionI = $optionI;
-
-        return $this;
-    }
+    
 
 
     /**

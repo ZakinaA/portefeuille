@@ -27,5 +27,7 @@ class EnseignantController extends AbstractController
         ->findByEnseignant($enseignant_id);
         
         return $this->render('enseignant/accueil.html.twig', ['pRP' => $RPaCommenter, 'pStages' => $stages]);
-    } 
+    }
+
+     
 }
