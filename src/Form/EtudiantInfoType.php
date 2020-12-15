@@ -30,7 +30,7 @@ class EtudiantInfoType extends AbstractType
             ->add('sexe', TextType::class)
             ->add('adrperso', TextType::class)
             
-            ->add('enregistrer', SubmitType::class, array('label' => 'Modif étudiant'))
+            ->add('enregistrer', SubmitType::class, array('label' => 'Appliquer les modifications'))
 
 
 

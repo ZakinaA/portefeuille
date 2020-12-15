@@ -6,7 +6,7 @@ use App\Repository\EtudiantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=EtudiantRepository::class)
  */
@@ -26,16 +26,37 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=80, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le prenom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le prenom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 80,
+     *      minMessage = "Le mail doit comporter au moins 2 caractères",
+     *      maxMessage = "Le mail doit comporter au plus 80 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $mobile;
 
@@ -56,11 +77,25 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 2,
+     *      minMessage = "Le sexe doit comporter au moins 1 caractères",
+     *      maxMessage = "Le sexe doit comporter au plus 2 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $adrperso;
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 80,
+     *      minMessage = "L'adrperso doit comporter au moins 2 caractères",
+     *      maxMessage = "L'adrperso doit comporter au plus 80 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $statut;
 
