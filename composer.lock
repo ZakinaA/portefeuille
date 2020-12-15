@@ -5649,13 +5649,10 @@
                 "scaffold",
                 "scaffolding"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
                 "source": "https://github.com/symfony/maker-bundle/tree/v1.25.0"
             },
-=======
->>>>>>> 169ffb67c0c326ca432f23950c6529867697cf5f
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
