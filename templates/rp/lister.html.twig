@@ -10,16 +10,16 @@
 </head>
 <body>
 <div class="container"><br>
-	<center><h1 class="display-4"><u>Réalisations professionnelles</u></h1><br></center>
+	<center><h1 class="display-4">Réalisations professionnelles</h1><br></center>
 
-				<table class="table table-dark" id="table" data-toggle="BootstrapTable" data-height="460">
+				<table class="table" id="table" data-toggle="BootstrapTable" data-height="460">
 				  <thead>
 				    <tr>
 				      <th scope="col" data-sortable="true">Libellé</th>
 				      <th scope="col" data-sortable="true">Nombre d'activités</th>
 				      <th scope="col" data-sortable="true">Statut</th>
 				      <th scope="col" data-sortable="true">Date</th>
-				      <th>Action</th>
+				      <th></th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -29,29 +29,30 @@
 					
 					
 				    <tr>
-				      <td><a class="text-white" href="{{ path('rpConsulter', { 'rp_id': RP.id }) }}">{{ RP.libcourt }}</a></td>
+				      <td><a class="text" href="{{ path('rpConsulter', { 'rp_id': RP.id }) }}">{{ RP.libcourt }}</a></td>
 				      <td>{{ RP.activites.count }}</td> 
-					  <td>{{ RP.statut.libelle }}</td>		    
+
+				       <td>{{ RP.statut.libelle }}</td>		   
+					 
 				      <td>{{ RP.dateDebut|date("d/m/Y") }}</td>
 
 				      <td><a href="supprimer.html.twig"><img src="https://img.icons8.com/flat_round/64/000000/delete-sign.png" width="20px" title="Cliquez pour supprimer"></a>
-				      	  <a href="archiver.html.twig"><img src="https://img.icons8.com/fluent/96/000000/archive-folder.png" width="20px" title="Cliquez pour archiver"></a>
 				      </td>
 				    </tr>
 				    
 				    {% endfor %}
 				    
+				   
 				  </tbody>
 				</table>
 				<br>
 
 
-			<!-- 
-				SI LA BOUCLE NE RETOURNE AUCUNES LIGNE AFFICHER LA LIGNE CI-DESSOUS
+
 				<div class="alert alert-warning" role="alert">
 	  			Vous n'avez pas encore inséré de <a href="..." class="alert-link">réalisation professionnelle</a> pour le moment.
 				</div> 
-			-->
+
 
 		<br><br>
 			<a href="{{ path('rpAjouter')}}"><input type="button" value="Ajouter une nouvelle réalisation professionnelle" class="btn btn-secondary btn-lg btn-block"></a><br><br><br>
@@ -69,7 +70,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        Cette page permet d'éditer une réalisation professionnelle en cliquant sur le libellé de la réalisation, afin de l'éditer. Vous pouvez prendre connaissance du nombre d'activité, son statut et vous pouvez supprimer une réalisation en appuyant sur la croix rouge <img src="https://img.icons8.com/flat_round/64/000000/delete-sign.png" width="20px" title="Exemple">
+        Cette page permet d'éditer une réalisation professionnelle en cliquant sur le libellé de la réalisation, afin de l'éditer. Vous pouvez prendre connaissance du nombre d'activité, son statut et vous pouvez supprimer une réalisation en appuyant sur la croix rouge ❌ 
       </div>
     </div>
   </div>

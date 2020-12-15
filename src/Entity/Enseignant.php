@@ -236,7 +236,5 @@ class Enseignant
         }
 
         return $this;
-    }
-
-    
+    }    
 }

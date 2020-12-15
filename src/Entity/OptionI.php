@@ -31,19 +31,20 @@ class OptionI
     private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="optionI")
-     */
-    private $etudiants;
-
-    /**
      * @ORM\OneToMany(targetEntity=DomaineTaches::class, mappedBy="options")
      */
     private $domaineTaches;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Promotion::class, mappedBy="optioni")
+     */
+    private $promotion;
 
     public function __construct()
     {
         $this->etudiants = new ArrayCollection();
         $this->domaineTaches = new ArrayCollection();
+        $this->promotion = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,36 +77,6 @@ class OptionI
     }
 
     /**
-     * @return Collection|Etudiant[]
-     */
-    public function getEtudiants(): Collection
-    {
-        return $this->etudiants;
-    }
-
-    public function addEtudiant(Etudiant $etudiant): self
-    {
-        if (!$this->etudiants->contains($etudiant)) {
-            $this->etudiants[] = $etudiant;
-            $etudiant->setOptionI($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEtudiant(Etudiant $etudiant): self
-    {
-        if ($this->etudiants->removeElement($etudiant)) {
-            // set the owning side to null (unless already changed)
-            if ($etudiant->getOptionI() === $this) {
-                $etudiant->setOptionI(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|DomaineTaches[]
      */
     public function getDomaineTaches(): Collection
@@ -129,6 +100,36 @@ class OptionI
             // set the owning side to null (unless already changed)
             if ($domaineTach->getOptions() === $this) {
                 $domaineTach->setOptions(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Promotion[]
+     */
+    public function getPromotion(): Collection
+    {
+        return $this->promotion;
+    }
+
+    public function addPromotion(Promotion $promotion): self
+    {
+        if (!$this->promotion->contains($promotion)) {
+            $this->promotion[] = $promotion;
+            $promotion->setOptioni($this);
+        }
+
+        return $this;
+    }
+
+    public function removePromotion(Promotion $promotion): self
+    {
+        if ($this->promotion->removeElement($promotion)) {
+            // set the owning side to null (unless already changed)
+            if ($promotion->getOptioni() === $this) {
+                $promotion->setOptioni(null);
             }
         }
 

@@ -55,6 +55,16 @@ class Stage
     private $adrentreprise;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
+    /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $directeur;
@@ -129,11 +139,6 @@ class Stage
      * @ORM\ManyToOne(targetEntity=Etudiant::class, inversedBy="stages")
      */
     private $etudiant;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="stages")
-     */
-    private $ville;
 
     /**
      * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="stages")
@@ -241,6 +246,30 @@ class Stage
     public function setAdrentreprise(?string $adrentreprise): self
     {
         $this->adrentreprise = $adrentreprise;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
 
         return $this;
     }
@@ -422,18 +451,6 @@ class Stage
     public function setEtudiant(?Etudiant $etudiant): self
     {
         $this->etudiant = $etudiant;
-
-        return $this;
-    }
-
-    public function getVille(): ?Ville
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?Ville $ville): self
-    {
-        $this->ville = $ville;
 
         return $this;
     }
