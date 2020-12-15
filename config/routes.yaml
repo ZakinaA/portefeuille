@@ -6,8 +6,8 @@ etudiantAjouter:
     path: /etudiant/ajouter
     controller: App\Controller\EtudiantController::ajouterEtudiant
 rpAjouter:
-    path: /rp/ajouter
-    controller: App\Controller\RPController::ajouterRp
+    path: /rp/ajouter/
+    controller: App\Controller\RPController::ajouterRp_Description
 stageAjouter:
     path: /stage/ajouter
     controller: App\Controller\StageController::ajouterStage

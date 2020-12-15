@@ -31,26 +31,28 @@
 				    <tr>
 				      <td><a class="text" href="{{ path('rpConsulter', { 'rp_id': RP.id }) }}">{{ RP.libcourt }}</a></td>
 				      <td>{{ RP.activites.count }}</td> 
-					  <td>{{ RP.statut.libelle }}</td>		    
+
+				       <td>{{ RP.statut.libelle }}</td>		   
+					 
 				      <td>{{ RP.dateDebut|date("d/m/Y") }}</td>
 
-				      <td><a href="supprimer.html.twig">❌</a>
+				      <td><a href="supprimer.html.twig"><img src="https://img.icons8.com/flat_round/64/000000/delete-sign.png" width="20px" title="Cliquez pour supprimer"></a>
 				      </td>
 				    </tr>
 				    
 				    {% endfor %}
 				    
+				   
 				  </tbody>
 				</table>
 				<br>
 
 
-			<!-- 
-				SI LA BOUCLE NE RETOURNE AUCUNES LIGNE AFFICHER LA LIGNE CI-DESSOUS
+
 				<div class="alert alert-warning" role="alert">
 	  			Vous n'avez pas encore inséré de <a href="..." class="alert-link">réalisation professionnelle</a> pour le moment.
 				</div> 
-			-->
+
 
 		<br><br>
 			<a href="{{ path('rpAjouter')}}"><input type="button" value="Ajouter une nouvelle réalisation professionnelle" class="btn btn-secondary btn-lg btn-block"></a><br><br><br>
