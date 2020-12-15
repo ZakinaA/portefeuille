@@ -40,7 +40,12 @@ rpConsulter:
 #lister les RP à commenter (prof)
 enseignantLesRPaCommenter:
     path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
-    controller: App\Controller\EnseignantController::listerLesRPaCommenter
+    controller: App\Controller\RPController::listerLesRPaCommenter
+
+#lister les RP à modifier (etudiant)
+etudiantLesRPaModifier:
+    path: /etudiant/rp/listerLesRPaModifier/{etudiant_id}
+    controller: App\Controller\RPController::listerLesRPaModifier
 
 #lister toutes les RP d'une promo
 rpListerPromo:
@@ -85,7 +90,7 @@ stagePromo:
   controller: App\Controller\StageController::ListerStagesPromo
 
 ConsulterSemaine:
-    path: /etudiant/activite/consulterSemaine/{stage_id}
+    path: /etudiant/activite/consulterSemaine/{semaineStage_id}
     controller: App\Controller\ActiviteController::ConsulterSemaine
 
 ListerSemaine:

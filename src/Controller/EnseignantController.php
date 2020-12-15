@@ -21,17 +21,4 @@ class EnseignantController extends AbstractController
         ]);
 
     }
-
-    public function listerLesRPaCommenter($enseignant_id)
-    {
-        //$ense = reup esneignant enfonction id
-    	$enseignant = $this->getDoctrine()->getRepository(Enseignant::class)->findById($enseignant_id);    
-
-    	$RPaCommenter = $this->getDoctrine()->getRepository(RP::class)->findByEnseignant($enseignant);
-
-
-        //$RPaCommenter = $this->getDoctrine()->getRepository(RP::class)->findByEnseignant($ense);
-
-    	return $this->render('enseignant/lister.html.twig', ['RPCommenter' => $RPaCommenter]);
-    } 
 }

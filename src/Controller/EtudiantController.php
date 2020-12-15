@@ -40,6 +40,7 @@ class EtudiantController extends AbstractController
 
 
          return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant]);
+
          }     
 
 
@@ -84,4 +85,5 @@ class EtudiantController extends AbstractController
         }
     }                 
 }
+
 

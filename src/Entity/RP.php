@@ -21,6 +21,7 @@ class RP
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\OrderBy({"order" = "ASC", "id" = "ASC"})
      */
     private $libcourt;
 
