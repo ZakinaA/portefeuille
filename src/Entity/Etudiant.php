@@ -60,6 +60,16 @@ class Etudiant
     private $adrperso;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
+    /**
      * @ORM\Column(type="string", length=150)
      */
     private $statut;
@@ -73,11 +83,6 @@ class Etudiant
      * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
      */
     private $optionI;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
-     */
-    private $villePerso;
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
@@ -196,6 +201,29 @@ class Etudiant
         return $this;
     }
 
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -228,18 +256,6 @@ class Etudiant
     public function setOptionI(?OptionI $optionI): self
     {
         $this->optionI = $optionI;
-
-        return $this;
-    }
-
-    public function getVillePerso(): ?Ville
-    {
-        return $this->villePerso;
-    }
-
-    public function setVillePerso(?Ville $villePerso): self
-    {
-        $this->villePerso = $villePerso;
 
         return $this;
     }

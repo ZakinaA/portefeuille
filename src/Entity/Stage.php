@@ -6,6 +6,8 @@ use App\Repository\StageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\SemaineStage;
+use App\Entity\TacheSemaine;
 
 /**
  * @ORM\Entity(repositoryClass=StageRepository::class)
@@ -53,6 +55,16 @@ class Stage
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $adrentreprise;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -129,11 +141,6 @@ class Stage
      * @ORM\ManyToOne(targetEntity=Etudiant::class, inversedBy="stages")
      */
     private $etudiant;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="stages")
-     */
-    private $ville;
 
     /**
      * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="stages")
@@ -241,6 +248,30 @@ class Stage
     public function setAdrentreprise(?string $adrentreprise): self
     {
         $this->adrentreprise = $adrentreprise;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
 
         return $this;
     }
@@ -426,18 +457,6 @@ class Stage
         return $this;
     }
 
-    public function getVille(): ?Ville
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?Ville $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
     public function getEnseignant(): ?Enseignant
     {
         return $this->enseignant;
@@ -509,4 +528,41 @@ class Stage
 
         return $this;
     }
+
+        /* Fonctions de "tests" - Evaluation */
+
+        public function getCountSemaineStage($idStage): ?int{
+            $nb = 0;
+            foreach ($this->semaineStages as $semaine)
+            {
+                $nb++;
+            }
+            return $nb;
+        }
+
+        public function getNbTacheAdmin($idStage): ?int{
+            $nb = 0;
+            foreach ($this->semaineStages as $semaine)
+            {
+                foreach($semaine->getTacheSemaines() as $tache){
+                    if($tache->getDomaine()->getId() == 1){
+                        $nb++;
+                    }
+                }
+            }
+            return $nb;
+        }
+
+        public function getNbTacheDomaine($idStage, $idDomaine): ?int{
+            $nb = 0;
+            foreach ($this->semaineStages as $semaine)
+            {
+                foreach($semaine->getTacheSemaines() as $tache){
+                    if($tache->getDomaine()->getId() == $idDomaine){
+                        $nb++;
+                    }
+                }
+            }
+            return $nb;
+        }
 }

@@ -1,0 +1,31 @@
+{% extends "entete.html.twig" %}
+{% block content %}
+
+<!DOCTYPE html>
+
+<body>
+<div class="container">
+  <h1 class="display-4"><u>Activités et compétences par bloc</u></h1><br>
+
+  {% for bloc in pBlocs %}  
+  <li class="card text-white bg-dark" style="text-align:center;font-size:30px;"> <!--Bloc-->
+    {{bloc.code}} - {{bloc.libelle}}
+  </li> 
+  <ul class="list-group list-group-flush text-white bg-dark"> <!--Liste d'activités-->
+    {% for activite in bloc.activites %} 
+    <li class="list-group-item text-white bg-dark">{{activite.code}} - {{activite.libelle}}</li>
+    <ul class="list_group list-group-flush text-white bg-dark"> <!--Liste de compétences-->
+      {% for competence in activite.competences %}
+        <li class="list-group-item text-white bg-dark">{{competence.code}} - {{competence.libelle}}</li>
+      {% endfor %}
+      </ul>
+    {% endfor %}
+    </ul>
+    <div style="margin-bottom:50px;"> </div> 
+  {% endfor %}
+
+</body>
+
+</html>
+
+{% endblock %}
