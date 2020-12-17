@@ -34,7 +34,6 @@ class Promotion
      */
     private $option_i;
 
-
     public function __construct()
     {
         $this->etudiants = new ArrayCollection();

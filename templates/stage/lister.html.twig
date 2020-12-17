@@ -5,8 +5,8 @@
 
 <body>
 <div class="container">
-  <h1 class="display-4"><u>Tableau de suivi de stage</u></h1><br>
-
+  <br>
+  <center><h1>Tableau de suivi de stage</h1><br></center>
 
       <h4 align="left"><u>Suivi de stage</u></h4>
        
@@ -57,8 +57,8 @@
             
             <td>{{stage.lieu}}</td>
             <td>{{stage.nomtut}}</td>
-            <td><a href="../../../etudiant/stage/consulter/{{stage.id}}">Détail</a></td>
-            <td><a href="../../../etudiant/activite/consulterSemaine/{{stage.id}}">Activités</a></td>
+            <td><a href="{{ path('StageConsulter', { 'stage_id': stage.id }) }}">Détail</a></td>
+            <td><a href="{{ path('ConsulterSemaine', { 'semaineStage_id': stage.id }) }}">Activités</a></td>
 
  
     <tr>

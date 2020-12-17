@@ -22,6 +22,8 @@ class Stage
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
       /**
      * @ORM\Column(type="string", length=20, nullable=true)
      * @Assert\Length(
@@ -79,18 +81,17 @@ class Stage
      */
     private $ville;
 
+        /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
 
 
     private $adrentreprise;
-
-     /**
-     * @ORM\Column(type="string", length=6)
-     */
-    private $copos;
-
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -301,6 +302,29 @@ class Stage
         return $this;
     }
 
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
 
     public function getDirecteur(): ?string
     {
@@ -484,7 +508,6 @@ class Stage
     }
 
     public function getEnseignant(): ?Enseignant
-
     {
         return $this->enseignant;
     }
@@ -495,37 +518,6 @@ class Stage
 
         return $this;
     }
-
-
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?string $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getCopos(): ?string
-
-
-    {
-        return $this->copos;
-    }
-
-    public function setCopos(?string $copos): self
-    {
-        $this->copos = $copos;
-
-        return $this;
-    }
-
-
-
-    
 
     /**
      * @return Collection|SemaineStage[]

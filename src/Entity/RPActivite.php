@@ -10,85 +10,85 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RPActivite
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue
+	 * @ORM\Column(type="integer")
+	 */
+	private $id;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $commentaire;
+	/**
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	private $commentaire;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Niveau::class, inversedBy="activites")
-     */
-    private $niveau;
+	/**
+	 * @ORM\ManyToOne(targetEntity=Niveau::class, inversedBy="activites")
+	 */
+	private $niveau;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Activite::class, inversedBy="RPs")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $activite;
+	/**
+	 * @ORM\ManyToOne(targetEntity=Activite::class, inversedBy="RPs")
+	 * @ORM\JoinColumn(nullable=false)
+	 */
+	private $activite;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=RP::class, inversedBy="activites")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $rp;
+	/**
+	 * @ORM\ManyToOne(targetEntity=RP::class, inversedBy="activites")
+	 * @ORM\JoinColumn(nullable=false)
+	 */
+	private $rp;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
 
-    public function getCommentaire(): ?string
-    {
-        return $this->commentaire;
-    }
+	public function getCommentaire(): ?string
+	{
+		return $this->commentaire;
+	}
 
-    public function setCommentaire(?string $commentaire): self
-    {
-        $this->commentaire = $commentaire;
+	public function setCommentaire(?string $commentaire): self
+	{
+		$this->commentaire = $commentaire;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getNiveau(): ?Niveau
-    {
-        return $this->niveau;
-    }
+	public function getNiveau(): ?Niveau
+	{
+		return $this->niveau;
+	}
 
-    public function setNiveau(?Niveau $niveau): self
-    {
-        $this->niveau = $niveau;
+	public function setNiveau(?Niveau $niveau): self
+	{
+		$this->niveau = $niveau;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getActivite(): ?Activite
-    {
-        return $this->activite;
-    }
+	public function getActivite(): ?Activite
+	{
+		return $this->activite;
+	}
 
-    public function setActivite(?Activite $activite): self
-    {
-        $this->activite = $activite;
+	public function setActivite(?Activite $activite): self
+	{
+		$this->activite = $activite;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getRp(): ?RP
-    {
-        return $this->rp;
-    }
+	public function getRp(): ?RP
+	{
+		return $this->rp;
+	}
 
-    public function setRp(?RP $rp): self
-    {
-        $this->rp = $rp;
+	public function setRp(?RP $rp): self
+	{
+		$this->rp = $rp;
 
-        return $this;
-    }
+		return $this;
+	}
 }

@@ -47,7 +47,7 @@ class StageController extends AbstractController
         $stages = $this->getDoctrine()
         ->getRepository(Stage::class)
         ->findAll();
-         return $this->render('stage/ListerAncienStage.html.twig', [
+         return $this->render('stage/lister.html.twig', [
             'pStages' => $stages,]);   
     }
 

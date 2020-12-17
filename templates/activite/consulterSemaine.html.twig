@@ -5,6 +5,20 @@
 <body>
 <div class="container">
   <br>
+    <center><h1>Activité quotidienne</h1></center><br>
+    <FORM>
+    <SELECT class="form-control" name="nom" size="1">
+    <OPTION>Semaine 1</OPTION>
+    <OPTION>Semaine 2</OPTION>
+    <OPTION>Semaine 3</OPTION>
+    <OPTION>Semaine 4</OPTION>
+    <OPTION>Semaine 5</OPTION>
+    <OPTION>Semaine 6</OPTION>
+    <OPTION>Semaine 7</OPTION>
+    <OPTION>Semaine 8</OPTION>
+    </SELECT>
+    </FORM>
+  </br></br>
     <h1><u>Activité quotidienne</u></h1>
    </br>
    <table class="table" border ="2px">
@@ -48,7 +62,7 @@
 
     {% if idJour != tache.jour.id%}
       <u><h3> {{tache.jour.libelle}} :  </h3></u>
-      <table class="table table-dark">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">Domaine</th>

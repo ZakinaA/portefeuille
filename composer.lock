@@ -5605,12 +5605,18 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74fb56e2df8a1b3b4a9790d1fb65e8ad2cdbb4db
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.3"
             },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74fb56e2df8a1b3b4a9790d1fb65e8ad2cdbb4db
             "time": "2020-12-03T17:45:45+00:00"
         },
         {
@@ -5681,12 +5687,18 @@
                 "scaffold",
                 "scaffolding"
             ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74fb56e2df8a1b3b4a9790d1fb65e8ad2cdbb4db
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
                 "source": "https://github.com/symfony/maker-bundle/tree/v1.25.0"
             },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74fb56e2df8a1b3b4a9790d1fb65e8ad2cdbb4db
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",

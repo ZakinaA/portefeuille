@@ -4,9 +4,12 @@
 etudiantAjouter:
     path: /etudiant/ajouter
     controller: App\Controller\EtudiantController::ajouterEtudiant
+<<<<<<< HEAD
+=======
 rpAjouter:
     path: /rp/ajouter/
     controller: App\Controller\RPController::ajouterRp_Description
+>>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
 stageAjouter:
     path: /stage/ajouter/{idEtudiant}
     controller: App\Controller\StageController::ajouterStage
@@ -90,6 +93,9 @@ ListerStagesAffect:
 etudiantConsulter:
     path: /etudiant/etudiant/consulter/{etudiant_id}
     controller: App\Controller\EtudiantController::consulterEtudiant
+<<<<<<< HEAD
+        
+=======
 
 #Ajouter les promotions par l'admin
 ajouterPromotion:
@@ -98,6 +104,7 @@ ajouterPromotion:
 
 
     
+>>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
 #Modifier les information de l'etudiant
 etudiantModifier:
     path: /etudiant/etudiant/modifier/{etudiant_id}
@@ -107,6 +114,16 @@ etudiantModifier:
 stagePromo:
   path: /enseignant/stage/listerStagePromo/{promotion_id}
   controller: App\Controller\StageController::ListerStagesPromo
+
+#Ajouter une RP
+rpAjouter:
+    path: etudiant/etudiant/rp/ajouter
+    controller: App\Controller\RPController::ajouterRp
+
+#Lister les anciens stage
+ListerAncienStages:
+    path: /etudiant/stage/ListerAncienStages
+    controller: App\Controller\StageController::ListerAncienStages
 
 ConsulterSemaine:
     path: /etudiant/activite/consulterSemaine/{idStage}/{idSemaineStage}
@@ -123,7 +140,10 @@ ListerBlocs:
   path: /bloc/listerLesBlocs
   controller: App\Controller\BlocController::ListerBlocs
 
+<<<<<<< HEAD
+=======
 
 ListerAncienStages:
     path: /stage/ListerAncienStages
     controller: App\Controller\StageController::ListerAncienStages
+>>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
