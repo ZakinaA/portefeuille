@@ -119,6 +119,10 @@ class RPController extends AbstractController
     public function consulterCommentaireRPEtudiant($rp_id){
         $rp = $this->getDoctrine()->getRepository(Rp::class)->find($rp_id);
         return $this->render('rp/consulter_Commentaire.html.twig', ['rp' => $rp]);
+
+        
+
+
     }
 
 
