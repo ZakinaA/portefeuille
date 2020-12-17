@@ -36,28 +36,26 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav><bR>
 
 
-{% for commentaire in consulter %}
-        <tbody>
-          <table>
-            <tr>  
-              <td>{{ commentaire.commentaire.commentaire }}</td> 
-
-               <td>{{ commentaire.enseignant.nom }}</td>      
-           
-              <td>{{ commentaire.dateCommentaire|date("d/m/Y") }}</td>
-            </tr>
-            
-            {% endfor %}
-            
-            {{ var }}
-           
-          </tbody>
-        </table>
-        <br>
+{% for commentaire in rp.commentaire %}
+<div class="alert alert-dark" role="alert">
+  
+  <h4><span class="badge bg-secondary">{{ commentaire.dateCommentaire|date("d/m/Y") }}</span> {{ commentaire.enseignant.nom }} </h4>
+       
+    <div class="alert alert-light" role="alert">
+      {{ commentaire.commentaire }}
     </div>
-  </body>
+</div>
+            
+{% endfor %}
+            
+           
+           
+
+<br>
+</div>
+</body>
 </html>
 {% endblock %}
