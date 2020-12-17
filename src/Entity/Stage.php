@@ -526,34 +526,6 @@ class Stage
 
         return $this;
     }
-
-
-
-    public function getNbrSemaine(){
-
-        return $this->nbsemaine('a')
-         ->select('COUNT(a)')
-         ->getQuery()
-         ->getSingleScalarResult();
-        }
-
-    public function getNbrTacheAdm(){
-        $query = $em->createQuery('SELECT 
-                                    count(distinct tacheSemaine.id) AS bcnt,
-                                   FROM EnexgirDatabaseBundle:tacheSemaine, EnexgirDatabaseBundle:semaineStage, EnexgirDatabaseBundle:domaineTaches 
-                                   WHERE domaine.id = 1');
-        }
-
-    public function getNbrTache(domaineTaches $id_domaineTaches){
-        return $this->nbsemaine('a')
-         ->select('COUNT(a)')
-         ->getQuery()
-         ->getSingleScalarResult();
-
-
-
-    }
-
 }
 
 
