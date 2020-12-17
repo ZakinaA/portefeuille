@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Matiere;
 use App\Entity\SemaineStage;
->>>>>>> 35b61d4f78e59ad9e191f6c1de07157a3d2ee683
+
 
 class StageController extends AbstractController
 {
@@ -169,16 +169,7 @@ class StageController extends AbstractController
      } 
             
         
-    }   
-
-
-
-
-
-
-
-
-
+    //}   
 
 
 /*public function listerSemaine($stage_id)

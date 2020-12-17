@@ -90,16 +90,6 @@ class Stage
     private $copos;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $ville;
-
-    /**
-     * @ORM\Column(type="string", length=6)
-     */
-    private $copos;
-
-    /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $directeur;
@@ -308,29 +298,7 @@ class Stage
         return $this;
     }
 
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
 
-    public function setVille(?string $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getCopos(): ?string
-    {
-        return $this->copos;
-    }
-
-    public function setCopos(?string $copos): self
-    {
-        $this->copos = $copos;
-
-        return $this;
-    }
 
     public function getDirecteur(): ?string
     {
