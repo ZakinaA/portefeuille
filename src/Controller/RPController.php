@@ -11,6 +11,7 @@ use App\Entity\RPActivite;
 use App\Entity\Statut; 
 use App\Form\RPType;
 use App\Entity\Enseignant; 
+use App\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Request;
 
 class RPController extends AbstractController
@@ -24,7 +25,7 @@ class RPController extends AbstractController
         return $this->render('rp/consulter.html.twig', ['consulter' => $rp,]);
     }
 
-
+    
     public function listerLesRPEtudiant(): Response
     {
         return $this->render('rp/lister.html.twig', [
@@ -113,6 +114,18 @@ class RPController extends AbstractController
             return $this->render('rp/lister.html.twig', [ 'pRP' => $MesRp,]);
 
     }
+
+
+    public function consulterCommentaireRPEtudiant($rp_id){
+        $rp = $this->getDoctrine()->getRepository(Rp::class)->find($rp_id);
+        return $this->render('rp/consulter_Commentaire.html.twig', ['rp' => $rp]);
+
+        
+
+
+    }
+
+
 }
 
 

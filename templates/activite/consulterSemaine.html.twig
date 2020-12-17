@@ -4,7 +4,9 @@
 <html>
 <body>
 <div class="container">
-    <h1 class="display-4"><u>Activité quotidienne</u></h1>
+  <br>
+    <h1><u>Activité quotidienne</u></h1>
+   </br>
    <table class="table" border ="2px">
 <thead>
           <tr>
@@ -24,7 +26,7 @@
 {%endfor%}
 
  </table>
-  </br></br>
+  </br>
 <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea> -->
   <!--  <div class="row align-items-center">
     <div class="col-md-2 text-center">
@@ -35,10 +37,7 @@
 {% set idJour = -1%}
 
 
-
 {% for tache in tacheSemaine %}
-
-
 
           {% if idJour == -1 %}
 
@@ -67,14 +66,29 @@
             <td>{{tache.description}}</td>
           </tr>   
 
-
-
-
-
 {%endfor%}
 </tbody>
 </table>
 
+</tr>
+</br>
+
+</br>
+
+<h1 class="display-4"><u>Bilan de la semaine</u></h1> 
+</br>   
+   <table class="table" border ="2px">
+          <thead>
+            <tr>
+              <th scope="col">Apprentissages :</th>
+              <th scope="col">Bilan et difficultés :</th>
+            </tr>
+          </thead>
+        <tr>
+            <td>{{semaineStage.apprentissage}}</td>
+            <td>{{semaineStage.bilan}}</td>
+          </tr>
+              </table>   
 
 </div>
 
