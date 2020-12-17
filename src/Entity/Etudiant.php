@@ -308,4 +308,9 @@ class Etudiant
     }
 
 
+public function add($a, $b): self
+{
+    return $a + $b;
+}
+
 }

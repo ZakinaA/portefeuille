@@ -526,4 +526,25 @@ class Stage
 
         return $this;
     }
+
+public function getNbStageStatut(): ?int
+{
+   $nb = 0;
+    foreach ($this->SemaineStages as $UneSemaineStage)
+    {
+        foreach ($TacheSemaine as $uneTacheSemaine) {
+        $idDomaine = $uneTacheSemaine->getDomaine()->getId();
+        if ($idDomaine == 1 )
+        {
+            $nb++;
+        }
+    }
+}
+    return $nb;
+}
+
+public function getNbSemaineDuStage(): ?int
+{
+    return count($this->$semaineStages);
+}
 }
