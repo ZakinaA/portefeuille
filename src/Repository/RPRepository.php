@@ -47,4 +47,17 @@ class RPRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByStatutAndEnseignant($enseignant): array
+    {        
+         $enseignant = new Enseignant($enseignant);  
+         $qb = $this->createQueryBuilder('r')
+            ->andWhere('r.enseignant = :pEnseignant', )
+            ->setParameter('pEnseignant', $enseignant)
+            ->orderBy('r.nom', 'ASC')
+            ->getQuery();
+ 
+        return $qb->execute();
+ 
+    }
 }
