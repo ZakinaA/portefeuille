@@ -12,8 +12,15 @@ use App\Controller\StageController;
 use App\Entity\TacheSemaine;
 use App\Entity\RPActivite;
 use App\Entity\Enseignant;
+use App\Form\StageType;
 use App\Entity\Promotion;
+
+use Symfony\Component\HttpFoundation\Request;
+
+
 use App\Entity\Matiere;
+use App\Entity\SemaineStage;
+
 
 class StageController extends AbstractController
 {
@@ -71,6 +78,8 @@ class StageController extends AbstractController
             'pStages' => $stages,]);
     }
 
+
+
     public function ListerStagesPromo($promotion_id){
 
         $promotion = $this->getDoctrine()
@@ -118,6 +127,7 @@ class StageController extends AbstractController
 
 
 
+
         return $this->render('stage/listerPromo.html.twig', [
             'pStages1' => $stage1annee,'pStages2' => $stage2annee, 'pEnseignants' => $enseignants]);
     }
@@ -135,4 +145,66 @@ class StageController extends AbstractController
     }
 
 
+
+
+
+
+
+ public function listerSemaine($idStage){
+       
+                    
+
+           // var_dump($semaineStage);
+
+       $stage = $this->getDoctrine()->getRepository(Stage::class)->find($idStage);
+
+       /*foreach  ($stage->getSemaineStages() as $ss ){
+        var_dump ($ss);
+       }*/
+       // var_dump($stage);
+
+            //var_dump($stage);
+
+        return $this->render('stage/listerSemaine.html.twig', ['stage' => $stage]);
+     } 
+            
+        
+    //}   
+
+
+/*public function listerSemaine($stage_id)
+     {
+        $stage = $this->getDoctrine()->getRepository(Stage::class)->find($stage_id);
+var_dump($stage);
+
+
+         return $this->render('stage/listerSemaine.html.twig', ['stage' => $stage]);
+     }*/
+
+
+
+
+
+
+public function ajouterStage(Request $request){
+        $stage = new Stage();
+        $form = $this->createForm(StageType::class, $stage);
+        $form->handleRequest($request);
+ 
+        if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $stage = $form->getData();
+
+ 
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($stage);
+            $entityManager->flush();
+                        return $this->render('stage/consulter.html.twig', ['pStage' => $stage,]);
+        }
+        else
+        {
+            return $this->render('stage/ajouter.html.twig', array('form' => $form->createView(),));
+        }
+
+    }
 }

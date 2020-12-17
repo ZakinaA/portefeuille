@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Form\EtudiantInfoType;
+use App\Form\AjoutEtudiantType;
 use App\Entity\Etudiant;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,16 +40,10 @@ class EtudiantController extends AbstractController
 
     public function consulterEtudiant($etudiant_id)
     {   
-
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
         ->find($etudiant_id);
-
-        
-
-
          return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant]);
-
          }     
 
 
@@ -57,8 +52,6 @@ class EtudiantController extends AbstractController
         $etudiant = $this->getDoctrine()
         ->getRepository(Etudiant::class)
         ->find($etudiant_id);
-
-
         if(!$etudiant){
             echo ("etudiant non trouvé");
             throw $this->createNotFoundException('Aucun etudiant trouvé avec l\'id '.$etudiant_id);
@@ -67,31 +60,48 @@ class EtudiantController extends AbstractController
         {
             $form = $this->createForm(EtudiantInfoType::class, $etudiant);
             $form->handleRequest($request);
-            
             $etudiant->setDateNaiss(new \DateTime(date('1980-07-31')));
             //var_dump($etudiant) ;
-
-
-            if($form->isSubmitted() && $form->isValid()){
-                
+            if($form->isSubmitted() ){
                 $etudiant = $form->getData();
-
-
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etudiant);
                 $entityManager->flush();
                 //return $this->render('etudiant/modifier.html.twig', ['pEtudiant' => $etudiant]);
-                 return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView()));
-
+                 return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant]);
             }
-            else{
-                
+            else{  
                 //return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView(),'pEtudiant' => $etudiant));
                 return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView()));
             }
 
         }
-    }                 
+    }
+        public function ajouterEtudiant(Request $request){
+                
+
+                
+                $etudiant = new etudiant();
+                $form = $this->createForm(AjoutEtudiantType::class, $etudiant);
+                $form->handleRequest($request);
+             
+                if ($form->isSubmitted() && $form->isValid()) {
+             
+                        $etudiant = $form->getData();
+             
+                        $entityManager = $this->getDoctrine()->getManager();
+                        $entityManager->persist($etudiant);
+                        $entityManager->flush();
+             
+                    return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant,]);
+                }
+                else
+                    {
+                        echo("form invalide");
+                        return $this->render('enseignant/ajouterEtudiant.html.twig', array('form' => $form->createView(),));
+                }
+
+}
 }
 
 

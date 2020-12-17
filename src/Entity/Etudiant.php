@@ -70,6 +70,10 @@ class Etudiant
     private $copos;
 
     /**
+<<<<<<< HEAD
+=======
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
+>>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
      * @ORM\Column(type="string", length=150)
      */
     private $statut;
@@ -220,6 +224,7 @@ class Etudiant
 
         return $this;
     }
+
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -243,9 +248,6 @@ class Etudiant
 
         return $this;
     }
-
-    
-
 
     /**
      * @return Collection|RP[]
@@ -306,6 +308,4 @@ class Etudiant
 
         return $this;
     }
-
-
 }

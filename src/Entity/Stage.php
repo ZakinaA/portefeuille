@@ -6,6 +6,7 @@ use App\Repository\StageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StageRepository::class)
@@ -21,6 +22,15 @@ class Stage
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+      /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $nomtut;
 
@@ -44,15 +54,42 @@ class Stage
      */
     private $nbsemaine;
 
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+      /**
+     * @ORM\Column(type="string", length=2, nullable=true)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 10,
+     *     
+     *      
+         *    )
+     * @Assert\NotBlank()
      */
-    private $nomentreprise;
+         private $nomentreprise;
+
+      /**
+
+     * @ORM\Column(type="string", length=255, nullable=true )
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
+     */
+    private $ville;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
+
+
     private $adrentreprise;
+
+     /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -69,13 +106,27 @@ class Stage
      */
     private $directeur;
 
-    /**
-     * @ORM\Column(type="string", length=5, nullable=true)
+      /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $codenaf;
 
-    /**
-     * @ORM\Column(type="string", length=15, nullable=true)
+      /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $siret;
 
@@ -99,14 +150,19 @@ class Stage
      */
     private $dateFin;
 
-    /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+       /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au moins 2 caractères",
+     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
+     *    )
+     * @Assert\NotBlank()
      */
     private $sujet;
 
-    /**
-     * @ORM\Column(type="string", length=20, nullable=true)
-     */
+   
     private $horLun;
 
     /**
@@ -145,9 +201,13 @@ class Stage
      */
     private $enseignant;
 
+   
+
     /**
      * @ORM\OneToMany(targetEntity=SemaineStage::class, mappedBy="stage")
      */
+    
+   
     private $semaineStages;
 
     /**
@@ -467,6 +527,31 @@ class Stage
         return $this;
     }
 
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
+
     /**
      * @return Collection|SemaineStage[]
      */
@@ -496,6 +581,54 @@ class Stage
 
         return $this;
     }
+
+
+    public function getNbSemaineRealisees(): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            $idStage = $semaine->getStage()->getId();
+            if ($idStage == 16 )
+            {
+            $nb++;
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbTacheParDomaine(): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            foreach ($semaine -> $this->tacheSemaines as $tache) {
+                $idDomaine = $tache->getDomaine()->getLibelle();
+                if ($idDomaine == 'Administration' )
+                {
+                    $nb++;
+                }
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbTacheParIdDomaine(int $pIdDomaine): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            foreach ($semaine -> $this->tacheSemaines as $tache) {
+                $idDomaine = $tache->getDomaine()->getId();
+                if ($idDomaine == $pIdDomaine )
+                {
+                    $nb++;
+                }
+            }
+        }
+        return $nb;
+    }
+
 
     /**
      * @return Collection|Pointage[]

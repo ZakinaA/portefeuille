@@ -19,6 +19,28 @@
     </SELECT>
     </FORM>
   </br></br>
+    <h1><u>Activité quotidienne</u></h1>
+   </br>
+   <table class="table" border ="2px">
+<thead>
+          <tr>
+{% set numSemaine = -1 %}
+{% for semaineStage in stage.semaineStages %}
+
+          
+
+          {% if numSemaine != semaineStage.numSemaine %}
+      
+    {% set numSemaine = semaineStage.numSemaine %}
+    {% endif%}      
+          
+           
+<td> <a class="dropdown-item" href="{{path ('ConsulterSemaine',{'idStage': stage.id, 'idSemaineStage': semaineStage.id}) }} ">semaine {{semaineStage.numSemaine}}</a></td>
+           
+{%endfor%}
+
+ </table>
+  </br>
 <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea> -->
   <!--  <div class="row align-items-center">
     <div class="col-md-2 text-center">
@@ -27,6 +49,7 @@
    
 
 {% set idJour = -1%}
+
 
 {% for tache in tacheSemaine %}
 
@@ -57,14 +80,29 @@
             <td>{{tache.description}}</td>
           </tr>   
 
-
-
-
-
 {%endfor%}
 </tbody>
 </table>
 
+</tr>
+</br>
+
+</br>
+
+<h1 class="display-4"><u>Bilan de la semaine</u></h1> 
+</br>   
+   <table class="table" border ="2px">
+          <thead>
+            <tr>
+              <th scope="col">Apprentissages :</th>
+              <th scope="col">Bilan et difficultés :</th>
+            </tr>
+          </thead>
+        <tr>
+            <td>{{semaineStage.apprentissage}}</td>
+            <td>{{semaineStage.bilan}}</td>
+          </tr>
+              </table>   
 
 </div>
 
@@ -78,7 +116,7 @@
 
 
 <div class="container">
-            <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a>
+     <!--       <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a> -->
 
   <div class="alert alert-light" role="alert">
 </div>

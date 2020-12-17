@@ -20,70 +20,35 @@
 
 	<br>
 	
-	
-
-		<!-- 1ER TABLEAU : AFFICHER TOUTES LES OCCURENCES DE DEUXIEME ANNEE, SI IL N'Y EN A PAS, SORTIR DE LA CONDITION -->
-			<h4 align="left"><u>Liste des semaines</u></h4>
-				<table class="table table-dark" id="table" data-toggle="BootstrapTable" data-height="460">
-				  <thead>
-				    <tr>
-				      <th scope="col" data-sortable="true">ID</th>
-				      <th scope="col" data-sortable="true">ETUDIANT</th>
-				      <th scope="col" data-sortable="true">VILLE</th>
-				      <th scope="col" data-sortable="true">ENSEIGNANT</th>
-				      <th></th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  	<!-- ENTRER DANS LA BOUCLE -->
-				    
-				    {% for s in pStage %}
-				    <tr>
-				   		
-				      	<td>{{ s.id }}</a></td>
-						<td>{{ s.lieu}}</td>
-						<td>{{ s.nbsemaine}}</td>
-						<td>{{ s.enseignant.id}}</td>
-						<td>{{ s.etudiant.id}}</td>
-
-						
-						{% endfor %}
-				    </tr>
-				    <tr>
-				      
-				    </tr>
-				  </tbody>
-				</table>
-				<br>
-				<br>
-
-
-			<!-- BOUCLE RECUPERATION LIBELLE, STATUT, CALCUL NB ACTIVITE 1ERE ANNEE SELON ID -->
 
 
 
-		<!-- SI AUCUNES OCCURENCES, AFFICHER MESSAGE POUR PREVENIR QU'AUCUNES OCCURENCES N'A ETE RENSEIGNE -->
-				
-
-				
 
 
-<div class="accordion" id="accordionExample">
-<div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Aide
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Cette page permet d'éditer une réalisation professionnelle en cliquant sur le libellé de la réalisation, afin de l'éditer. Vous pouvez prendre connaissance du nombre d'activité, son statut et vous pouvez supprimer une réalisation en appuyant sur la croix rouge <img src="img/delete.png" width="15px" title="Exemple">
-      </div>
-    </div>
-  </div>
-</div>
+<table class="table" border ="2px">
+<thead>
+          <tr>
+{% set numSemaine = -1 %}
+{% for semaineStage in stage.semaineStages %}
+
+          
+
+          {% if numSemaine != semaineStage.numSemaine %}
+      
+    {% set numSemaine = semaineStage.numSemaine %}
+    {% endif%}      
+          
+            
+<td> <a class="dropdown-item" href="{{path ('ListerSemaine',{'idStage': stage.id, 'idSemaineStage': semaineStage.id}) }} ">semaine {{semaineStage.numSemaine}}</a></td>
+           
+
+
+
+
+{%endfor%}
+
+ </table>
+
 </body>
 
 </html>

@@ -9,6 +9,7 @@ use App\Entity\RP;
 use App\Entity\Enseignant;
 use App\Entity\activite;
 use App\Entity\Stage;
+use Symfony\Component\HttpFoundation\Request;
 
 class EnseignantController extends AbstractController
 {
@@ -27,5 +28,7 @@ class EnseignantController extends AbstractController
         ->findByEnseignant($enseignant_id);
         
         return $this->render('enseignant/accueil.html.twig', ['pRP' => $RPaCommenter, 'pStages' => $stages]);
-    } 
-}
+    }
+    }
+     
+

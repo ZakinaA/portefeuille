@@ -10,10 +10,11 @@
 /composer.lock/
 /symfony.lock/
 /composer.json/
-/tests/
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
+/tests/
 .phpunit
 .phpunit.result.cache
 /phpunit.xml
