@@ -73,12 +73,12 @@ class Promotion
         return $this;
     }
 
-    public function getOptioni(): ?Option_i
+    public function getOptioni(): ?Optioni
     {
         return $this->option_i;
     }
 
-    public function setOptioni(?Option_I $option_i): self
+    public function setOptioni(?OptionI $option_i): self
     {
         $this->option_i = $option_i;
 
