@@ -9,7 +9,7 @@ rpAjouter:
     path: /rp/ajouter
     controller: App\Controller\RPController::ajouterRp
 stageAjouter:
-    path: /stage/ajouter
+    path: /stage/ajouter/{idEtudiant}
     controller: App\Controller\StageController::ajouterStage
 
 enseignantAjouter:
@@ -85,3 +85,4 @@ ConsulterSemaine:
 ListerSemaine:
     path: /etudiant/stage/listerLesSemaines/{stage_id}
     controller: App\Controller\ActiviteController::listerLesSemaines
+

@@ -1,10 +1,10 @@
-
+ 
 {% extends "entete.html.twig" %}
  {% block content %}
 
 
 {# templates/stage/ajouter.html.twig #}
-{{ form_start(form) }}
+
 
 <!DOCTYPE html>
 
@@ -21,8 +21,15 @@
 </head><body>
 <div class="container">
   <h1 class="display-4"><u>Ajout stage</u></h1><br>
+{{ form_start(form) }}
 
-        <form>
+    <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="disabledTextInput">Etudiant</label>
+        {{ form_widget(form.etudiant, {'attr': {'class': 'form-control'}}) }}            
+      </div>
+    </div>
+        
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Nom de l'entreprise</label>
@@ -50,11 +57,18 @@
                {{ form_widget(form.directeur, {'attr': {'class': 'form-control'}}) }}
 
             </div>
-            <div class="col-md-6 mb-3">
+           <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Ville</label>
             
              {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
             </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="disabledTextInput">Code Postal</label>
+            
+             {{ form_widget(form.copos, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
@@ -74,7 +88,7 @@
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="disabledTextInput">Nom du tuteur</label>
-                 {{ form_widget(form.coordonneestut, {'attr': {'class': 'form-control'}}) }}
+                 {{ form_widget(form.nomtut, {'attr': {'class': 'form-control'}}) }}
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom02">Téléphone du tuteur</label>
@@ -98,8 +112,9 @@
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="disabledTextInput">Durée</label>
+              <label for="disabledTextInput">Durée </label>
             {{ form_widget(form.nbsemaine, {'attr': {'class': 'form-control'}}) }}
+
             </div>
            
             <div class="col-md-6 mb-3">
@@ -110,42 +125,45 @@
           </div>
 
            <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Lundi</label>
+            <label for="validationCustom02" >Horaire Lundi</label>
            {{ form_widget(form.horLun, {'attr': {'class': 'form-control'}}) }}
           </div></center>
 
           <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Mardi</label>
+            <label for="validationCustom02" >Horaire Mardi</label>
            {{ form_widget(form.horMar, {'attr': {'class': 'form-control'}}) }}
           </div></center>
 
             <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Mercredi</label>
+            <label for="validationCustom02" >Horaire Mercredi</label>
            {{ form_widget(form.horMer, {'attr': {'class': 'form-control'}}) }}
           </div></center>
 
             <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Jeudi</label>
+            <label for="validationCustom02" >Horaire Jeudi</label>
            {{ form_widget(form.horJeu, {'attr': {'class': 'form-control'}}) }}
           </div></center>
            
            <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Vendredi</label>
+            <label for="validationCustom02" >Horaire Vendredi</label>
            {{ form_widget(form.horVen, {'attr': {'class': 'form-control'}}) }}
           </div></center>
 
 
           <center><div class="form-row">
-            <label for="validationCustom02" >Hoaire Samedi</label>
+            <label for="validationCustom02" >Horaire Samedi</label>
            {{ form_widget(form.horSam, {'attr': {'class': 'form-control'}}) }}
           </div></center>
 
           </div>
 
-          <input type="submit" value="Nouveau Stage">
+          <input type="submit" value="Nouveau Stage" href="etudiant/stage/consulter.html.twig"> 
           
 
-        </form>
+        
+
+
+        
 
 
  

@@ -13,6 +13,7 @@ use App\Entity\RPActivite;
 use App\Entity\Enseignant;
 use App\Form\StageType;
 use App\Entity\Promotion;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class StageController extends AbstractController
@@ -55,44 +56,10 @@ class StageController extends AbstractController
 
 
         return $this->render('stage/lister.html.twig', [
-
-            'controller_name' => 'StageController',
-        ]);
-    }
-
-    
-
-    public function ListerStagesEtudiant($etu_id){
-        
-        $etudiant = $this->getDoctrine()
-        ->getRepository(Etudiant::class)
-        ->findOneById($etu_id);
- 
-        $stages = $this->getDoctrine()
-        ->getRepository(Stage::class)
-        ->findByEtudiant($etudiant);
-
-        
- 
-        return $this->render('stage/lister.html.twig', [
-            'pStages' => $stages,]);  
-    }
-
-
-    public function ajouterStage(){
-
-        $stage = new Stage();
-        $form = $this->createForm(StageType::class,$stage);
-       return $this->render('stage/ajouter.html.twig', array(
-        'form' => $form->createView(),));
-    }
-
-
-    
-}
-
             'pStages' => $stages,]);
     }
+
+
 
     public function ListerStagesPromo($promotion_id){
 
@@ -116,4 +83,31 @@ class StageController extends AbstractController
     }
 
 
+
+public function ajouterStage(Request $request){
+        $stage = new Stage();
+        $form = $this->createForm(StageType::class, $stage);
+        $form->handleRequest($request);
+ 
+        if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $stage = $form->getData();
+
+ 
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($stage);
+            $entityManager->flush();
+                        return $this->render('stage/consulter.html.twig', ['pStage' => $stage,]);
+        }
+        else
+        {
+            return $this->render('stage/ajouter.html.twig', array('form' => $form->createView(),));
+        }
+
+    }
 }
+
+
+
+
+

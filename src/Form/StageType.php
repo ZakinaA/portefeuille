@@ -17,7 +17,8 @@ class StageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('coordonneestut')
+            ->add('etudiant',EntityType::class, array('class'=> 'App\Entity\Etudiant', 'choice_label' => 'Id'))
+            ->add('nomtut')
             ->add('teltut')
             ->add('mailtut')
             ->add('lieu')
@@ -30,8 +31,16 @@ class StageType extends AbstractType
             ->add('telentreprise')
            // ->add('faxentreprise')
             ->add('mailentreprise')
-            ->add('dateDebut')
-            ->add('dateFin')
+            ->add('dateDebut', DateType::class, array('input' => 'datetime',
+                                                          'widget' => 'single_text',
+                                                          'required' => true,
+                                                          'label' =>'date de naissance',
+                                                          'placeholder' => 'jj/mm/aaaa'))
+             ->add('dateFin', DateType::class, array('input' => 'datetime',
+                                                          'widget' => 'single_text',
+                                                          'required' => true,
+                                                          'label' =>'date de naissance',
+                                                          'placeholder' => 'jj/mm/aaaa'))
             ->add('sujet')
             ->add('horLun')
             ->add('horMar')
@@ -39,12 +48,14 @@ class StageType extends AbstractType
             ->add('horJeu')
             ->add('horVen')
             ->add('horSam')
-            ->add('ville',EntityType::class, array('class'=>'App\Entity\Ville','choice_label' =>'nom' ))
+            ->add('ville')
+             ->add('copos');
 
-            //->add('etudiant ',EntityType::class, array('class'=>'App\Entity\Etudiant','choice_label' =>'nom'))
-            //->add('enseignant')
-        ;
-    }
+            
+            //->add('enseignant' ,EntityType::class, array('class'=>'App\Entity\Enseignant','choice_label' =>'id' ))
+
+        }
+    
 
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -52,4 +63,10 @@ class StageType extends AbstractType
             'data_class' => Stage::class,
         ]);
     }
+
+
+
+
+
+
 }
