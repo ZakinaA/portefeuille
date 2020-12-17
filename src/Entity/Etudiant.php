@@ -70,7 +70,10 @@ class Etudiant
     private $copos;
 
     /**
+<<<<<<< HEAD
+=======
      * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
+>>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
      * @ORM\Column(type="string", length=150)
      */
     private $statut;
@@ -235,7 +238,6 @@ class Etudiant
     }
 
     public function getPromotion(): ?Promotion
-
     {
         return $this->promotion;
     }
@@ -246,9 +248,6 @@ class Etudiant
 
         return $this;
     }
-
-    
-
 
     /**
      * @return Collection|RP[]
@@ -309,39 +308,4 @@ class Etudiant
 
         return $this;
     }
-
-
-    public function add($a, $b)
-    {
-    return $a + $b;
-    }
-
-    public function getNbRpValides(): ?int
-    {
-        $nb = 0;
-        foreach ($this->RPs as $rp)
-        {
-            $idStatut = $rp->getStatut()->getId();
-            if ($idStatut == 4 )
-            {
-            $nb++;
-            }
-        }
-        return $nb;
-    }
-
-    public function getNbRpValidesParStatut(int $pIdStatut): ?int
-    {
-        $nb = 0;
-        foreach ($this->RPs as $rp)
-        {
-            $idStatut = $rp->getStatut()->getId();
-            if ($idStatut == $pIdStatut )
-            {
-                $nb++;
-            }
-        }
-        return $nb;
-    }
-
 }

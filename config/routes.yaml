@@ -118,15 +118,12 @@ ListerSemaine:
     path: /etudiant/stage/listerLesSemaines/{stage_id}
     controller: App\Controller\ActiviteController::listerLesSemaines
 
-<<<<<<< HEAD
 #Lister les compétences / activités par bloc
 ListerBlocs:
   path: /bloc/listerLesBlocs
   controller: App\Controller\BlocController::ListerBlocs
-=======
 
 
 ListerAncienStages:
     path: /stage/ListerAncienStages
     controller: App\Controller\StageController::ListerAncienStages
->>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad

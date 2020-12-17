@@ -5717,7 +5717,6 @@
                 "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/92a76ca5e64effd41ce111b8f476144dfa29f1f0",
                 "reference": "92a76ca5e64effd41ce111b8f476144dfa29f1f0",
                 "shasum": ""
-<<<<<<< HEAD
             },
             "require": {
                 "php": ">=5.5.9"
@@ -5769,8 +5768,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-=======
+
             "support": {
                 "source": "https://github.com/symfony/phpunit-bridge/tree/v5.2.0"
             },
@@ -5827,7 +5825,6 @@
             "support": {
                 "source": "https://github.com/symfony/phpunit-bridge/tree/v5.2.0"
             },
->>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5842,12 +5839,8 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-27T17:49:17+00:00"
-=======
 
             "time": "2020-11-27T00:39:34+00:00"
->>>>>>> c67ea8a06dd2abff530519ce09b985226b19efad
         }
     ],
     "aliases": [],

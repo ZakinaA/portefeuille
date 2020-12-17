@@ -91,15 +91,6 @@ class Stage
      */
     private $copos;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $ville;
-
-    /**
-     * @ORM\Column(type="string", length=6)
-     */
-    private $copos;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
