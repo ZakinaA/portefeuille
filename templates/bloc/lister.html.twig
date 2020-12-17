@@ -2,7 +2,16 @@
 {% block content %}
 
 <!DOCTYPE html>
-
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+     $(document).ready(function(){
+         $('#show').click(function() {
+           $('.menu').toggle("slide");
+         });
+     });
+  </script>
+</head>
 <body>
 <div class="container">
   <h1 class="display-4"><u>Activités et compétences par bloc</u></h1><br>
@@ -13,7 +22,7 @@
   </li> 
   <ul class="list-group list-group-flush text-white bg-dark"> <!--Liste d'activités-->
     {% for activite in bloc.activites %} 
-    <li class="list-group-item text-white bg-dark">{{activite.code}} - {{activite.libelle}}</li>
+    <li class="list-group-item bg-dark" style="color:lightskyblue">{{activite.code}} - {{activite.libelle}}</li>
     <ul class="list_group list-group-flush text-white bg-dark"> <!--Liste de compétences-->
       {% for competence in activite.competences %}
         <li class="list-group-item text-white bg-dark">{{competence.code}} - {{competence.libelle}}</li>
