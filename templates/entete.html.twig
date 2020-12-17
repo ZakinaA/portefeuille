@@ -48,8 +48,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="">Nouvelle Réalisation</a>
           <a class="dropdown-item" href="#">Gestion Réalisation</a>
-          <a class="dropdown-item" href="../../../etudiant/rp/listerMesRP/100">Lister mes réalisations (etudiant)</a>
-          <a class="dropdown-item" href="../../../enseignant/rp/listerLesRPaCommenter/2">Lister les réalisations à commenter (prof)</a>
+          <a class="dropdown-item" href="{{ path('etudiantListerLesRP', { 'etudiant_id': 100 }) }}">Lister mes réalisations (etudiant)</a>
+          <a class="dropdown-item" href="{{ path('enseignantLesRPaCommenter', { 'enseignant_id': 3 }) }}">Lister les réalisations à commenter (prof)</a>
         </div>
       </li>
 
@@ -81,7 +81,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Sauvegarde</a>
-          <a class="dropdown-item" href="../../../etudiant/etudiant/consulter/50">Profil</a>
+          <a class="dropdown-item" href="{{ path('etudiantConsulter', { 'etudiant_id': 50 }) }}">Profil</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="mailto:btsinfo.rostand@laposte.net?subject=[portfolio]">Contact admin</a>
         </div>

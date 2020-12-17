@@ -25,7 +25,7 @@ etudiantLister:
 
 #accueil des etudiants
 etudiantAccueil:
-    path: etudiant/accueil/{etudiant_id}
+    path: /etudiant/accueil/{etudiant_id}
     controller: App\Controller\EtudiantController::accueilEtudiant
 
 #accueil des enseignants
@@ -83,7 +83,7 @@ ListerStagesAffect:
 etudiantConsulter:
     path: /etudiant/etudiant/consulter/{etudiant_id}
     controller: App\Controller\EtudiantController::consulterEtudiant
-
+        
 #Modifier les information de l'etudiant
 etudiantModifier:
     path: /etudiant/etudiant/modifier/{etudiant_id}
