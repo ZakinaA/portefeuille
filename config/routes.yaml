@@ -47,6 +47,11 @@ rpConsulter:
     path: /etudiant/rp/consulter/{rp_id}
     controller: App\Controller\RPController::consulterRpEtudiant
 
+#consulter un commentaire d'une RP
+rpConsulterCommentaire:
+    path: /etudiant/rp/consulter_commentaire/{rp_id}
+    controller: App\Controller\RPController::consulterCommentaireRPEtudiant
+
 #lister les RP à commenter (prof)
 enseignantLesRPaCommenter:
     path: /enseignant/rp/listerLesRPaCommenter/{enseignant_id}
