@@ -58,10 +58,10 @@ class ActiviteController extends AbstractController
         return $this->render('activite/consulterSemaine.html.twig', [
             'stage' => $stage,
             'tacheSemaine' => $tacheSemaine,
-            'numSemaine '=> $semaineStage->getNumSemaine()
-        ]); 
+            //'numSemaine '=> $semaineStage->getNumSemaine(),
+            'semaineStage'=> $semaineStage,
             
-        
+        ]);
     }
 
     public function listerSemaine($idStage){
@@ -83,4 +83,7 @@ class ActiviteController extends AbstractController
      } 
             
         
+
+
+
     }      
