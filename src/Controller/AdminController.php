@@ -29,7 +29,6 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
- 
             $promotion = $form->getData();
  
             $entityManager = $this->getDoctrine()->getManager();

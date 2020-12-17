@@ -22,10 +22,10 @@ class Stage
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $coordonneestut;
+    private $nomtut;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=15, nullable=true)
      */
     private $teltut;
 
@@ -55,6 +55,16 @@ class Stage
     private $adrentreprise;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
+    /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $directeur;
@@ -70,14 +80,9 @@ class Stage
     private $siret;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $telentreprise;
-
-    /**
-     * @ORM\Column(type="string", length=25, nullable=true)
-     */
-    private $faxentreprise;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -100,32 +105,32 @@ class Stage
     private $sujet;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horLun;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horMar;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horMer;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horJeu;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horVen;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $horSam;
 
@@ -145,9 +150,15 @@ class Stage
      */
     private $semaineStages;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Pointage::class, mappedBy="stage")
+     */
+    private $pointages;
+
     public function __construct()
     {
         $this->semaineStages = new ArrayCollection();
+        $this->pointages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,24 +166,24 @@ class Stage
         return $this->id;
     }
 
-    public function getCoordonneestut(): ?string
+    public function getNomtut(): ?string
     {
-        return $this->coordonneestut;
+        return $this->nomtut;
     }
 
-    public function setCoordonneestut(?string $coordonneestut): self
+    public function setNomtut(?string $nomtut): self
     {
-        $this->coordonneestut = $coordonneestut;
+        $this->nomtut = $nomtut;
 
         return $this;
     }
 
-    public function getTeltut(): ?int
+    public function getTeltut(): ?string
     {
         return $this->teltut;
     }
 
-    public function setTeltut(?int $teltut): self
+    public function setTeltut(?string $teltut): self
     {
         $this->teltut = $teltut;
 
@@ -239,6 +250,30 @@ class Stage
         return $this;
     }
 
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
+
     public function getDirecteur(): ?string
     {
         return $this->directeur;
@@ -275,26 +310,14 @@ class Stage
         return $this;
     }
 
-    public function getTelentreprise(): ?int
+    public function getTelentreprise(): ?string
     {
         return $this->telentreprise;
     }
 
-    public function setTelentreprise(int $telentreprise): self
+    public function setTelentreprise(string $telentreprise): self
     {
         $this->telentreprise = $telentreprise;
-
-        return $this;
-    }
-
-    public function getFaxentreprise(): ?string
-    {
-        return $this->faxentreprise;
-    }
-
-    public function setFaxentreprise(?string $faxentreprise): self
-    {
-        $this->faxentreprise = $faxentreprise;
 
         return $this;
     }
@@ -347,72 +370,72 @@ class Stage
         return $this;
     }
 
-    public function getHorLun(): ?int
+    public function getHorLun(): ?string
     {
         return $this->horLun;
     }
 
-    public function setHorLun(?int $horLun): self
+    public function setHorLun(?string $horLun): self
     {
         $this->horLun = $horLun;
 
         return $this;
     }
 
-    public function getHorMar(): ?int
+    public function getHorMar(): ?string
     {
         return $this->horMar;
     }
 
-    public function setHorMar(?int $horMar): self
+    public function setHorMar(?string $horMar): self
     {
         $this->horMar = $horMar;
 
         return $this;
     }
 
-    public function getHorMer(): ?int
+    public function getHorMer(): ?string
     {
         return $this->horMer;
     }
 
-    public function setHorMer(?int $horMer): self
+    public function setHorMer(?string $horMer): self
     {
         $this->horMer = $horMer;
 
         return $this;
     }
 
-    public function getHorJeu(): ?int
+    public function getHorJeu(): ?string
     {
         return $this->horJeu;
     }
 
-    public function setHorJeu(?int $horJeu): self
+    public function setHorJeu(?string $horJeu): self
     {
         $this->horJeu = $horJeu;
 
         return $this;
     }
 
-    public function getHorVen(): ?int
+    public function getHorVen(): ?string
     {
         return $this->horVen;
     }
 
-    public function setHorVen(?int $horVen): self
+    public function setHorVen(?string $horVen): self
     {
         $this->horVen = $horVen;
 
         return $this;
     }
 
-    public function getHorSam(): ?int
+    public function getHorSam(): ?string
     {
         return $this->horSam;
     }
 
-    public function setHorSam(?int $horSam): self
+    public function setHorSam(?string $horSam): self
     {
         $this->horSam = $horSam;
 
@@ -474,6 +497,7 @@ class Stage
         return $this;
     }
 
+
     public function getNbSemaineRealisees(): ?int
     {
         $nb = 0;
@@ -520,4 +544,34 @@ class Stage
         return $nb;
     }
 
+
+    /**
+     * @return Collection|Pointage[]
+     */
+    public function getPointages(): Collection
+    {
+        return $this->pointages;
+    }
+
+    public function addPointage(Pointage $pointage): self
+    {
+        if (!$this->pointages->contains($pointage)) {
+            $this->pointages[] = $pointage;
+            $pointage->setStage($this);
+        }
+
+        return $this;
+    }
+
+    public function removePointage(Pointage $pointage): self
+    {
+        if ($this->pointages->removeElement($pointage)) {
+            // set the owning side to null (unless already changed)
+            if ($pointage->getStage() === $this) {
+                $pointage->setStage(null);
+            }
+        }
+
+        return $this;
+    }
 }

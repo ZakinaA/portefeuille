@@ -32,7 +32,7 @@ class Promotion
     /**
      * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="promotion")
      */
-    private $optioni;
+    private $option_i;
 
     public function __construct()
     {
@@ -58,12 +58,12 @@ class Promotion
 
     public function getOptioni(): ?Optioni
     {
-        return $this->optioni;
+        return $this->option_i;
     }
 
     public function setOptioni(?OptionI $optioni): self
     {
-        $this->optioni = $optioni;
+        $this->option_i = $optioni;
 
         return $this;
     }

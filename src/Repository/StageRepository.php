@@ -47,4 +47,20 @@ class StageRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByStageIdAndJourLibelle($stage_id){
+        $em = $this->getEntityManager();
+
+        return $em->createQuery(
+            'SELECT jour.libelle, domaine_taches.libelle, tache_semaine.duree, tache_semaine.description 
+                FROM App\Entity\DomaineTaches domaine_taches, App\Entity\TacheSemaine tache_semaine, App\Entity\SemaineStage semaine_stage, App\Entity\Stage stage, App\Entity\Jour libelle 
+                WHERE stage.id = semaine_stage.stage_id 
+                    and semaine_stage.id = tache_semaine.semaine_stage_id 
+                    and tache_semaine.domaine_id = domaine_taches.id 
+                    and tache_semaine.jour_id = jour.id
+                    and stage.id = :stage_id' 
+        )
+        ->setParameter('stage_id', $stage_id)
+        ->getResult();
+    }
 }

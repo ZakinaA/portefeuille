@@ -8,30 +8,26 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RP;
 use App\Entity\Enseignant;
 use App\Entity\activite;
+use App\Entity\Stage;
 
 class EnseignantController extends AbstractController
 {
     /**
      * @Route("/enseignant", name="enseignant")
      */
-     public function index(): Response
+    public function accueilEnseignant($enseignant_id)
     {
-        return $this->render('enseignant/index.html.twig', [
-            'controller_name' => 'EnseignantController',
-        ]);
 
+        $repository = $this->getDoctrine()->getRepository(RP::class);
+        $RPaCommenter = $repository->findBy(
+            ['enseignant' => $enseignant_id, 'statut' => 2],array('libcourt'=>'asc'));
+
+        $stages = $this->getDoctrine()
+        ->getRepository(Stage::class)
+        ->findByEnseignant($enseignant_id);
+        
+        return $this->render('enseignant/accueil.html.twig', ['pRP' => $RPaCommenter, 'pStages' => $stages]);
     }
 
-    public function listerLesRPaCommenter($enseignant_id)
-    {
-        //$ense = reup esneignant enfonction id
-    	$enseignant = $this->getDoctrine()->getRepository(Enseignant::class)->findById($enseignant_id);    
-
-    	$RPaCommenter = $this->getDoctrine()->getRepository(RP::class)->findByEnseignant($enseignant);
-
-
-        //$RPaCommenter = $this->getDoctrine()->getRepository(RP::class)->findByEnseignant($ense);
-
-    	return $this->render('enseignant/lister.html.twig', ['RPCommenter' => $RPaCommenter]);
-    } 
+     
 }

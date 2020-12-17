@@ -34,6 +34,7 @@ class TacheSemaine
 
     /**
      * @ORM\ManyToOne(targetEntity=Jour::class, inversedBy="tacheSemaines")
+     * @ORM\OrderBy({"jour" = "ASC"})
      */
     private $jour;
 

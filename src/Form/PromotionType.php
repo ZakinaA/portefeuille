@@ -20,7 +20,7 @@ class PromotionType extends AbstractType
         $builder
             ->add('nom', TextType::class)
             ->add('OptionI', EntityType::class, array('class' => 'App\Entity\OptionI','choice_label' => 'Libelle' ))
-            ->add('enregistrer', SubmitType::class, array('label' => 'Nouvel promotion'))
+            ->add('enregistrer', SubmitType::class, array('label' => 'Nouvelle promotion'))
         ;
     }
 

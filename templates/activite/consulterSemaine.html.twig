@@ -1,0 +1,99 @@
+{% extends "entete.html.twig" %}
+ {% block content %}
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container">
+    <h1 class="display-4"><u>Activité quotidienne</u></h1>
+   <table class="table" border ="2px">
+<thead>
+          <tr>
+{% set numSemaine = -1 %}
+{% for semaineStage in stage.semaineStages %}
+
+          
+
+          {% if numSemaine != semaineStage.numSemaine %}
+      
+    {% set numSemaine = semaineStage.numSemaine %}
+    {% endif%}      
+          
+           
+<td> <a class="dropdown-item" href="{{path ('ConsulterSemaine',{'idStage': stage.id, 'idSemaineStage': semaineStage.id}) }} ">semaine {{semaineStage.numSemaine}}</a></td>
+           
+{%endfor%}
+
+ </table>
+  </br></br>
+<!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea> -->
+  <!--  <div class="row align-items-center">
+    <div class="col-md-2 text-center">
+      <h5>Lundi</h5>
+    </div>-->
+   
+
+{% set idJour = -1%}
+
+
+
+{% for tache in tacheSemaine %}
+
+
+
+          {% if idJour == -1 %}
+
+          {% elseif idJour != tache.jour.id %}
+            </tbody>
+            </table>
+          {% endif%}
+
+    {% if idJour != tache.jour.id%}
+      <u><h3> {{tache.jour.libelle}} :  </h3></u>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Domaine</th>
+            <th scope="col">Duree</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+      <tbody>
+    {% set idJour = tache.jour.id %}
+
+    {% endif%}      
+          <tr>
+            <td>{{tache.domaine.libelle}}</td>
+            <td>{{tache.duree}}</td>
+            <td>{{tache.description}}</td>
+          </tr>   
+
+
+
+
+
+{%endfor%}
+</tbody>
+</table>
+
+
+</div>
+
+
+
+            <!-- BOUCLE RECUPERATION LIBELLE, STATUT, CALCUL NB ACTIVITE 1ERE ANNEE SELON ID -->
+
+
+        <!-- SI AUCUNES OCCURENCES, AFFICHER MESSAGE POUR PREVENIR QU'AUCUNES OCCURENCES N'A ETE RENSEIGNE -->
+
+
+
+<div class="container">
+     <!--       <a href="..."><input type="button" value="Enregistrer" class="btn btn-secondary btn-lg btn-block"></a> -->
+
+  <div class="alert alert-light" role="alert">
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}
