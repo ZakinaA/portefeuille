@@ -19,6 +19,10 @@ class Stage
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $nomtut;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
@@ -49,6 +53,16 @@ class Stage
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $adrentreprise;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -127,11 +141,6 @@ class Stage
     private $etudiant;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="stages")
-     */
-    private $ville;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="stages")
      */
     private $enseignant;
@@ -146,11 +155,6 @@ class Stage
      */
     private $pointages;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $nomtut;
-
     public function __construct()
     {
         $this->semaineStages = new ArrayCollection();
@@ -160,6 +164,18 @@ class Stage
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getNomtut(): ?string
+    {
+        return $this->nomtut;
+    }
+
+    public function setNomtut(?string $nomtut): self
+    {
+        $this->nomtut = $nomtut;
+
+        return $this;
     }
 
     public function getTeltut(): ?string
@@ -230,6 +246,30 @@ class Stage
     public function setAdrentreprise(?string $adrentreprise): self
     {
         $this->adrentreprise = $adrentreprise;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(?string $copos): self
+    {
+        $this->copos = $copos;
 
         return $this;
     }
@@ -415,18 +455,6 @@ class Stage
         return $this;
     }
 
-    public function getVille(): ?Ville
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?Ville $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
     public function getEnseignant(): ?Enseignant
     {
         return $this->enseignant;
@@ -495,18 +523,6 @@ class Stage
                 $pointage->setStage(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getNomtut(): ?string
-    {
-        return $this->nomtut;
-    }
-
-    public function setNomtut(?string $nomtut): self
-    {
-        $this->nomtut = $nomtut;
 
         return $this;
     }

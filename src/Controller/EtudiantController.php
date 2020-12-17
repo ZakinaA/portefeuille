@@ -72,8 +72,9 @@ class EtudiantController extends AbstractController
             //var_dump($etudiant) ;
 
 
-            if($form->isSubmitted() && $form->isValid()){
+            if($form->isSubmitted() ){
                 
+              
                 $etudiant = $form->getData();
 
 
@@ -81,11 +82,11 @@ class EtudiantController extends AbstractController
                 $entityManager->persist($etudiant);
                 $entityManager->flush();
                 //return $this->render('etudiant/modifier.html.twig', ['pEtudiant' => $etudiant]);
-                 return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView()));
+                 return $this->render('etudiant/consulter.html.twig', ['pEtudiant' => $etudiant]);
 
             }
             else{
-                
+                  
                 //return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView(),'pEtudiant' => $etudiant));
                 return $this->render('etudiant/modifier.html.twig', array('form'=>$form->createView()));
             }

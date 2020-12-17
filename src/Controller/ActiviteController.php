@@ -20,11 +20,24 @@ class ActiviteController extends AbstractController
      
 
 
-    public function consulterSemaine($semaineStage_id){
-        $semaineStage = $this->getDoctrine()->getRepository(SemaineStage::class)->find($semaineStage_id);
-                    
+    public function consulterSemaine($idStage, $idSemaineStage): Response
+    {
+        $stage = $this->getDoctrine()->getRepository(Stage::class)->find($idStage);  
 
-           // var_dump($semaineStage);
+        if (!$stage){
+            throw $this->createNotFoundException(
+                'Aucun stage trouvé avec le numéro '.$stage
+            );
+        }
+    
+        if ($idSemaineStage == 0)
+        {
+            $semaineStage = $stage->getSemaineStages()[0];
+        }
+        else
+        {
+            $semaineStage= $this->getDoctrine()->getRepository(SemaineStage::class)->find($idSemaineStage);
+        }
 
         $tacheSemaine = $this -> getDoctrine()
             ->getRepository(TacheSemaine::class)
@@ -33,11 +46,41 @@ class ActiviteController extends AbstractController
             ['jour'=> 'ASC']
             );
 
+
+            //echo ( $tacheSemaine->count()) ;    
+
+           // var_dump($semaineStage);
+
+        
+
             //var_dump($tacheSemaine);
 
         return $this->render('activite/consulterSemaine.html.twig', [
-            'tacheSemaine' => $tacheSemaine,]); 
+            'stage' => $stage,
+            'tacheSemaine' => $tacheSemaine,
+            'numSemaine '=> $semaineStage->getNumSemaine()
+        ]); 
             
         
-    }   
-}
+    }
+
+    public function listerSemaine($idStage){
+       
+                    
+
+           // var_dump($semaineStage);
+
+       $stage = $this->getDoctrine()->getRepository(Stage::class)->find($idStage);
+
+       /*foreach  ($stage->getSemaineStages() as $ss ){
+        var_dump ($ss);
+       }*/
+       var_dump($stage);
+
+            //var_dump($stage);
+
+        return $this->render('stage/listerSemaine.html.twig', ['stage' => $stage]);
+     } 
+            
+        
+    }      

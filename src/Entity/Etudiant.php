@@ -6,7 +6,7 @@ use App\Repository\EtudiantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=EtudiantRepository::class)
  */
@@ -26,37 +26,16 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 50,
-     *      minMessage = "Le nom doit comporter au moins 2 caractères",
-     *      maxMessage = "Le nom doit comporter au plus 50 caractères"
-     *    )
-     * @Assert\NotBlank()
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=80, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 50,
-     *      minMessage = "Le prenom doit comporter au moins 2 caractères",
-     *      maxMessage = "Le prenom doit comporter au plus 50 caractères"
-     *    )
-     * @Assert\NotBlank()
      */
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 80,
-     *      minMessage = "Le mail doit comporter au moins 2 caractères",
-     *      maxMessage = "Le mail doit comporter au plus 80 caractères"
-     *    )
-     * @Assert\NotBlank()
+     * @ORM\Column(type="integer")
      */
     private $mobile;
 
@@ -77,25 +56,21 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\Length(
-     *      min = 1,
-     *      max = 2,
-     *      minMessage = "Le sexe doit comporter au moins 1 caractères",
-     *      maxMessage = "Le sexe doit comporter au plus 2 caractères"
-     *    )
-     * @Assert\NotBlank()
      */
     private $adrperso;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $copos;
+
+    /**
      * @ORM\Column(type="string", length=150)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 80,
-     *      minMessage = "L'adrperso doit comporter au moins 2 caractères",
-     *      maxMessage = "L'adrperso doit comporter au plus 80 caractères"
-     *    )
-     * @Assert\NotBlank()
      */
     private $statut;
 
@@ -104,15 +79,6 @@ class Etudiant
      */
     private $promotion;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
-     */
-    private $optionI;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
-     */
-    private $villePerso;
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
@@ -171,12 +137,12 @@ class Etudiant
         return $this;
     }
 
-    public function getMobile(): ?string
+    public function getMobile(): ?int
     {
         return $this->mobile;
     }
 
-    public function setMobile(?string $mobile): self
+    public function setMobile(int $mobile): self
     {
         $this->mobile = $mobile;
 
@@ -231,6 +197,29 @@ class Etudiant
         return $this;
     }
 
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCopos(): ?string
+    {
+        return $this->copos;
+    }
+
+    public function setCopos(string $copos): self
+    {
+        $this->copos = $copos;
+
+        return $this;
+    }
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -255,29 +244,7 @@ class Etudiant
         return $this;
     }
 
-    public function getOptionI(): ?OptionI
-    {
-        return $this->optionI;
-    }
-
-    public function setOptionI(?OptionI $optionI): self
-    {
-        $this->optionI = $optionI;
-
-        return $this;
-    }
-
-    public function getVillePerso(): ?Ville
-    {
-        return $this->villePerso;
-    }
-
-    public function setVillePerso(?Ville $villePerso): self
-    {
-        $this->villePerso = $villePerso;
-
-        return $this;
-    }
+    
 
 
     /**
@@ -339,5 +306,6 @@ class Etudiant
 
         return $this;
     }
-}
 
+
+}
