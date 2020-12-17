@@ -8,7 +8,7 @@ rpAjouter:
     path: /rp/ajouter/
     controller: App\Controller\RPController::ajouterRp_Description
 stageAjouter:
-    path: /stage/ajouter
+    path: /stage/ajouter/{idEtudiant}
     controller: App\Controller\StageController::ajouterStage
 
 enseignantAjouter:
@@ -45,6 +45,11 @@ etudiantListerLesRP:
 rpConsulter:
     path: /etudiant/rp/consulter/{rp_id}
     controller: App\Controller\RPController::consulterRpEtudiant
+
+#consulter un commentaire d'une RP
+rpConsulterCommentaire:
+    path: /etudiant/rp/consulter_commentaire/{rp_id}
+    controller: App\Controller\RPController::consulterCommentaireRPEtudiant
 
 #lister les RP à commenter (prof)
 enseignantLesRPaCommenter:
@@ -113,7 +118,8 @@ ListerSemaine:
     path: /etudiant/stage/listerLesSemaines/{stage_id}
     controller: App\Controller\ActiviteController::listerLesSemaines
 
+
+
 ListerAncienStages:
     path: /stage/ListerAncienStages
     controller: App\Controller\StageController::ListerAncienStages
-

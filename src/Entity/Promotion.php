@@ -56,14 +56,26 @@ class Promotion
         return $this;
     }
 
-    public function getOptioni(): ?Optioni
+    public function getAnnee(): ?int
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?int $annee): self
+    {
+        $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getOptioni(): ?Option_i
     {
         return $this->option_i;
     }
 
-    public function setOptioni(?OptionI $optioni): self
+    public function setOptioni(?Option_I $option_i): self
     {
-        $this->option_i = $optioni;
+        $this->option_i = $option_i;
 
         return $this;
     }

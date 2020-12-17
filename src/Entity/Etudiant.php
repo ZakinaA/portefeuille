@@ -311,6 +311,7 @@ class Etudiant
     }
 
 
+<<<<<<< HEAD
     public function add($a, $b)
     {
     return $a + $b;
@@ -343,5 +344,11 @@ class Etudiant
         }
         return $nb;
     }
+=======
+public function add($a, $b): self
+{
+    return $a + $b;
+}
+>>>>>>> 56332dcf8c7d827b2e8a00a1552ab4785d319e83
 
 }

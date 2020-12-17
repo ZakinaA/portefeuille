@@ -1253,6 +1253,9 @@
                 "source": "https://github.com/doctrine/orm/tree/2.8.1"
             },
             {
+            "time": "2020-12-04T19:53:07+00:00"
+        },
+        {
             "name": "doctrine/persistence",
             "version": "2.1.0",
             "source": {
@@ -3243,9 +3246,6 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/form/tree/v5.1.9"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5607,12 +5607,18 @@
                 "php"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 56332dcf8c7d827b2e8a00a1552ab4785d319e83
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.3"
             },
+<<<<<<< HEAD
 =======
 >>>>>>> 35b61d4f78e59ad9e191f6c1de07157a3d2ee683
+=======
+>>>>>>> 56332dcf8c7d827b2e8a00a1552ab4785d319e83
             "time": "2020-12-03T17:45:45+00:00"
         },
         {
@@ -5684,12 +5690,18 @@
                 "scaffolding"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 56332dcf8c7d827b2e8a00a1552ab4785d319e83
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
                 "source": "https://github.com/symfony/maker-bundle/tree/v1.25.0"
             },
+<<<<<<< HEAD
 =======
 >>>>>>> 35b61d4f78e59ad9e191f6c1de07157a3d2ee683
+=======
+>>>>>>> 56332dcf8c7d827b2e8a00a1552ab4785d319e83
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5704,6 +5716,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-12-07T14:47:57+00:00"
         },
         {
@@ -5824,6 +5837,9 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/phpunit-bridge/tree/v5.2.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5838,6 +5854,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-11-27T00:39:34+00:00"
         }
     ],
@@ -5852,5 +5869,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
