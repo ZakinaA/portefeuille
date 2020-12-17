@@ -100,8 +100,10 @@ stagePromo:
   controller: App\Controller\StageController::ListerStagesPromo
 
 ConsulterSemaine:
-    path: /etudiant/activite/consulterSemaine/{semaineStage_id}
+    path: /etudiant/activite/consulterSemaine/{idStage}/{idSemaineStage}
     controller: App\Controller\ActiviteController::ConsulterSemaine
+    defaults:
+        idSemaineStage: 0
 
 ListerSemaine:
     path: /etudiant/stage/listerLesSemaines/{stage_id}
