@@ -25,14 +25,14 @@ class Promotion
     private $nom;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $annee;
-
-    /**
      * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="promotion")
      */
     private $etudiants;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="promotion")
+     */
+    private $option_i;
 
     public function __construct()
     {
@@ -64,6 +64,18 @@ class Promotion
     public function setAnnee(?int $annee): self
     {
         $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getOptioni(): ?Option_i
+    {
+        return $this->option_i;
+    }
+
+    public function setOptioni(?Option_I $option_i): self
+    {
+        $this->option_i = $option_i;
 
         return $this;
     }

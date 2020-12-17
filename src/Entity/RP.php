@@ -21,6 +21,7 @@ class RP
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\OrderBy({"order" = "ASC", "id" = "ASC"})
      */
     private $libcourt;
 
@@ -111,6 +112,7 @@ class RP
         $this->activites = new ArrayCollection();
         $this->commentaire = new ArrayCollection();
         $this->productions = new ArrayCollection();
+  
     }
 
     public function getId(): ?int

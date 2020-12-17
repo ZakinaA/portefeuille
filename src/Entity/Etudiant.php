@@ -70,6 +70,7 @@ class Etudiant
     private $copos;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
      * @ORM\Column(type="string", length=150)
      */
     private $statut;
@@ -79,10 +80,6 @@ class Etudiant
      */
     private $promotion;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
-     */
-    private $optionI;
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="etudiant")
@@ -224,6 +221,7 @@ class Etudiant
 
         return $this;
     }
+
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -237,6 +235,7 @@ class Etudiant
     }
 
     public function getPromotion(): ?Promotion
+
     {
         return $this->promotion;
     }
@@ -248,17 +247,7 @@ class Etudiant
         return $this;
     }
 
-    public function getOptionI(): ?OptionI
-    {
-        return $this->optionI;
-    }
-
-    public function setOptionI(?OptionI $optionI): self
-    {
-        $this->optionI = $optionI;
-
-        return $this;
-    }
+    
 
 
     /**
@@ -321,5 +310,38 @@ class Etudiant
         return $this;
     }
 
+
+    public function add($a, $b)
+    {
+    return $a + $b;
+    }
+
+    public function getNbRpValides(): ?int
+    {
+        $nb = 0;
+        foreach ($this->RPs as $rp)
+        {
+            $idStatut = $rp->getStatut()->getId();
+            if ($idStatut == 4 )
+            {
+            $nb++;
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbRpValidesParStatut(int $pIdStatut): ?int
+    {
+        $nb = 0;
+        foreach ($this->RPs as $rp)
+        {
+            $idStatut = $rp->getStatut()->getId();
+            if ($idStatut == $pIdStatut )
+            {
+                $nb++;
+            }
+        }
+        return $nb;
+    }
 
 }
