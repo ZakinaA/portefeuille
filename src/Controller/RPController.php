@@ -34,6 +34,24 @@ class RPController extends AbstractController
             'controller_name' => 'EnseignantController',
         ]);
     }
+
+    public function listerLesRP($idEtudiant){
+            
+            $etudiant = $this->getDoctrine()
+            ->getRepository(Etudiant::class)
+            ->find($idEtudiant);
+
+
+            if (!$etudiant) {
+                throw $this->createNotFoundException(
+                'Aucun étudiant trouvé avec le numéro '.$idEtudiant
+                );
+            }
+
+            
+            return $this->render('rp/lister.html.twig', [ 'pEtudiant' => $etudiant,]);
+
+    }
 }
 
 

@@ -51,6 +51,7 @@ class Enseignant
 
     /**
      * @ORM\OneToMany(targetEntity=RP::class, mappedBy="enseignant")
+     * @ORM\OrderBy({"etudiant" = "ASC"})
      */
     private $RPs;
 

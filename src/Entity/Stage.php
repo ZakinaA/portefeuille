@@ -473,4 +473,51 @@ class Stage
 
         return $this;
     }
+
+    public function getNbSemaineRealisees(): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            $idStage = $semaine->getStage()->getId();
+            if ($idStage == 16 )
+            {
+            $nb++;
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbTacheParDomaine(): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            foreach ($semaine -> $this->tacheSemaines as $tache) {
+                $idDomaine = $tache->getDomaine()->getLibelle();
+                if ($idDomaine == 'Administration' )
+                {
+                    $nb++;
+                }
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbTacheParIdDomaine(int $pIdDomaine): ?int
+    {
+        $nb = 0;
+        foreach ($this->semaineStages as $semaine)
+        {
+            foreach ($semaine -> $this->tacheSemaines as $tache) {
+                $idDomaine = $tache->getDomaine()->getId();
+                if ($idDomaine == $pIdDomaine )
+                {
+                    $nb++;
+                }
+            }
+        }
+        return $nb;
+    }
+
 }

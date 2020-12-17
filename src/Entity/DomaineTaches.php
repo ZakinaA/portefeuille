@@ -24,12 +24,6 @@ class DomaineTaches
      */
     private $libelle;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="domaineTaches")
-     */
-    private $options;
-
     /**
      * @ORM\OneToMany(targetEntity=TacheSemaine::class, mappedBy="domaine")
      */

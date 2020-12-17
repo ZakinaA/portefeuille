@@ -70,11 +70,6 @@ class Etudiant
     private $promotion;
 
     /**
-     * @ORM\ManyToOne(targetEntity=OptionI::class, inversedBy="etudiants")
-     */
-    private $optionI;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="etudiants")
      */
     private $villePerso;
@@ -220,18 +215,6 @@ class Etudiant
         return $this;
     }
 
-    public function getOptionI(): ?OptionI
-    {
-        return $this->optionI;
-    }
-
-    public function setOptionI(?OptionI $optionI): self
-    {
-        $this->optionI = $optionI;
-
-        return $this;
-    }
-
     public function getVillePerso(): ?Ville
     {
         return $this->villePerso;
@@ -304,4 +287,39 @@ class Etudiant
 
         return $this;
     }
+
+    public function add($a, $b)
+    {
+    return $a + $b;
+    }
+
+    public function getNbRpValides(): ?int
+    {
+        $nb = 0;
+        foreach ($this->RPs as $rp)
+        {
+            $idStatut = $rp->getStatut()->getId();
+            if ($idStatut == 4 )
+            {
+            $nb++;
+            }
+        }
+        return $nb;
+    }
+
+    public function getNbRpValidesParStatut(int $pIdStatut): ?int
+    {
+        $nb = 0;
+        foreach ($this->RPs as $rp)
+        {
+            $idStatut = $rp->getStatut()->getId();
+            if ($idStatut == $pIdStatut )
+            {
+                $nb++;
+            }
+        }
+        return $nb;
+    }
+
+
 }
